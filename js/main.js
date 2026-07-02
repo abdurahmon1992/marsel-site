@@ -1,9 +1,16 @@
 // Bosh sahifa (index.html) uchun render va UI mantiqi.
-// data/content.js dagi SITE_CONTENT asosida experience/services/projects/contact
-// bo'limlarini joriy tilga mos qilib chizadi.
+// data/content.js dagi SITE_CONTENT asosida barcha bo'limlarni joriy
+// tilga mos qilib chizadi.
 
 function currentLang() {
   return getCurrentLang();
+}
+
+function localized(value, lang) {
+  if (value && typeof value === "object") {
+    return value[lang] || value[DEFAULT_LANG] || "";
+  }
+  return value;
 }
 
 function renderProfile() {
@@ -18,6 +25,9 @@ function renderProfile() {
   });
   document.querySelectorAll("[data-field='bio']").forEach((el) => {
     el.textContent = profile.bio[lang];
+  });
+  document.querySelectorAll("[data-field='relocation']").forEach((el) => {
+    el.textContent = profile.relocation[lang];
   });
   document.querySelectorAll("[data-field='photo']").forEach((el) => {
     el.style.backgroundImage = `url('${profile.photo}')`;
@@ -63,12 +73,31 @@ function renderExperience() {
   observeReveal();
 }
 
+function renderEducation() {
+  const lang = currentLang();
+  const el = document.getElementById("education-list");
+  if (!el) return;
+
+  el.innerHTML = SITE_CONTENT.education
+    .map(
+      (item) => `
+      <div class="timeline-item reveal">
+        <div class="timeline-period">${item.period[lang]}</div>
+        <div class="timeline-role">${item.degree[lang]}</div>
+        <div class="timeline-company">${localized(item.institution, lang)}</div>
+      </div>`
+    )
+    .join("");
+
+  observeReveal();
+}
+
 function renderServices() {
   const lang = currentLang();
   const el = document.getElementById("services-grid");
   if (!el) return;
 
-  el.innerHTML = SITE_CONTENT.services
+  el.innerHTML = SITE_CONTENT.competencies
     .map(
       (item) => `
       <div class="card reveal">
@@ -82,24 +111,61 @@ function renderServices() {
   observeReveal();
 }
 
+function renderSkills() {
+  const lang = currentLang();
+  const langEl = document.getElementById("language-list");
+  const tagsEl = document.getElementById("skills-tags");
+  if (!langEl || !tagsEl) return;
+
+  langEl.innerHTML = SITE_CONTENT.skills.languages
+    .map(
+      (item) => `
+      <div class="language-row reveal">
+        <span class="language-name">${item.name[lang]}</span>
+        <span class="language-level">${item.level[lang]}</span>
+      </div>`
+    )
+    .join("");
+
+  tagsEl.innerHTML = SITE_CONTENT.skills.tags
+    .map((tag) => `<span class="tag">${tag[lang]}</span>`)
+    .join("");
+
+  observeReveal();
+}
+
 function renderProjects() {
   const lang = currentLang();
   const el = document.getElementById("projects-grid");
   if (!el) return;
 
-  el.innerHTML = SITE_CONTENT.projects
+  el.innerHTML = SITE_CONTENT.achievements
     .map(
       (item) => `
-      <a class="project-card reveal" href="${item.link}">
-        <div class="project-image" style="background-image:url('${item.image}');background-size:cover;background-position:center;"></div>
-        <div class="project-body">
-          <div class="project-tags">
-            ${item.tags.map((t) => `<span class="tag">${t}</span>`).join("")}
-          </div>
-          <h3>${item.title[lang]}</h3>
-          <p>${item.description[lang]}</p>
-        </div>
-      </a>`
+      <div class="stat-card reveal">
+        <div class="stat-metric">${item.metric}</div>
+        <h3>${item.title[lang]}</h3>
+        <p>${item.description[lang]}</p>
+        <div class="stat-company">${item.company}</div>
+      </div>`
+    )
+    .join("");
+
+  observeReveal();
+}
+
+function renderRecommendations() {
+  const lang = currentLang();
+  const el = document.getElementById("recommendations-grid");
+  if (!el) return;
+
+  el.innerHTML = SITE_CONTENT.recommendations
+    .map(
+      (item) => `
+      <div class="card reveal">
+        <h3>${item.name}</h3>
+        <p>${item.role[lang]} — ${item.company}</p>
+      </div>`
     )
     .join("");
 
@@ -119,8 +185,11 @@ function iconGlyph(name) {
 function renderAll() {
   renderProfile();
   renderExperience();
+  renderEducation();
   renderServices();
+  renderSkills();
   renderProjects();
+  renderRecommendations();
 }
 
 function observeReveal() {

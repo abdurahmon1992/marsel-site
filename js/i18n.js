@@ -4,28 +4,40 @@ const I18N = {
   uz: {
     "nav.about": "Men haqimda",
     "nav.experience": "Mehnat faoliyatim",
-    "nav.services": "Xizmatlar",
-    "nav.projects": "Loyihalarim",
+    "nav.education": "Ta'lim",
+    "nav.services": "Kasbiy yo'nalishlar",
+    "nav.skills": "Ko'nikmalar",
+    "nav.projects": "Yutuqlarim",
     "nav.blog": "Blog",
+    "nav.recommendations": "Tavsiyalar",
     "nav.contact": "Bog'lanish",
 
-    "hero.eyebrow": "Portfolio",
+    "hero.eyebrow": "Onlayn rezyume",
     "hero.cta.contact": "Bog'lanish",
-    "hero.cta.projects": "Loyihalarni ko'rish",
+    "hero.cta.projects": "Yutuqlarni ko'rish",
 
     "experience.label": "Tajriba",
     "experience.title": "Mehnat faoliyatim",
 
-    "services.label": "Xizmatlar",
-    "services.title": "Men ko'rsatadigan xizmatlar",
+    "education.label": "Ta'lim",
+    "education.title": "Ta'lim va malaka oshirish",
 
-    "projects.label": "Portfolio",
-    "projects.title": "Loyihalarim",
+    "services.label": "Ekspertiza",
+    "services.title": "Kasbiy yo'nalishlarim",
+
+    "skills.label": "Ko'nikmalar",
+    "skills.title": "Ko'nikmalar va tillar",
+
+    "projects.label": "Natijalar",
+    "projects.title": "Yutuqlarim",
 
     "blog.label": "Blog",
     "blog.title": "So'nggi maqolalar",
     "blog.viewAll": "Barcha postlarni ko'rish",
     "blog.back": "Blogga qaytish",
+
+    "recommendations.label": "Tavsiyalar",
+    "recommendations.title": "Kim tavsiya beradi",
 
     "contact.label": "Aloqa",
     "contact.title": "Bog'lanish uchun ma'lumotlar",
@@ -38,28 +50,40 @@ const I18N = {
   ru: {
     "nav.about": "Обо мне",
     "nav.experience": "Опыт работы",
-    "nav.services": "Услуги",
-    "nav.projects": "Проекты",
+    "nav.education": "Образование",
+    "nav.services": "Экспертиза",
+    "nav.skills": "Навыки",
+    "nav.projects": "Достижения",
     "nav.blog": "Блог",
+    "nav.recommendations": "Рекомендации",
     "nav.contact": "Контакты",
 
-    "hero.eyebrow": "Портфолио",
+    "hero.eyebrow": "Онлайн-резюме",
     "hero.cta.contact": "Связаться",
-    "hero.cta.projects": "Смотреть проекты",
+    "hero.cta.projects": "Смотреть достижения",
 
     "experience.label": "Опыт",
     "experience.title": "Опыт работы",
 
-    "services.label": "Услуги",
-    "services.title": "Услуги, которые я предоставляю",
+    "education.label": "Образование",
+    "education.title": "Образование и курсы",
 
-    "projects.label": "Портфолио",
-    "projects.title": "Мои проекты",
+    "services.label": "Экспертиза",
+    "services.title": "Мои профессиональные направления",
+
+    "skills.label": "Навыки",
+    "skills.title": "Навыки и языки",
+
+    "projects.label": "Результаты",
+    "projects.title": "Достижения",
 
     "blog.label": "Блог",
     "blog.title": "Последние статьи",
     "blog.viewAll": "Смотреть все посты",
     "blog.back": "Назад в блог",
+
+    "recommendations.label": "Рекомендации",
+    "recommendations.title": "Кто рекомендует",
 
     "contact.label": "Контакты",
     "contact.title": "Контактная информация",

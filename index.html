@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Marsel Abdurahmonov — Portfolio</title>
-  <meta name="description" content="Marketing mutaxassisi — shaxsiy portfolio va blog." />
+  <title>Abdurahmon Abdurahmonov — Onlayn rezyume</title>
+  <meta name="description" content="Abdurahmon Abdurahmonov — Marketing direktori (CMO). Onlayn rezyume: tajriba, ta'lim, ko'nikmalar va yutuqlar." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
@@ -13,13 +13,16 @@
 
   <header class="site-header">
     <div class="container nav">
-      <a href="#" class="nav-logo" data-field="name">Marsel Abdurahmonov</a>
+      <a href="#" class="nav-logo" data-field="name">Abdurahmon Abdurahmonov</a>
       <nav class="nav-links">
         <a href="#about" data-i18n="nav.about">Men haqimda</a>
         <a href="#experience" data-i18n="nav.experience">Mehnat faoliyatim</a>
-        <a href="#services" data-i18n="nav.services">Xizmatlar</a>
-        <a href="#projects" data-i18n="nav.projects">Loyihalarim</a>
+        <a href="#education" data-i18n="nav.education">Ta'lim</a>
+        <a href="#services" data-i18n="nav.services">Kasbiy yo'nalishlar</a>
+        <a href="#skills" data-i18n="nav.skills">Ko'nikmalar</a>
+        <a href="#projects" data-i18n="nav.projects">Yutuqlarim</a>
         <a href="#blog" data-i18n="nav.blog">Blog</a>
+        <a href="#recommendations" data-i18n="nav.recommendations">Tavsiyalar</a>
         <a href="#contact" data-i18n="nav.contact">Bog'lanish</a>
       </nav>
       <div class="nav-actions">
@@ -40,12 +43,13 @@
     <section id="about" class="hero">
       <div class="container hero-grid">
         <div>
-          <div class="hero-eyebrow" data-i18n="hero.eyebrow">Portfolio</div>
-          <h1 data-field="title">Marketing mutaxassisi</h1>
+          <div class="hero-eyebrow" data-i18n="hero.eyebrow">Onlayn rezyume</div>
+          <h1 data-field="title">Marketing direktori (CMO)</h1>
           <p class="hero-bio" data-field="bio">Bio matni bu yerda ko'rsatiladi.</p>
+          <p class="hero-bio" data-field="relocation" style="margin-top: -16px;">Ko'chishga tayyorlik matni.</p>
           <div class="hero-cta">
             <a href="#contact" class="btn btn-primary" data-i18n="hero.cta.contact">Bog'lanish</a>
-            <a href="#projects" class="btn btn-secondary" data-i18n="hero.cta.projects">Loyihalarni ko'rish</a>
+            <a href="#projects" class="btn btn-secondary" data-i18n="hero.cta.projects">Yutuqlarni ko'rish</a>
           </div>
         </div>
         <div class="hero-photo" data-field="photo"></div>
@@ -63,29 +67,54 @@
       </div>
     </section>
 
-    <!-- 3. Men ko'rsatadigan xizmatlar -->
+    <!-- 3. Ta'lim -->
+    <section id="education">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label" data-i18n="education.label">Ta'lim</span>
+          <h2 data-i18n="education.title">Ta'lim va malaka oshirish</h2>
+        </div>
+        <div class="timeline" id="education-list"></div>
+      </div>
+    </section>
+
+    <!-- 4. Kasbiy yo'nalishlar (ilgari: Xizmatlar) -->
     <section id="services">
       <div class="container">
         <div class="section-header">
-          <span class="section-label" data-i18n="services.label">Xizmatlar</span>
-          <h2 data-i18n="services.title">Men ko'rsatadigan xizmatlar</h2>
+          <span class="section-label" data-i18n="services.label">Ekspertiza</span>
+          <h2 data-i18n="services.title">Kasbiy yo'nalishlarim</h2>
         </div>
         <div class="grid grid-4" id="services-grid"></div>
       </div>
     </section>
 
-    <!-- 4. Loyihalarim -->
+    <!-- 5. Ko'nikmalar va tillar -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label" data-i18n="skills.label">Ko'nikmalar</span>
+          <h2 data-i18n="skills.title">Ko'nikmalar va tillar</h2>
+        </div>
+        <div class="skills-layout">
+          <div class="language-list" id="language-list"></div>
+          <div class="skills-tags" id="skills-tags"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Yutuqlarim (ilgari: Loyihalarim) -->
     <section id="projects">
       <div class="container">
         <div class="section-header">
-          <span class="section-label" data-i18n="projects.label">Portfolio</span>
-          <h2 data-i18n="projects.title">Loyihalarim</h2>
+          <span class="section-label" data-i18n="projects.label">Natijalar</span>
+          <h2 data-i18n="projects.title">Yutuqlarim</h2>
         </div>
         <div class="grid grid-3" id="projects-grid"></div>
       </div>
     </section>
 
-    <!-- 5. Blog -->
+    <!-- 7. Blog -->
     <section id="blog">
       <div class="container">
         <div class="section-header">
@@ -99,7 +128,18 @@
       </div>
     </section>
 
-    <!-- 6. Bog'lanish uchun malumotlar -->
+    <!-- 8. Tavsiyalar -->
+    <section id="recommendations">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label" data-i18n="recommendations.label">Tavsiyalar</span>
+          <h2 data-i18n="recommendations.title">Kim tavsiya beradi</h2>
+        </div>
+        <div class="grid grid-3" id="recommendations-grid"></div>
+      </div>
+    </section>
+
+    <!-- 9. Bog'lanish uchun malumotlar -->
     <section id="contact">
       <div class="container">
         <div class="section-header">
@@ -128,7 +168,7 @@
 
   <footer class="site-footer">
     <div class="container">
-      <span data-field="name">Marsel Abdurahmonov</span> &middot; <span id="footer-year"></span> &middot;
+      <span data-field="name">Abdurahmon Abdurahmonov</span> &middot; <span id="footer-year"></span> &middot;
       <span data-i18n="footer.rights">Barcha huquqlar himoyalangan.</span>
     </div>
   </footer>

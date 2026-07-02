@@ -1,34 +1,41 @@
-# Shaxsiy sayt
+# Onlayn rezyume — Abdurahmon Abdurahmonov
 
-Marketing faoliyati uchun shaxsiy portfolio + blog sayti. Build vositalarisiz,
-oddiy HTML/CSS/JS asosida qurilgan, GitHub Pages orqali bevosita joylashtirish
-mumkin.
+Marketing direktori (CMO) lavozimiga nomzod uchun onlayn rezyume sayti.
+Kontent foydalanuvchining haqiqiy CV'siga (hh.uz eksporti) asoslangan. Build
+vositalarisiz, oddiy HTML/CSS/JS asosida qurilgan, GitHub Pages orqali
+bevosita joylashtirish mumkin.
 
 ## Tuzilma
 
 ```
-index.html          Bosh sahifa: Men haqimda, Mehnat faoliyatim, Xizmatlar,
-                     Loyihalarim, Blog (so'nggi postlar), Bog'lanish
+index.html          Bosh sahifa: Men haqimda, Mehnat faoliyatim, Ta'lim,
+                     Kasbiy yo'nalishlar, Ko'nikmalar va tillar, Yutuqlarim,
+                     Blog, Tavsiyalar, Bog'lanish
 css/style.css        Uslublar
 js/i18n.js           uz/ru til almashtirish
 js/main.js           Bosh sahifa kontentini data/content.js dan chizadi
 js/blog.js           Blog ro'yxati va postni Markdown'dan render qiladi
-data/content.js      Bio, tajriba, xizmatlar, loyihalar, kontakt ma'lumotlari
+data/content.js      Bio, tajriba, ta'lim, ko'nikmalar, yutuqlar, tavsiyalar,
+                     kontakt ma'lumotlari — barchasi CV'dan olingan real kontent
 data/posts.js        Blog postlari ro'yxati (sarlavha, sana, qisqacha tavsif)
 blog/index.html      Barcha postlar ro'yxati
 blog/post.html        Bitta post sahifasi (?slug=... orqali)
 blog/posts/*.md       Post matnlari (Markdown)
-assets/img/           Rasmlar (profil, loyihalar)
+assets/img/           Rasmlar (profil surati CV'dan olingan)
 ```
 
 ## Kontentni tahrirlash
 
-1. **Shaxsiy ma'lumotlar, tajriba, xizmatlar, loyihalar, kontakt** —
-   `data/content.js` faylini oching va o'z ma'lumotlaringiz bilan almashtiring.
-   Har bir matn `{ uz: "...", ru: "..." }` shaklida ikkala tilda yozilishi kerak.
-2. **Rasmlar** — `assets/img/` papkasiga rasmlaringizni qo'shing (talab
-   qilinadigan fayl nomlari uchun shu papkadagi `README.md`ga qarang).
-3. **Yangi blog posti qo'shish**:
+1. **Shaxsiy ma'lumotlar, tajriba, ta'lim, ko'nikmalar, yutuqlar, tavsiyalar,
+   kontakt** — `data/content.js` faylini oching va yangilang. Har bir matn
+   `{ uz: "...", ru: "..." }` shaklida ikkala tilda yozilishi kerak.
+2. **Ijtimoiy tarmoq havolalari** — CV'da ijtimoiy tarmoq/LinkedIn havolalari
+   ko'rsatilmagan, shuning uchun `data/content.js` dagi `contact.socials`
+   ro'yxati bo'sh. O'z profil havolalaringizni shu yerga
+   `{ label: "LinkedIn", url: "https://..." }` shaklida qo'shing.
+3. **Rasmlar** — profil surati CV'dan olingan holda joylashtirilgan
+   (`assets/img/profile.jpg`). Yangilash uchun shu faylni almashtiring.
+4. **Yangi blog posti qo'shish**:
    - `blog/posts/` ichiga yangi `.md` fayl yozing (faqat post matni,
      sarlavha/sana kerak emas — ular ro'yxatda alohida beriladi).
    - `data/posts.js` ro'yxatiga yangi yozuv qo'shing: `slug`, `title` (uz/ru),

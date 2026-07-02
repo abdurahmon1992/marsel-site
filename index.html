@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marsel Abdurahmonov — Portfolio</title>
+  <meta name="description" content="Marketing mutaxassisi — shaxsiy portfolio va blog." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#" class="nav-logo" data-field="name">Marsel Abdurahmonov</a>
+      <nav class="nav-links">
+        <a href="#about" data-i18n="nav.about">Men haqimda</a>
+        <a href="#experience" data-i18n="nav.experience">Mehnat faoliyatim</a>
+        <a href="#services" data-i18n="nav.services">Xizmatlar</a>
+        <a href="#projects" data-i18n="nav.projects">Loyihalarim</a>
+        <a href="#blog" data-i18n="nav.blog">Blog</a>
+        <a href="#contact" data-i18n="nav.contact">Bog'lanish</a>
+      </nav>
+      <div class="nav-actions">
+        <div class="lang-switch">
+          <button data-lang="uz">UZ</button>
+          <button data-lang="ru">RU</button>
+        </div>
+        <button class="nav-toggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- 1. Men haqimda -->
+    <section id="about" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-eyebrow" data-i18n="hero.eyebrow">Portfolio</div>
+          <h1 data-field="title">Marketing mutaxassisi</h1>
+          <p class="hero-bio" data-field="bio">Bio matni bu yerda ko'rsatiladi.</p>
+          <div class="hero-cta">
+            <a href="#contact" class="btn btn-primary" data-i18n="hero.cta.contact">Bog'lanish</a>
+            <a href="#projects" class="btn btn-secondary" data-i18n="hero.cta.projects">Loyihalarni ko'rish</a>
+          </div>
+        </div>
+        <div class="hero-photo" data-field="photo"></div>
+      </div>
+    </section>
+
+    <!-- 2. Mehnat faoliyatim -->
+    <section id="experience">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label" data-i18n="experience.label">Tajriba</span>
+          <h2 data-i18n="experience.title">Mehnat faoliyatim</h2>
+        </div>
+        <div class="timeline" id="experience-list"></div>
+      </div>
+    </section>
+
+    <!-- 3. Men ko'rsatadigan xizmatlar -->
+    <section id="services">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label" data-i18n="services.label">Xizmatlar</span>
+          <h2 data-i18n="services.title">Men ko'rsatadigan xizmatlar</h2>
+        </div>
+        <div class="grid grid-4" id="services-grid"></div>
+      </div>
+    </section>
+
+    <!-- 4. Loyihalarim -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label" data-i18n="projects.label">Portfolio</span>
+          <h2 data-i18n="projects.title">Loyihalarim</h2>
+        </div>
+        <div class="grid grid-3" id="projects-grid"></div>
+      </div>
+    </section>
+
+    <!-- 5. Blog -->
+    <section id="blog">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label" data-i18n="blog.label">Blog</span>
+          <h2 data-i18n="blog.title">So'nggi maqolalar</h2>
+        </div>
+        <div class="blog-list" id="blog-preview-list"></div>
+        <div style="margin-top: 32px;">
+          <a href="blog/index.html" class="btn btn-secondary" data-i18n="blog.viewAll">Barcha postlarni ko'rish</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Bog'lanish uchun malumotlar -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label" data-i18n="contact.label">Aloqa</span>
+          <h2 data-i18n="contact.title">Bog'lanish uchun ma'lumotlar</h2>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="label" data-i18n="contact.email">Email</div>
+            <a class="value" data-field="email" href="#">email@example.com</a>
+          </div>
+          <div class="contact-card">
+            <div class="label" data-i18n="contact.phone">Telefon</div>
+            <a class="value" data-field="phone" href="#">+998 90 123 45 67</a>
+          </div>
+          <div class="contact-card">
+            <div class="label" data-i18n="contact.location">Manzil</div>
+            <div class="value" data-field="location">Toshkent</div>
+          </div>
+        </div>
+        <div class="social-links" id="social-links"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span data-field="name">Marsel Abdurahmonov</span> &middot; <span id="footer-year"></span> &middot;
+      <span data-i18n="footer.rights">Barcha huquqlar himoyalangan.</span>
+    </div>
+  </footer>
+
+  <script src="data/content.js"></script>
+  <script src="data/posts.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/blog.js"></script>
+  <script>
+    document.getElementById("footer-year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Marsel Abdurahmonov</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="../index.html" class="nav-logo" data-field="name">Marsel Abdurahmonov</a>
+      <nav class="nav-links">
+        <a href="../index.html#about" data-i18n="nav.about">Men haqimda</a>
+        <a href="../index.html#experience" data-i18n="nav.experience">Mehnat faoliyatim</a>
+        <a href="../index.html#services" data-i18n="nav.services">Xizmatlar</a>
+        <a href="../index.html#projects" data-i18n="nav.projects">Loyihalarim</a>
+        <a href="index.html" data-i18n="nav.blog">Blog</a>
+        <a href="../index.html#contact" data-i18n="nav.contact">Bog'lanish</a>
+      </nav>
+      <div class="nav-actions">
+        <div class="lang-switch">
+          <button data-lang="uz">UZ</button>
+          <button data-lang="ru">RU</button>
+        </div>
+        <button class="nav-toggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label" data-i18n="blog.label">Blog</span>
+          <h2 data-i18n="blog.title">So'nggi maqolalar</h2>
+        </div>
+        <div class="blog-list" id="blog-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span data-field="name">Marsel Abdurahmonov</span> &middot; <span id="footer-year"></span> &middot;
+      <span data-i18n="footer.rights">Barcha huquqlar himoyalangan.</span>
+    </div>
+  </footer>
+
+  <script src="../data/content.js"></script>
+  <script src="../data/posts.js"></script>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/blog.js"></script>
+  <script>
+    document.getElementById("footer-year").textContent = new Date().getFullYear();
+
+    // Mobil menyu (index.html dagi main.js ni bu yerda ulamaymiz, shuning uchun
+    // minimal toggle mantiqi shu yerda takrorlanadi)
+    document.querySelector(".nav-toggle").addEventListener("click", () => {
+      document.querySelector(".site-header").classList.toggle("nav-open");
+    });
+  </script>
+</body>
+</html>

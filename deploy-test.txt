@@ -1,0 +1,3 @@
+Vercel auto-deploy test
+Sana: 2026-07-14
+Ushbu fayl GitHub push orqali Vercel avtomatik deploy ishlayotganini tekshirish uchun yaratildi.

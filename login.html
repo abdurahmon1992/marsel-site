@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Kirish — Onlayn rezyume</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #229ed9;
+      --accent-hover: #1b8bc0;
+      --ok: #22c55e;
+      --err: #ef4444;
+    }
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(1200px 600px at 50% -10%, #1e293b, var(--bg));
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      padding: 24px;
+    }
+    .card {
+      width: 100%;
+      max-width: 400px;
+      background: var(--card);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      border-radius: 16px;
+      padding: 40px 32px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    }
+    .logo {
+      width: 64px; height: 64px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 30px;
+    }
+    h1 { font-size: 22px; margin-bottom: 8px; }
+    p.sub { color: var(--muted); font-size: 14px; line-height: 1.5; margin-bottom: 28px; }
+    button {
+      width: 100%;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    button:hover:not(:disabled) { background: var(--accent-hover); }
+    button:disabled { opacity: 0.6; cursor: default; }
+    .status {
+      margin-top: 20px;
+      font-size: 14px;
+      min-height: 20px;
+      line-height: 1.5;
+    }
+    .status.ok { color: var(--ok); }
+    .status.err { color: var(--err); }
+    .status.info { color: var(--muted); }
+    .spinner {
+      display: inline-block;
+      width: 16px; height: 16px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    a.link { color: var(--accent); word-break: break-all; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">✈️</div>
+    <h1>Maxfiy hudud</h1>
+    <p class="sub">Ushbu saytga faqat egasi Telegram orqali kira oladi. Davom etish uchun tugmani bosing.</p>
+    <button id="loginBtn">
+      <span id="btnLabel">Telegram orqali kirish</span>
+    </button>
+    <div class="status info" id="status"></div>
+  </div>
+
+  <script>
+    const btn = document.getElementById('loginBtn');
+    const label = document.getElementById('btnLabel');
+    const statusEl = document.getElementById('status');
+    let polling = null;
+
+    function setStatus(msg, kind) {
+      statusEl.className = 'status ' + (kind || 'info');
+      statusEl.innerHTML = msg;
+    }
+
+    async function startLogin() {
+      btn.disabled = true;
+      setStatus('<span class="spinner"></span> Havola tayyorlanmoqda…', 'info');
+      try {
+        const r = await fetch('/api/auth/start', { method: 'POST' });
+        if (!r.ok) {
+          const e = await r.json().catch(() => ({}));
+          throw new Error(e.error || 'Server xatosi');
+        }
+        const { token, deepLink } = await r.json();
+
+        // Telegram'ni ochamiz.
+        window.open(deepLink, '_blank');
+        setStatus(
+          'Telegram ochildi. Botda <b>Start</b> tugmasini bosing.<br>' +
+          'Ochilmadimi? <a class="link" href="' + deepLink + '" target="_blank">Shu havolani bosing</a>',
+          'info'
+        );
+
+        // Holatni tekshiramiz.
+        let waited = 0;
+        polling = setInterval(async () => {
+          waited += 2;
+          try {
+            const pr = await fetch('/api/auth/poll?token=' + encodeURIComponent(token));
+            const data = await pr.json();
+            if (data.authenticated) {
+              clearInterval(polling);
+              setStatus('✅ Muvaffaqiyatli! Yo‘naltirilmoqda…', 'ok');
+              setTimeout(() => { window.location.href = '/'; }, 600);
+            } else if (data.status === 'rejected') {
+              clearInterval(polling);
+              setStatus('⛔ Sizda kirish huquqi yo‘q.', 'err');
+              btn.disabled = false;
+            }
+          } catch (_) { /* tarmoq xatosini e'tiborsiz qoldiramiz */ }
+
+          if (waited >= 180) {
+            clearInterval(polling);
+            setStatus('⌛ Vaqt tugadi. Qaytadan urinib ko‘ring.', 'err');
+            btn.disabled = false;
+          }
+        }, 2000);
+      } catch (e) {
+        setStatus('Xatolik: ' + e.message, 'err');
+        btn.disabled = false;
+      }
+    }
+
+    btn.addEventListener('click', startLogin);
+  </script>
+</body>
+</html>

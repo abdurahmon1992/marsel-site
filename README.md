@@ -1,9 +1,20 @@
 # Onlayn rezyume — Abdurahmon Abdurahmonov
 
 Marketing direktori (CMO) lavozimiga nomzod uchun onlayn rezyume sayti.
-Kontent foydalanuvchining haqiqiy CV'siga (hh.uz eksporti) asoslangan. Build
-vositalarisiz, oddiy HTML/CSS/JS asosida qurilgan, GitHub Pages orqali
-bevosita joylashtirish mumkin.
+Kontent foydalanuvchining haqiqiy CV'siga (hh.uz eksporti) asoslangan.
+Frontend oddiy HTML/CSS/JS; backend esa Vercel serverless funksiyalari va
+Neon Postgres asosida ishlaydi.
+
+## Kirish himoyasi (Telegram avtorizatsiyasi)
+
+Sayt **Telegram deep-link** avtorizatsiyasi bilan himoyalangan — unga faqat
+ruxsat etilgan yagona Telegram foydalanuvchi kira oladi. To'liq oqim, sozlash
+va env o'zgaruvchilari `docs/sprints/sprint-1.md` da hujjatlashtirilgan.
+
+Muhim: barcha maxfiy kalitlar (bot tokeni, DB paroli, sessiya siri) faqat
+Vercel Environment Variables da saqlanadi — repozitoriyda emas. Ishga tushirishdan
+oldin Vercel'da env o'zgaruvchilarni kiritish shart, aks holda sayt qulflangan
+holatda (faqat login sahifasi) qoladi.
 
 ## Tuzilma
 

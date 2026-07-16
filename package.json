@@ -1,0 +1,12 @@
+{
+  "name": "marsel-site",
+  "version": "1.0.0",
+  "description": "Onlayn rezyume sayti + Telegram deep-link avtorizatsiya (Sprint 1)",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@neondatabase/serverless": "^0.9.5",
+    "@vercel/edge": "^1.2.1",
+    "jose": "^5.9.6"
+  }
+}

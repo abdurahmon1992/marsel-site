@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Boshqaruv — Maqsad va vazifalar</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0f172a; --card: #1e293b; --text: #e2e8f0; --muted: #94a3b8;
+      --accent: #229ed9; --accent-hover: #1b8bc0; --border: rgba(148,163,184,.15);
+      --ok: #22c55e; --warn: #eab308; --err: #ef4444;
+    }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      padding: 24px; line-height: 1.5;
+    }
+    .wrap { max-width: 900px; margin: 0 auto; }
+    header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 12px; }
+    h1 { font-size: 22px; }
+    .btn {
+      padding: 9px 16px; border: none; border-radius: 8px; background: var(--accent);
+      color: #fff; font-size: 14px; font-weight: 600; cursor: pointer;
+    }
+    .btn:hover { background: var(--accent-hover); }
+    .btn.ghost { background: transparent; border: 1px solid var(--border); color: var(--text); }
+    .btn.sm { padding: 5px 10px; font-size: 12px; }
+    .btn.danger { background: transparent; border: 1px solid var(--err); color: var(--err); }
+    .goal {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 18px; margin-bottom: 16px;
+    }
+    .goal-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .goal-title { font-size: 17px; font-weight: 600; }
+    .goal-desc { color: var(--muted); font-size: 14px; margin-top: 4px; }
+    .meta { font-size: 12px; color: var(--muted); margin-top: 6px; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; }
+    .badge.active { background: rgba(34,158,217,.15); color: var(--accent); }
+    .badge.done { background: rgba(34,197,94,.15); color: var(--ok); }
+    .badge.archived { background: rgba(148,163,184,.15); color: var(--muted); }
+    .tasks { margin-top: 14px; border-top: 1px solid var(--border); padding-top: 12px; }
+    .task { display: flex; align-items: center; gap: 10px; padding: 7px 0; font-size: 14px; }
+    .task .t-title { flex: 1; }
+    .task.done .t-title { text-decoration: line-through; color: var(--muted); }
+    .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .dot.high { background: var(--err); } .dot.medium { background: var(--warn); } .dot.low { background: var(--muted); }
+    .st { font-size: 11px; color: var(--muted); }
+    .actions { display: flex; gap: 6px; }
+    .add-task { display: flex; gap: 8px; margin-top: 10px; }
+    input, select, textarea {
+      background: #0f172a; border: 1px solid var(--border); color: var(--text);
+      border-radius: 7px; padding: 8px 10px; font-size: 13px; font-family: inherit;
+    }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); }
+    .add-task input { flex: 1; }
+    dialog {
+      background: var(--card); color: var(--text); border: 1px solid var(--border);
+      border-radius: 12px; padding: 22px; width: min(440px, 92vw);
+    }
+    dialog::backdrop { background: rgba(0,0,0,.6); }
+    .field { margin-bottom: 12px; }
+    .field label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 5px; }
+    .field input, .field select, .field textarea { width: 100%; }
+    .row { display: flex; gap: 10px; }
+    .row > * { flex: 1; }
+    .dlg-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 16px; }
+    .empty { color: var(--muted); text-align: center; padding: 40px; }
+    .loading { color: var(--muted); text-align: center; padding: 40px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>🎯 Maqsad va vazifalar</h1>
+      <div style="display:flex; gap:8px;">
+        <button class="btn" id="newGoalBtn">+ Yangi maqsad</button>
+        <button class="btn ghost" id="logoutBtn">Chiqish</button>
+      </div>
+    </header>
+    <div id="list"><div class="loading">Yuklanmoqda…</div></div>
+  </div>
+
+  <!-- Maqsad dialogi -->
+  <dialog id="goalDlg">
+    <h3 id="goalDlgTitle" style="margin-bottom:16px;">Yangi maqsad</h3>
+    <div class="field">
+      <label>Sarlavha</label>
+      <input id="gTitle" placeholder="Masalan: Saytni ishga tushirish" />
+    </div>
+    <div class="field">
+      <label>Tavsif</label>
+      <textarea id="gDesc" rows="2"></textarea>
+    </div>
+    <div class="field">
+      <label>Holat</label>
+      <select id="gStatus">
+        <option value="active">Faol</option>
+        <option value="done">Bajarilgan</option>
+        <option value="archived">Arxiv</option>
+      </select>
+    </div>
+    <div class="dlg-actions">
+      <button class="btn ghost" id="gCancel">Bekor</button>
+      <button class="btn" id="gSave">Saqlash</button>
+    </div>
+  </dialog>
+
+  <script>
+    const api = {
+      async list() { const r = await fetch('/api/goals'); return r.json(); },
+      async createGoal(b) { return (await fetch('/api/goals', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(b) })).json(); },
+      async updateGoal(id, b) { return (await fetch('/api/goals/'+id, { method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify(b) })).json(); },
+      async deleteGoal(id) { return fetch('/api/goals/'+id, { method:'DELETE' }); },
+      async goal(id) { return (await fetch('/api/goals/'+id)).json(); },
+      async createTask(b) { return (await fetch('/api/tasks', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(b) })).json(); },
+      async updateTask(id, b) { return (await fetch('/api/tasks/'+id, { method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify(b) })).json(); },
+      async deleteTask(id) { return fetch('/api/tasks/'+id, { method:'DELETE' }); },
+    };
+
+    const statusLabel = { active:'Faol', done:'Bajarilgan', archived:'Arxiv' };
+    const listEl = document.getElementById('list');
+    const dlg = document.getElementById('goalDlg');
+    let editingGoalId = null;
+
+    async function render() {
+      let goals;
+      try { goals = await api.list(); }
+      catch { listEl.innerHTML = '<div class="empty">Xatolik. Qayta urinib ko‘ring.</div>'; return; }
+      if (!Array.isArray(goals)) { location.href = '/login.html'; return; }
+      if (goals.length === 0) { listEl.innerHTML = '<div class="empty">Hali maqsad yo‘q. «Yangi maqsad» tugmasini bosing.</div>'; return; }
+
+      listEl.innerHTML = '';
+      for (const g of goals) {
+        const full = await api.goal(g.id);
+        const tasks = full.tasks || [];
+        const card = document.createElement('div');
+        card.className = 'goal';
+        card.innerHTML = `
+          <div class="goal-head">
+            <div>
+              <div class="goal-title">${esc(g.title)} <span class="badge ${g.status}">${statusLabel[g.status]||g.status}</span></div>
+              ${g.description ? `<div class="goal-desc">${esc(g.description)}</div>` : ''}
+              <div class="meta">${g.done_count}/${g.task_count} vazifa bajarilgan</div>
+            </div>
+            <div class="actions">
+              <button class="btn sm ghost" data-edit="${g.id}">Tahrir</button>
+              <button class="btn sm danger" data-delg="${g.id}">O‘chirish</button>
+            </div>
+          </div>
+          <div class="tasks">
+            ${tasks.map(t => `
+              <div class="task ${t.status==='done'?'done':''}">
+                <span class="dot ${t.priority}"></span>
+                <input type="checkbox" ${t.status==='done'?'checked':''} data-toggle="${t.id}" />
+                <span class="t-title">${esc(t.title)}</span>
+                <span class="st">${t.status}</span>
+                <button class="btn sm danger" data-delt="${t.id}">×</button>
+              </div>
+            `).join('')}
+            <div class="add-task">
+              <input placeholder="Yangi vazifa…" data-newtask="${g.id}" />
+              <select data-newprio="${g.id}">
+                <option value="low">Past</option>
+                <option value="medium" selected>O‘rta</option>
+                <option value="high">Yuqori</option>
+              </select>
+              <button class="btn sm" data-addtask="${g.id}">Qo‘shish</button>
+            </div>
+          </div>`;
+        listEl.appendChild(card);
+      }
+      wire();
+    }
+
+    function wire() {
+      listEl.querySelectorAll('[data-edit]').forEach(b => b.onclick = () => openGoalDlg(b.dataset.edit));
+      listEl.querySelectorAll('[data-delg]').forEach(b => b.onclick = async () => { if (confirm('Maqsad va uning vazifalari o‘chirilsinmi?')) { await api.deleteGoal(b.dataset.delg); render(); } });
+      listEl.querySelectorAll('[data-delt]').forEach(b => b.onclick = async () => { await api.deleteTask(b.dataset.delt); render(); });
+      listEl.querySelectorAll('[data-toggle]').forEach(c => c.onchange = async () => { await api.updateTask(c.dataset.toggle, { status: c.checked ? 'done' : 'todo' }); render(); });
+      listEl.querySelectorAll('[data-addtask]').forEach(b => b.onclick = async () => {
+        const gid = b.dataset.addtask;
+        const input = listEl.querySelector(`[data-newtask="${gid}"]`);
+        const prio = listEl.querySelector(`[data-newprio="${gid}"]`);
+        if (!input.value.trim()) return;
+        await api.createTask({ goal_id: Number(gid), title: input.value.trim(), priority: prio.value });
+        render();
+      });
+    }
+
+    async function openGoalDlg(id) {
+      editingGoalId = id || null;
+      document.getElementById('goalDlgTitle').textContent = id ? 'Maqsadni tahrirlash' : 'Yangi maqsad';
+      if (id) {
+        const g = await api.goal(id);
+        gTitle.value = g.title || ''; gDesc.value = g.description || ''; gStatus.value = g.status || 'active';
+      } else {
+        gTitle.value = ''; gDesc.value = ''; gStatus.value = 'active';
+      }
+      dlg.showModal();
+    }
+
+    document.getElementById('newGoalBtn').onclick = () => openGoalDlg(null);
+    document.getElementById('gCancel').onclick = () => dlg.close();
+    document.getElementById('gSave').onclick = async () => {
+      const body = { title: gTitle.value.trim(), description: gDesc.value.trim(), status: gStatus.value };
+      if (!body.title) return;
+      if (editingGoalId) await api.updateGoal(editingGoalId, body);
+      else await api.createGoal(body);
+      dlg.close(); render();
+    };
+    document.getElementById('logoutBtn').onclick = async () => { await fetch('/api/auth/logout', { method:'POST' }); location.href = '/login.html'; };
+
+    function esc(s) { return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+    render();
+  </script>
+</body>
+</html>

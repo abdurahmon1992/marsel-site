@@ -6,6 +6,13 @@ function sortedPosts() {
   return [...BLOG_POSTS].sort((a, b) => new Date(b.date) - new Date(a.date));
 }
 
+// Post uchun joriy tildagi .md fayl yo'lini qaytaradi.
+// file — obyekt ({uz,ru,en}) yoki eski format uchun oddiy satr bo'lishi mumkin.
+function postFile(post, lang) {
+  if (typeof post.file === "string") return post.file;
+  return post.file[lang] || post.file[DEFAULT_LANG] || Object.values(post.file)[0];
+}
+
 // Ba'zi brauzerlarda "uz" lokali uchun ICU ma'lumotlari to'liq bo'lmasligi
 // mumkin (Intl noto'g'ri chiqishi mumkin), shuning uchun oy nomlari qo'lda
 // belgilanadi.
@@ -78,7 +85,7 @@ async function renderBlogPost() {
   document.getElementById("post-date").textContent = formatDate(post.date, lang);
 
   try {
-    const response = await fetch(post.file);
+    const response = await fetch(postFile(post, lang));
     const markdown = await response.text();
     el.innerHTML = marked.parse(markdown);
   } catch (err) {

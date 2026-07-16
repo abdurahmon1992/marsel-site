@@ -53,6 +53,22 @@ function renderProfile() {
   }
 }
 
+function renderHighlights() {
+  const lang = currentLang();
+  const el = document.getElementById("highlights-strip");
+  if (!el || !SITE_CONTENT.highlights) return;
+
+  el.innerHTML = SITE_CONTENT.highlights
+    .map(
+      (item) => `
+      <div class="highlight">
+        <div class="highlight-value">${item.value}</div>
+        <div class="highlight-label">${item.label[lang]}</div>
+      </div>`
+    )
+    .join("");
+}
+
 function renderExperience() {
   const lang = currentLang();
   const el = document.getElementById("experience-list");
@@ -184,6 +200,7 @@ function iconGlyph(name) {
 
 function renderAll() {
   renderProfile();
+  renderHighlights();
   renderExperience();
   renderEducation();
   renderServices();
@@ -222,9 +239,36 @@ function initMobileNav() {
   });
 }
 
+// Skroll paytida joriy bo'limga mos navigatsiya havolasini yoritadi.
+function initScrollSpy() {
+  const links = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+  if (!links.length) return;
+
+  const sections = links
+    .map((link) => document.querySelector(link.getAttribute("href")))
+    .filter(Boolean);
+  if (!sections.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.id;
+        links.forEach((link) => {
+          link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
+        });
+      });
+    },
+    { rootMargin: "-45% 0px -50% 0px" }
+  );
+
+  sections.forEach((section) => observer.observe(section));
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   renderAll();
   initMobileNav();
+  initScrollSpy();
 });
 
 document.addEventListener("langchange", renderAll);

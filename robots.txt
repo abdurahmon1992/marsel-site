@@ -1,0 +1,6 @@
+# Sayt Telegram avtorizatsiyasi bilan himoyalangan — kontent faqat
+# ruxsat etilgan foydalanuvchiga ko'rinadi. Qidiruv robotlariga faqat
+# ochiq kirish sahifasi taqdim etiladi.
+User-agent: *
+Allow: /login.html
+Disallow: /

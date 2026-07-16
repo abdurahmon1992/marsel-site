@@ -1,4 +1,4 @@
-// Statik matnlar uchun uz/ru lug'at. data-i18n="key" atributiga ega
+// Statik matnlar uchun uz/ru/en lug'at. data-i18n="key" atributiga ega
 // elementlar shu lug'atdagi qiymat bilan almashtiriladi.
 const I18N = {
   uz: {
@@ -15,6 +15,7 @@ const I18N = {
     "hero.eyebrow": "Onlayn rezyume",
     "hero.cta.contact": "Bog'lanish",
     "hero.cta.projects": "Yutuqlarni ko'rish",
+    "hero.cta.download": "PDF yuklab olish",
 
     "experience.label": "Tajriba",
     "experience.title": "Mehnat faoliyatim",
@@ -46,6 +47,8 @@ const I18N = {
     "contact.location": "Manzil",
 
     "footer.rights": "Barcha huquqlar himoyalangan.",
+
+    "a11y.theme": "Mavzuni almashtirish",
   },
   ru: {
     "nav.about": "Обо мне",
@@ -61,6 +64,7 @@ const I18N = {
     "hero.eyebrow": "Онлайн-резюме",
     "hero.cta.contact": "Связаться",
     "hero.cta.projects": "Смотреть достижения",
+    "hero.cta.download": "Скачать PDF",
 
     "experience.label": "Опыт",
     "experience.title": "Опыт работы",
@@ -92,14 +96,67 @@ const I18N = {
     "contact.location": "Адрес",
 
     "footer.rights": "Все права защищены.",
+
+    "a11y.theme": "Переключить тему",
+  },
+  en: {
+    "nav.about": "About",
+    "nav.experience": "Experience",
+    "nav.education": "Education",
+    "nav.services": "Expertise",
+    "nav.skills": "Skills",
+    "nav.projects": "Achievements",
+    "nav.blog": "Blog",
+    "nav.recommendations": "References",
+    "nav.contact": "Contact",
+
+    "hero.eyebrow": "Online résumé",
+    "hero.cta.contact": "Get in touch",
+    "hero.cta.projects": "See achievements",
+    "hero.cta.download": "Download PDF",
+
+    "experience.label": "Experience",
+    "experience.title": "Work experience",
+
+    "education.label": "Education",
+    "education.title": "Education & courses",
+
+    "services.label": "Expertise",
+    "services.title": "My areas of expertise",
+
+    "skills.label": "Skills",
+    "skills.title": "Skills & languages",
+
+    "projects.label": "Results",
+    "projects.title": "Achievements",
+
+    "blog.label": "Blog",
+    "blog.title": "Latest articles",
+    "blog.viewAll": "View all posts",
+    "blog.back": "Back to blog",
+
+    "recommendations.label": "References",
+    "recommendations.title": "Who recommends me",
+
+    "contact.label": "Contact",
+    "contact.title": "Contact details",
+    "contact.email": "Email",
+    "contact.phone": "Phone",
+    "contact.location": "Location",
+
+    "footer.rights": "All rights reserved.",
+
+    "a11y.theme": "Toggle theme",
   },
 };
 
 const LANG_STORAGE_KEY = "site-lang";
 const DEFAULT_LANG = "uz";
+const SUPPORTED_LANGS = ["uz", "ru", "en"];
 
 function getCurrentLang() {
-  return localStorage.getItem(LANG_STORAGE_KEY) || DEFAULT_LANG;
+  const stored = localStorage.getItem(LANG_STORAGE_KEY);
+  return SUPPORTED_LANGS.includes(stored) ? stored : DEFAULT_LANG;
 }
 
 function setCurrentLang(lang) {
@@ -116,6 +173,15 @@ function applyLang(lang) {
     const dict = I18N[lang] || I18N[DEFAULT_LANG];
     if (dict[key]) {
       el.textContent = dict[key];
+    }
+  });
+
+  // aria-label tarjimalari
+  document.querySelectorAll("[data-i18n-aria]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-aria");
+    const dict = I18N[lang] || I18N[DEFAULT_LANG];
+    if (dict[key]) {
+      el.setAttribute("aria-label", dict[key]);
     }
   });
 

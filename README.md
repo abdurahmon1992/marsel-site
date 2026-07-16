@@ -5,6 +5,17 @@ Kontent foydalanuvchining haqiqiy CV'siga (hh.uz eksporti) asoslangan.
 Frontend oddiy HTML/CSS/JS; backend esa Vercel serverless funksiyalari va
 Neon Postgres asosida ishlaydi.
 
+## Imkoniyatlar
+
+- **Uch til** — o'zbek / rus / ingliz (UZ/RU/EN), tanlov `localStorage` da saqlanadi.
+- **Qorong'i rejim (dark mode)** — tizim sozlamasini avtomatik aniqlaydi, navigatsiyadagi
+  🌙/☀️ tugmasi orqali qo'lda ham almashtiriladi.
+- **PDF/chop etish** — hero'dagi "PDF yuklab olish" tugmasi brauzerning chop etish
+  oynasini ochadi (chop etish uchun alohida `@media print` uslublari bor).
+- **"Raqamlarda"** — hero ostida asosiy ko'rsatkichlar chizig'i.
+- **SEO** — Open Graph / Twitter meta teglari, JSON-LD (`Person`), favicon va `robots.txt`.
+- **Skroll bo'yicha faol navigatsiya** — joriy bo'lim navigatsiyada yoritiladi.
+
 ## Kirish himoyasi (Telegram avtorizatsiyasi)
 
 Sayt **Telegram deep-link** avtorizatsiyasi bilan himoyalangan — unga faqat
@@ -47,15 +58,13 @@ assets/img/           Rasmlar (profil surati CV'dan olingan)
 3. **Rasmlar** — profil surati CV'dan olingan holda joylashtirilgan
    (`assets/img/profile.jpg`). Yangilash uchun shu faylni almashtiring.
 4. **Yangi blog posti qo'shish**:
-   - `blog/posts/` ichiga yangi `.md` fayl yozing (faqat post matni,
-     sarlavha/sana kerak emas — ular ro'yxatda alohida beriladi).
-   - `data/posts.js` ro'yxatiga yangi yozuv qo'shing: `slug`, `title` (uz/ru),
-     `date`, `excerpt` (uz/ru) va `file` (yozgan `.md` faylga nisbiy yo'l).
+   - `blog/posts/` ichiga har til uchun `.md` fayl yozing (faqat post matni):
+     `<slug>.md` (uz), `<slug>.ru.md` (ru), `<slug>.en.md` (en).
+   - `data/posts.js` ro'yxatiga yangi yozuv qo'shing: `slug`, `title` (uz/ru/en),
+     `date`, `excerpt` (uz/ru/en) va `file` obyekti — `{ uz, ru, en }` fayl yo'llari.
 
-   > Eslatma: hozirgi tuzilmada bitta `.md` fayl faqat bitta tilda matn
-   > saqlaydi (metadata ikki tilda bo'lsa ham). To'liq ikki tilli post matni
-   > kerak bo'lsa, har til uchun alohida `.md` fayl yaratib, `data/posts.js`da
-   > `file` maydonini joriy tilga qarab tanlaydigan qilib kengaytirish mumkin.
+   > Eslatma: biror til uchun fayl bo'lmasa, `blog.js` avtomatik ravishda
+   > o'zbekcha (`DEFAULT_LANG`) versiyaga qaytadi.
 
 ## Lokal ishga tushirish
 

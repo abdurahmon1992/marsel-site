@@ -4,9 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog — Abdurahmon Abdurahmonov</title>
+  <meta name="description" content="Marketing, treyd-marketing va SMM haqida maqolalar — Abdurahmon Abdurahmonov blogi." />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232563eb'/%3E%3Ctext x='50%25' y='52%25' dominant-baseline='middle' text-anchor='middle' font-family='Segoe UI,Arial,sans-serif' font-size='30' font-weight='700' fill='%23fff'%3EAA%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/style.css" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("site-theme");
+        if (!t) t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
 
@@ -28,7 +41,11 @@
         <div class="lang-switch">
           <button data-lang="uz">UZ</button>
           <button data-lang="ru">RU</button>
+          <button data-lang="en">EN</button>
         </div>
+        <button class="theme-toggle" data-i18n-aria="a11y.theme" aria-label="Mavzuni almashtirish" aria-pressed="false">
+          <span class="theme-toggle-icon">🌙</span>
+        </button>
         <button class="nav-toggle" aria-label="Menu">
           <span></span><span></span><span></span>
         </button>
@@ -58,6 +75,7 @@
   <script src="../data/content.js"></script>
   <script src="../data/posts.js"></script>
   <script src="../js/i18n.js"></script>
+  <script src="../js/theme.js"></script>
   <script src="../js/blog.js"></script>
   <script>
     document.getElementById("footer-year").textContent = new Date().getFullYear();

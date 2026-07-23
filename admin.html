@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI assistent — boshqaruv paneli</title>
+  <style>
+    :root {
+      --bg: #f6f7f9; --card: #fff; --text: #1a1d23; --muted: #5b6270;
+      --border: #e6e8ec; --accent: #2563eb; --accent-dark: #1d4ed8;
+      --danger: #dc2626; --ok: #16a34a; --radius: 12px;
+      --font: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; }
+    .wrap { max-width: 860px; margin: 0 auto; padding: 32px 20px 80px; }
+    h1 { font-size: 1.6rem; margin: 0 0 4px; }
+    .sub { color: var(--muted); margin: 0 0 28px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; margin-bottom: 22px; box-shadow: 0 4px 20px rgba(20,24,34,.05); }
+    .card h2 { font-size: 1.15rem; margin: 0 0 6px; }
+    .card .hint { color: var(--muted); font-size: .9rem; margin: 0 0 16px; }
+    label { display: block; font-weight: 600; font-size: .9rem; margin: 12px 0 6px; }
+    input, textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; font: inherit; background: #fff; color: var(--text); }
+    textarea { resize: vertical; min-height: 90px; }
+    button { font: inherit; font-weight: 600; border: none; border-radius: 8px; padding: 10px 16px; cursor: pointer; transition: .15s; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-dark); }
+    .btn-ghost { background: transparent; color: var(--accent); border: 1px solid var(--border); }
+    .btn-danger { background: transparent; color: var(--danger); border: 1px solid var(--border); padding: 6px 12px; font-size: .85rem; }
+    .btn-danger:hover { background: #fef2f2; }
+    .row-actions { display: flex; gap: 8px; margin-top: 8px; }
+    .kb-item { border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin-bottom: 12px; background: #fcfcfd; }
+    .kb-item .kb-title { font-weight: 600; }
+    .kb-item .kb-content { color: var(--muted); white-space: pre-wrap; margin: 6px 0 0; font-size: .92rem; }
+    .kb-edit { display: flex; gap: 6px; margin-top: 10px; }
+    .kb-edit button { padding: 6px 12px; font-size: .85rem; }
+    .status { font-size: .88rem; min-height: 20px; margin-top: 8px; }
+    .status.ok { color: var(--ok); }
+    .status.err { color: var(--danger); }
+    .muted-empty { color: var(--muted); font-style: italic; }
+    .topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+    .topbar a { color: var(--accent); text-decoration: none; font-size: .9rem; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <span></span>
+      <a href="/">← Saytga qaytish</a>
+    </div>
+    <h1>AI assistent — boshqaruv paneli</h1>
+    <p class="sub">Bilim bazasi va bot xatti-harakatini (system prompt) shu yerdan boshqaring. O'zgarishlar darhol Telegram assistent botiga ta'sir qiladi.</p>
+
+    <!-- System prompt -->
+    <section class="card">
+      <h2>1. System prompt — botning xatti-harakati</h2>
+      <p class="hint">Bot o'zini qanday tutishi, qaysi tilda va uslubda javob berishini shu yerda belgilang. Masalan: «Sen kompaniya yordamchisisan. Faqat o'zbek yoki rus tilida, xushmuomala javob ber.»</p>
+      <textarea id="systemPrompt" rows="6" placeholder="Bot uchun ko'rsatmalarni yozing..."></textarea>
+      <div class="row-actions">
+        <button class="btn-primary" id="saveConfig">Saqlash</button>
+      </div>
+      <div class="status" id="configStatus"></div>
+    </section>
+
+    <!-- Knowledge base -->
+    <section class="card">
+      <h2>2. Bilim bazasi</h2>
+      <p class="hint">Bot javob berishda foydalanadigan ma'lumotlarni qo'shing (mahsulotlar, narxlar, tez-tez so'raladigan savollar va h.k.). Har bir yozuv — sarlavha va matn.</p>
+
+      <label for="kbTitle">Sarlavha</label>
+      <input id="kbTitle" placeholder="Masalan: Ish vaqti" />
+      <label for="kbContent">Matn</label>
+      <textarea id="kbContent" placeholder="Masalan: Dushanba–Juma, 9:00–18:00. Shanba–Yakshanba dam olish."></textarea>
+      <div class="row-actions">
+        <button class="btn-primary" id="addKb">Qo'shish</button>
+      </div>
+      <div class="status" id="kbStatus"></div>
+
+      <div id="kbList" style="margin-top: 20px;"></div>
+    </section>
+  </div>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+
+    function setStatus(el, msg, ok) {
+      el.textContent = msg;
+      el.className = 'status ' + (ok ? 'ok' : 'err');
+      if (msg) setTimeout(() => { if (el.textContent === msg) el.textContent = ''; }, 4000);
+    }
+
+    async function api(path, opts) {
+      const r = await fetch(path, opts);
+      if (r.status === 401) {
+        location.href = '/login.html';
+        throw new Error('unauthorized');
+      }
+      const data = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error(data.error || 'Xatolik');
+      return data;
+    }
+
+    // ---- System prompt ----
+    async function loadConfig() {
+      const data = await api('/api/admin/config');
+      $('systemPrompt').value = data.systemPrompt || '';
+    }
+    $('saveConfig').addEventListener('click', async () => {
+      try {
+        await api('/api/admin/config', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ systemPrompt: $('systemPrompt').value }),
+        });
+        setStatus($('configStatus'), '✅ Saqlandi', true);
+      } catch (e) {
+        setStatus($('configStatus'), '⚠️ ' + e.message, false);
+      }
+    });
+
+    // ---- Knowledge base ----
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    }
+
+    function renderKb(entries) {
+      const list = $('kbList');
+      if (!entries.length) {
+        list.innerHTML = '<p class="muted-empty">Hozircha yozuvlar yo\'q.</p>';
+        return;
+      }
+      list.innerHTML = entries.map((e) => `
+        <div class="kb-item" data-id="${e.id}">
+          <div class="kb-title">${escapeHtml(e.title)}</div>
+          <p class="kb-content">${escapeHtml(e.content)}</p>
+          <div class="kb-edit">
+            <button class="btn-ghost" data-act="edit">Tahrirlash</button>
+            <button class="btn-danger" data-act="del">O'chirish</button>
+          </div>
+        </div>`).join('');
+    }
+
+    async function loadKb() {
+      const data = await api('/api/admin/kb');
+      renderKb(data.entries || []);
+    }
+
+    $('addKb').addEventListener('click', async () => {
+      const title = $('kbTitle').value.trim();
+      const content = $('kbContent').value.trim();
+      if (!title || !content) return setStatus($('kbStatus'), '⚠️ Sarlavha va matn kerak', false);
+      try {
+        await api('/api/admin/kb', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ title, content }),
+        });
+        $('kbTitle').value = ''; $('kbContent').value = '';
+        setStatus($('kbStatus'), '✅ Qo\'shildi', true);
+        loadKb();
+      } catch (e) {
+        setStatus($('kbStatus'), '⚠️ ' + e.message, false);
+      }
+    });
+
+    $('kbList').addEventListener('click', async (ev) => {
+      const btn = ev.target.closest('button');
+      if (!btn) return;
+      const item = btn.closest('.kb-item');
+      const id = item.dataset.id;
+
+      if (btn.dataset.act === 'del') {
+        if (!confirm('Ushbu yozuvni o\'chirasizmi?')) return;
+        try {
+          await api('/api/admin/kb?id=' + id, { method: 'DELETE' });
+          loadKb();
+        } catch (e) { setStatus($('kbStatus'), '⚠️ ' + e.message, false); }
+        return;
+      }
+
+      if (btn.dataset.act === 'edit') {
+        const title = item.querySelector('.kb-title').textContent;
+        const content = item.querySelector('.kb-content').textContent;
+        item.innerHTML = `
+          <input class="edit-title" value="${escapeHtml(title)}" />
+          <textarea class="edit-content" style="margin-top:8px;">${escapeHtml(content)}</textarea>
+          <div class="kb-edit">
+            <button class="btn-primary" data-act="save">Saqlash</button>
+            <button class="btn-ghost" data-act="cancel">Bekor qilish</button>
+          </div>`;
+        return;
+      }
+
+      if (btn.dataset.act === 'cancel') { loadKb(); return; }
+
+      if (btn.dataset.act === 'save') {
+        const title = item.querySelector('.edit-title').value.trim();
+        const content = item.querySelector('.edit-content').value.trim();
+        if (!title || !content) return setStatus($('kbStatus'), '⚠️ Sarlavha va matn kerak', false);
+        try {
+          await api('/api/admin/kb?id=' + id, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ title, content }),
+          });
+          setStatus($('kbStatus'), '✅ Yangilandi', true);
+          loadKb();
+        } catch (e) { setStatus($('kbStatus'), '⚠️ ' + e.message, false); }
+      }
+    });
+
+    // Ilk yuklash
+    (async () => {
+      try { await loadConfig(); await loadKb(); }
+      catch (e) { if (e.message !== 'unauthorized') console.error(e); }
+    })();
+  </script>
+</body>
+</html>

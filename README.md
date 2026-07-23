@@ -32,6 +32,13 @@ orqali tanlanadi (kod o'zgartirish shart emas). To'liq oqim va sozlash
   `ASSISTANT_WEBHOOK_SECRET`, `LLM_PROVIDER` va tanlangan provayder kalitlari
   (`GEMINI_API_KEY` yoki `ANTHROPIC_API_KEY`).
 
+### Shaxsiy yordamchi: vazifalar va eslatmalar (Sprint 3)
+
+Bot endi **shaxsiy yordamchi** — har bir foydalanuvchi tabiiy tilda o'z
+vazifalari va eslatmalarini yuritadi («ertaga soat 9da eslat», «vazifalarim»,
+«1-chisini bajardim»). Muddati kelgan eslatmalar Telegram'ga yuboriladi.
+To'liq tavsif va Vercel Cron sozlash `docs/sprints/sprint-3.md` da.
+
 ## Tuzilma
 
 ```

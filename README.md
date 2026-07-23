@@ -16,6 +16,19 @@ Vercel Environment Variables da saqlanadi — repozitoriyda emas. Ishga tushiris
 oldin Vercel'da env o'zgaruvchilarni kiritish shart, aks holda sayt qulflangan
 holatda (faqat login sahifasi) qoladi.
 
+## AI assistent boti (Sprint 2)
+
+Saytga Telegram'da ishlaydigan **AI assistent bot** qo'shildi. Bot bizning
+**bilim bazamiz** va biz yozgan **system prompt** asosida **Google Gemini API**
+orqali javob beradi. To'liq oqim va sozlash `docs/sprints/sprint-2.md` da.
+
+- **Boshqaruv paneli:** `/admin.html` (faqat egaga ochiq) — bilim bazasi
+  yozuvlarini va system prompt'ni shu yerdan boshqarasiz. O'zgarish darhol
+  kuchga kiradi, qayta deploy shart emas.
+- **Bot:** login botidan **alohida** BotFather boti (`ASSISTANT_BOT_TOKEN`).
+- Qo'shimcha env o'zgaruvchilar `.env.example` da: `ASSISTANT_BOT_TOKEN`,
+  `ASSISTANT_WEBHOOK_SECRET`, `GEMINI_API_KEY`, `GEMINI_MODEL`.
+
 ## Tuzilma
 
 ```

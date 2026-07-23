@@ -16,7 +16,7 @@ alohida bot ochiladi, u har qanday foydalanuvchiga ochiq.
 - [x] System prompt sozlamasi — `bot_config` jadvali + API (`/api/admin/config`)
 - [x] Boshqaruv paneli UI — `admin.html` (egaga himoyalangan)
 - [x] Suhbat tarixi konteksti — `assistant_messages` jadvali (oxirgi 10 xabar)
-- [x] Gemini mijozi — `lib/llm.js`
+- [x] LLM mijozi — `lib/llm.js` (Gemini yoki Claude, `LLM_PROVIDER` orqali)
 - [x] Assistent bot webhook — `POST /api/assistant/webhook`
 - [x] Webhook ro'yxatga oluvchi — `GET /api/assistant/set-webhook`
 
@@ -25,7 +25,7 @@ alohida bot ochiladi, u har qanday foydalanuvchiga ochiq.
 | --- | --- |
 | 1. Bilim bazasini to'ldirish | `admin.html` + `api/admin/kb.js` + `kb_entries` |
 | 2. System prompt orqali sozlash | `admin.html` + `api/admin/config.js` + `bot_config` |
-| 3. Gemini API'ni ulash | `lib/llm.js` |
+| 3. Gemini/Claude API'ni ulash | `lib/llm.js` |
 | 4. Telegram'da javob berish | `api/assistant/webhook.js` |
 
 ---
@@ -56,8 +56,10 @@ alohida bot ochiladi, u har qanday foydalanuvchiga ochiq.
 BotFather (`@BotFather`) da **yangi** bot oching (`/newbot`) va tokenni oling.
 Bu login botidan alohida bot bo'lishi kerak.
 
-### 2. Gemini API kaliti
-https://aistudio.google.com/app/apikey — kalit yarating (bepul tarif bor).
+### 2. LLM provayder kaliti
+- **Gemini** (default): https://aistudio.google.com/app/apikey — kalit yarating
+  (bepul tarif bor).
+- **Claude**: https://console.anthropic.com — API kalit yarating.
 
 ### 3. Vercel Environment Variables
 Sprint 1 o'zgaruvchilariga qo'shimcha:
@@ -66,8 +68,14 @@ Sprint 1 o'zgaruvchilariga qo'shimcha:
 | --- | --- |
 | `ASSISTANT_BOT_TOKEN` | Assistent botining BotFather tokeni |
 | `ASSISTANT_WEBHOOK_SECRET` | Tasodifiy satr (`openssl rand -hex 16`) |
-| `GEMINI_API_KEY` | Google AI Studio kaliti |
+| `LLM_PROVIDER` | `gemini` (default) yoki `claude` |
+| `GEMINI_API_KEY` | Gemini tanlansa — Google AI Studio kaliti |
 | `GEMINI_MODEL` | Ixtiyoriy, default `gemini-2.0-flash` |
+| `ANTHROPIC_API_KEY` | Claude tanlansa — Anthropic kaliti |
+| `ANTHROPIC_MODEL` | Ixtiyoriy, default `claude-haiku-4-5-20251001` |
+
+> Provayderni almashtirish: `LLM_PROVIDER` ni `claude` ga o'zgartiring va mos
+> kalitni kiriting. Kod o'zgartirish shart emas — qayta deploy kifoya.
 
 ### 4. Webhookni ro'yxatdan o'tkazish
 Deploy tugagach, brauzerda bir marta oching:
@@ -97,4 +105,3 @@ oching. System prompt va bilim bazasi yozuvlarini kiriting.
       to'liq yuboriladi — juda katta bo'lganda bo'lib yuborish kerak bo'ladi)
 - [ ] Suhbat tarixini vaqti-vaqti bilan tozalash (retention)
 - [ ] Rasm/hujjatlarni qabul qilish
-- [ ] Provayderni almashtirish imkoni (Claude) — `lib/llm.js` da bitta joy

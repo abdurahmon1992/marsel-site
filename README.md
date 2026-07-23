@@ -19,15 +19,18 @@ holatda (faqat login sahifasi) qoladi.
 ## AI assistent boti (Sprint 2)
 
 Saytga Telegram'da ishlaydigan **AI assistent bot** qo'shildi. Bot bizning
-**bilim bazamiz** va biz yozgan **system prompt** asosida **Google Gemini API**
-orqali javob beradi. To'liq oqim va sozlash `docs/sprints/sprint-2.md` da.
+**bilim bazamiz** va biz yozgan **system prompt** asosida javob beradi.
+Provayder **Gemini** yoki **Claude** bo'lishi mumkin — `LLM_PROVIDER` env
+orqali tanlanadi (kod o'zgartirish shart emas). To'liq oqim va sozlash
+`docs/sprints/sprint-2.md` da.
 
 - **Boshqaruv paneli:** `/admin.html` (faqat egaga ochiq) — bilim bazasi
   yozuvlarini va system prompt'ni shu yerdan boshqarasiz. O'zgarish darhol
   kuchga kiradi, qayta deploy shart emas.
 - **Bot:** login botidan **alohida** BotFather boti (`ASSISTANT_BOT_TOKEN`).
 - Qo'shimcha env o'zgaruvchilar `.env.example` da: `ASSISTANT_BOT_TOKEN`,
-  `ASSISTANT_WEBHOOK_SECRET`, `GEMINI_API_KEY`, `GEMINI_MODEL`.
+  `ASSISTANT_WEBHOOK_SECRET`, `LLM_PROVIDER` va tanlangan provayder kalitlari
+  (`GEMINI_API_KEY` yoki `ANTHROPIC_API_KEY`).
 
 ## Tuzilma
 

@@ -36,8 +36,9 @@ orqali tanlanadi (kod o'zgartirish shart emas). To'liq oqim va sozlash
 
 Bot endi **shaxsiy yordamchi** — har bir foydalanuvchi tabiiy tilda o'z
 vazifalari va eslatmalarini yuritadi («ertaga soat 9da eslat», «vazifalarim»,
-«1-chisini bajardim»). Muddati kelgan eslatmalar Telegram'ga yuboriladi.
-To'liq tavsif va Vercel Cron sozlash `docs/sprints/sprint-3.md` da.
+«1-chisini bajardim»). Muddati kelgan eslatmalar Telegram'ga yuboriladi
+(`api/assistant/cron` endpoint tashqi cron orqali chaqiriladi — Vercel Hobby
+tarifi uchun). To'liq tavsif va sozlash `docs/sprints/sprint-3.md` da.
 
 ## Tuzilma
 

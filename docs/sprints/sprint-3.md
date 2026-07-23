@@ -16,8 +16,8 @@ uchun alohida (chat_id bo'yicha ajratilgan).
 - [x] Vazifa mantiqi va vaqt formatlash — `lib/tasks.js`
 - [x] Tabiiy til bilan boshqarish — webhook LLM orqali niyatni aniqlaydi
       (add / list / complete / delete / chat) va JSON action qaytaradi
-- [x] Vaqtli eslatmalarni yetkazuvchi cron — `api/assistant/cron.js`
-- [x] Vercel Cron jadvali — `vercel.json`
+- [x] Vaqtli eslatmalarni yetkazuvchi endpoint — `api/assistant/cron.js`
+      (tashqi cron xizmati yoki Vercel Pro Cron chaqiradi)
 
 ## Qanday ishlaydi
 
@@ -30,9 +30,10 @@ uchun alohida (chat_id bo'yicha ajratilgan).
    vaqt va ochiq vazifalar ro'yxatini beradi; LLM **JSON action** qaytaradi.
    Vazifa amallari kodda aniq bajariladi (LLM javobiga ishonilmaydi —
    xatoliksiz bo'lishi uchun), faqat oddiy suhbat javobi LLM'dan olinadi.
-3. `assistant_tasks` da `due_at` bo'lgan vazifalar — eslatma. Har daqiqada
+3. `assistant_tasks` da `due_at` bo'lgan vazifalar — eslatma.
    `api/assistant/cron.js` muddati kelganlarini topib Telegram'ga yuboradi va
-   `notified = true` qiladi.
+   `notified = true` qiladi. Bu endpoint tashqi cron xizmati (yoki Vercel Pro
+   Cron) tomonidan muntazam chaqirilishi kerak (pastga qarang).
 
 > **Vaqt zonasi:** eslatmalar `ASSISTANT_TZ` (default `Asia/Tashkent`, UTC+5)
 > bo'yicha ko'rsatiladi.
@@ -47,19 +48,30 @@ Sprint 2 ustiga qo'shimcha:
 | O'zgaruvchi | Izoh |
 | --- | --- |
 | `ASSISTANT_TZ` | Ixtiyoriy, default `Asia/Tashkent` |
-| `CRON_SECRET` | Vercel Cron endpointini himoyalovchi tasodifiy kalit |
+| `CRON_SECRET` | Ixtiyoriy — faqat Vercel **Pro** Cron ishlatilsa kerak |
 
-### 2. Eslatma cron'i
-`vercel.json` da har daqiqalik cron sozlangan
-(`/api/assistant/cron`).
+### 2. Eslatma yetkazishni sozlash
 
-> **⚠️ Vercel tarif eslatmasi:** Vercel **Hobby** tarifida cron kuniga bir
-> marta ishlaydi — daqiqama-daqiqa eslatmalar uchun **Pro** tarif kerak.
-> Muqobil: tashqi cron xizmati (masalan cron-job.org) har daqiqada quyidagi
-> manzilni chaqirsin:
-> ```
-> https://<domen>/api/assistant/cron?secret=<SETUP_SECRET>
-> ```
+Eslatmalar `api/assistant/cron.js` endpoint muntazam (masalan har daqiqada)
+chaqirilganda yuboriladi. `vercel.json` **qo'shilmagan**, chunki Vercel
+**Hobby** (bepul) tarifida cron kuniga faqat bir marta ishlashga ruxsat beradi
+va bu deploy'ni buzadi.
+
+**Tavsiya etilgan yo'l (Hobby uchun) — tashqi bepul cron xizmati:**
+[cron-job.org](https://cron-job.org) (yoki shunga o'xshash) da har daqiqada
+quyidagi manzilni chaqiradigan vazifa yarating:
+```
+https://<domen>/api/assistant/cron?secret=<SETUP_SECRET>
+```
+
+**Muqobil (Vercel Pro tarifida):** loyihaga `vercel.json` qo'shing va
+`CRON_SECRET` env'ni sozlang:
+```json
+{ "crons": [ { "path": "/api/assistant/cron", "schedule": "* * * * *" } ] }
+```
+
+> Vazifa ro'yxati (qo'shish/ko'rish/yopish) tarifdan qat'i nazar darhol
+> ishlaydi — faqat aktiv eslatma yuborilishi shu cron chaqiruviga bog'liq.
 
 ---
 

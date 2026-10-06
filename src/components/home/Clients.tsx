@@ -19,9 +19,9 @@ export function Clients({ title }: { title: string }) {
         <h2 id="clients-title" className="mb-6 text-center text-xs font-semibold tracking-[0.2em] text-muted">
           {title}
         </h2>
-        <ul className="grid grid-cols-3 place-items-center gap-x-4 gap-y-6 md:grid-cols-4 md:gap-y-8 lg:grid-cols-6">
+        <ul className="grid grid-cols-4 place-items-center gap-x-3 gap-y-6 sm:gap-x-6 lg:grid-cols-8 lg:gap-x-8">
           {items.map(({ name, logo }) => (
-            <li key={name} className="flex h-12 items-center justify-center sm:h-14">
+            <li key={name} className="flex h-12 w-full items-center justify-center sm:h-14">
               {logo ? (
                 <Image
                   src={logo.src}
@@ -29,7 +29,7 @@ export function Clients({ title }: { title: string }) {
                   width={logo.width}
                   height={logo.height}
                   sizes="160px"
-                  className="h-11 w-auto max-w-24 object-contain opacity-70 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0 sm:h-12 sm:max-w-36"
+                  className="h-9 w-auto max-w-full object-contain opacity-70 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0 sm:h-12 sm:max-w-36"
                 />
               ) : (
                 <span className="text-center font-display text-base leading-tight font-semibold text-muted uppercase sm:text-lg sm:whitespace-nowrap">

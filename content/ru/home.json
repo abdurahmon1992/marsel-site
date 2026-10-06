@@ -46,8 +46,10 @@
       "company": "Компания",
       "industry": "Сфера",
       "product": "Продукт",
-      "platform": "Платформа"
-    }
+      "platform": "Платформа",
+      "after": "После"
+    },
+    "galleryTitle": "Примеры работ"
   },
   "process": {
     "title": "Как мы *работаем*",

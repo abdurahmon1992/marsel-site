@@ -1,5 +1,5 @@
 {
-  "_izoh": "Keyslar. kind: numeric (bosh sahifada raqamli kartochka) yoki branding. tags: filtr (smm, target, branding). branding.name to‘ldirilgan bo‘lsa — bosh sahifadagi «Brending» qatorida chiqadi. Bo‘sh maydonlar (\"\" yoki []) saytda ko‘rsatilmaydi.",
+  "_izoh": "Keyslar. kind: numeric (bosh sahifada raqamli kartochka) yoki branding. tags: filtr (smm, target, branding). branding.name to‘ldirilgan bo‘lsa — bosh sahifadagi «Brending» qatorida chiqadi. Bo‘sh maydonlar (\"\" yoki []) saytda ko‘rsatilmaydi. Rasmlar: public/cases/ papkasida; cover — kartochka muqovasi, gallery — keys sahifasidagi galereya, beforeAfter — «Oldin / Keyin». fit: cover (kesib to‘ldiradi) yoki contain (logotiplar, och fonda). Fayl yo‘q bo‘lsa — rasmsiz tipografik kartochka.",
   "items": [
     {
       "slug": "shinam-house",
@@ -30,7 +30,12 @@
           "label": "oylik qamrov"
         }
       ],
-      "before": [],
+      "before": [
+        "Profil noto‘g‘ri bezatilgan",
+        "Auditoriya noto‘g‘ri tanlangan",
+        "Faqat ma’lumot beruvchi kontent",
+        "Mijozlar kam"
+      ],
       "done": [
         "Nom yaratdik: Shinam — «kenglik va qulaylik»",
         "Logotip va gaydbuk ishlab chiqdik",
@@ -45,7 +50,40 @@
           "Logotip",
           "Gaydbuk"
         ]
-      }
+      },
+      "cover": {
+        "src": "/cases/shinam-house-reklama.webp",
+        "alt": "Shinam House — reklama kreativi",
+        "fit": "cover"
+      },
+      "gallery": [
+        {
+          "src": "/cases/shinam-house-lenta.webp",
+          "alt": "Shinam House — Instagram lentasi",
+          "fit": "cover"
+        },
+        {
+          "src": "/cases/shinam-house-postlar.webp",
+          "alt": "Shinam House — postlar dizayni",
+          "fit": "cover"
+        },
+        {
+          "src": "/cases/shinam-logo.webp",
+          "alt": "Shinam — logotip",
+          "fit": "contain"
+        },
+        {
+          "src": "/cases/shinam-vizitka.webp",
+          "alt": "Shinam — vizitka dizayni",
+          "fit": "contain"
+        },
+        {
+          "src": "/cases/shinam-blank.webp",
+          "alt": "Shinam — firma blanki",
+          "fit": "contain"
+        }
+      ],
+      "beforeAfter": null
     },
     {
       "slug": "inoria",
@@ -89,7 +127,25 @@
       "branding": {
         "name": "",
         "items": []
-      }
+      },
+      "cover": {
+        "src": "/cases/inoria-logo.webp",
+        "alt": "Inoria — logotip",
+        "fit": "contain"
+      },
+      "gallery": [
+        {
+          "src": "/cases/inoria-profil.webp",
+          "alt": "Inoria — Instagram profili",
+          "fit": "cover"
+        },
+        {
+          "src": "/cases/inoria-auditoriya.webp",
+          "alt": "Inoria — maqsadli auditoriya tahlili",
+          "fit": "cover"
+        }
+      ],
+      "beforeAfter": null
     },
     {
       "slug": "peri",
@@ -129,6 +185,24 @@
       "branding": {
         "name": "",
         "items": []
+      },
+      "cover": {
+        "src": "/cases/peri-keyin.webp",
+        "alt": "Peri — profil keyin",
+        "fit": "cover"
+      },
+      "gallery": [],
+      "beforeAfter": {
+        "before": {
+          "src": "/cases/peri-oldin.webp",
+          "alt": "Peri — profil oldin",
+          "fit": "cover"
+        },
+        "after": {
+          "src": "/cases/peri-keyin.webp",
+          "alt": "Peri — profil keyin",
+          "fit": "cover"
+        }
       }
     },
     {
@@ -170,7 +244,20 @@
       "branding": {
         "name": "",
         "items": []
-      }
+      },
+      "cover": {
+        "src": "/cases/future-house-profil.webp",
+        "alt": "Future House Development — Instagram profili",
+        "fit": "cover"
+      },
+      "gallery": [
+        {
+          "src": "/cases/future-house-postlar.webp",
+          "alt": "Future House Development — postlar dizayni",
+          "fit": "cover"
+        }
+      ],
+      "beforeAfter": null
     },
     {
       "slug": "strelka",
@@ -203,7 +290,30 @@
           "Konsepsiya",
           "Firma uslubi"
         ]
-      }
+      },
+      "cover": {
+        "src": "/cases/strelka-muqova.webp",
+        "alt": "Strelka — brend konsepsiyasi",
+        "fit": "cover"
+      },
+      "gallery": [
+        {
+          "src": "/cases/strelka-logo.webp",
+          "alt": "Strelka — logotip",
+          "fit": "contain"
+        },
+        {
+          "src": "/cases/strelka-belgi.webp",
+          "alt": "Strelka — brend belgisi",
+          "fit": "contain"
+        },
+        {
+          "src": "/cases/strelka-firma-uslubi.webp",
+          "alt": "Strelka — firma uslubi",
+          "fit": "cover"
+        }
+      ],
+      "beforeAfter": null
     },
     {
       "slug": "rustambek-somsalari",
@@ -235,7 +345,25 @@
           "Nom",
           "Logotip"
         ]
-      }
+      },
+      "cover": {
+        "src": "/cases/rustambek-qadoq.webp",
+        "alt": "Rustambek somsalari — qadoq dizayni",
+        "fit": "cover"
+      },
+      "gallery": [
+        {
+          "src": "/cases/rustambek-logo.webp",
+          "alt": "Rustambek somsalari — logotip",
+          "fit": "contain"
+        },
+        {
+          "src": "/cases/rustambek-naqsh.webp",
+          "alt": "Rustambek somsalari — milliy naqsh",
+          "fit": "cover"
+        }
+      ],
+      "beforeAfter": null
     }
   ]
 }

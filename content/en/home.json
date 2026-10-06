@@ -46,8 +46,10 @@
       "company": "Company",
       "industry": "Industry",
       "product": "Product",
-      "platform": "Platform"
-    }
+      "platform": "Platform",
+      "after": "After"
+    },
+    "galleryTitle": "Work samples"
   },
   "process": {
     "title": "How we *work*",

@@ -1,5 +1,8 @@
 import "server-only";
 
+import { existsSync } from "node:fs";
+import { join } from "node:path";
+
 import { defaultLocale, locales, type Locale } from "./locales";
 import uzCommon from "../../content/uz/common.json";
 import uzHome from "../../content/uz/home.json";
@@ -13,7 +16,13 @@ export { defaultLocale, locales, type Locale };
 export type CommonDict = typeof uzCommon;
 export type HomeDict = typeof uzHome;
 export type CasesDict = typeof uzCases;
-export type CaseItem = CasesDict["items"][number];
+type RawCase = CasesDict["items"][number];
+export type CaseImage = { src: string; alt: string; fit: string };
+export type CaseItem = Omit<RawCase, "cover" | "gallery" | "beforeAfter"> & {
+  cover: CaseImage | null;
+  gallery: CaseImage[];
+  beforeAfter: { before: CaseImage; after: CaseImage } | null;
+};
 export type PrivacyDict = typeof uzPrivacy;
 
 const common: Record<Locale, () => Promise<CommonDict>> = {
@@ -45,5 +54,23 @@ export const hasLocale = (value: string): value is Locale =>
 
 export const getCommon = (locale: Locale) => common[locale]();
 export const getHome = (locale: Locale) => home[locale]();
-export const getCases = (locale: Locale) => cases[locale]();
+// Rasm fayli public/ da bo'lmasa, u e'tiborsiz qoldiriladi -> rasmsiz (tipografik) ko'rinish.
+// Sahifalar statik: yangi rasm qo'shilgach, keyingi deployda avtomatik chiqadi.
+const imageExists = (img: CaseImage | null | undefined): img is CaseImage =>
+  !!img && existsSync(join(process.cwd(), "public", img.src));
+
+export async function getCases(locale: Locale): Promise<{ items: CaseItem[] }> {
+  const data = await cases[locale]();
+  return {
+    items: data.items.map((c) => {
+      const ba = c.beforeAfter as CaseItem["beforeAfter"];
+      return {
+        ...c,
+        cover: imageExists(c.cover) ? c.cover : null,
+        gallery: (c.gallery as CaseImage[]).filter(imageExists),
+        beforeAfter: ba && imageExists(ba.before) && imageExists(ba.after) ? ba : null,
+      };
+    }),
+  };
+}
 export const getPrivacy = (locale: Locale) => privacy[locale]();

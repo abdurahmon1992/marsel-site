@@ -1,5 +1,5 @@
 {
-  "_izoh": "Кейсы. kind: numeric (карточка с цифрой на главной) или branding. tags: фильтр (smm, target, branding). Если заполнено branding.name — кейс попадает в строку «Брендинг» на главной. Пустые поля не показываются.",
+  "_izoh": "Кейсы. kind: numeric (карточка с цифрой на главной) или branding. tags: фильтр (smm, target, branding). Если заполнено branding.name — кейс попадает в строку «Брендинг» на главной. Пустые поля не показываются. Изображения: папка public/cases/; cover — обложка карточки, gallery — галерея, beforeAfter — «До / После». fit: cover или contain (логотипы). Если файла нет — типографическая карточка без фото.",
   "items": [
     {
       "slug": "shinam-house",
@@ -30,7 +30,12 @@
           "label": "охват в месяц"
         }
       ],
-      "before": [],
+      "before": [
+        "Профиль оформлен неправильно",
+        "Аудитория выбрана неверно",
+        "Только информационный контент",
+        "Мало клиентов"
+      ],
       "done": [
         "Придумали название: Shinam — «простор и уют»",
         "Разработали логотип и гайдбук",
@@ -45,7 +50,40 @@
           "Логотип",
           "Гайдбук"
         ]
-      }
+      },
+      "cover": {
+        "src": "/cases/shinam-house-reklama.webp",
+        "alt": "Shinam House — рекламный креатив",
+        "fit": "cover"
+      },
+      "gallery": [
+        {
+          "src": "/cases/shinam-house-lenta.webp",
+          "alt": "Shinam House — лента Instagram",
+          "fit": "cover"
+        },
+        {
+          "src": "/cases/shinam-house-postlar.webp",
+          "alt": "Shinam House — дизайн постов",
+          "fit": "cover"
+        },
+        {
+          "src": "/cases/shinam-logo.webp",
+          "alt": "Shinam — логотип",
+          "fit": "contain"
+        },
+        {
+          "src": "/cases/shinam-vizitka.webp",
+          "alt": "Shinam — дизайн визитки",
+          "fit": "contain"
+        },
+        {
+          "src": "/cases/shinam-blank.webp",
+          "alt": "Shinam — фирменный бланк",
+          "fit": "contain"
+        }
+      ],
+      "beforeAfter": null
     },
     {
       "slug": "inoria",
@@ -89,7 +127,25 @@
       "branding": {
         "name": "",
         "items": []
-      }
+      },
+      "cover": {
+        "src": "/cases/inoria-logo.webp",
+        "alt": "Inoria — логотип",
+        "fit": "contain"
+      },
+      "gallery": [
+        {
+          "src": "/cases/inoria-profil.webp",
+          "alt": "Inoria — профиль в Instagram",
+          "fit": "cover"
+        },
+        {
+          "src": "/cases/inoria-auditoriya.webp",
+          "alt": "Inoria — анализ целевой аудитории",
+          "fit": "cover"
+        }
+      ],
+      "beforeAfter": null
     },
     {
       "slug": "peri",
@@ -129,6 +185,24 @@
       "branding": {
         "name": "",
         "items": []
+      },
+      "cover": {
+        "src": "/cases/peri-keyin.webp",
+        "alt": "Peri — профиль после",
+        "fit": "cover"
+      },
+      "gallery": [],
+      "beforeAfter": {
+        "before": {
+          "src": "/cases/peri-oldin.webp",
+          "alt": "Peri — профиль до",
+          "fit": "cover"
+        },
+        "after": {
+          "src": "/cases/peri-keyin.webp",
+          "alt": "Peri — профиль после",
+          "fit": "cover"
+        }
       }
     },
     {
@@ -170,7 +244,20 @@
       "branding": {
         "name": "",
         "items": []
-      }
+      },
+      "cover": {
+        "src": "/cases/future-house-profil.webp",
+        "alt": "Future House Development — профиль в Instagram",
+        "fit": "cover"
+      },
+      "gallery": [
+        {
+          "src": "/cases/future-house-postlar.webp",
+          "alt": "Future House Development — дизайн постов",
+          "fit": "cover"
+        }
+      ],
+      "beforeAfter": null
     },
     {
       "slug": "strelka",
@@ -203,7 +290,30 @@
           "Концепция",
           "Фирменный стиль"
         ]
-      }
+      },
+      "cover": {
+        "src": "/cases/strelka-muqova.webp",
+        "alt": "Strelka — концепция бренда",
+        "fit": "cover"
+      },
+      "gallery": [
+        {
+          "src": "/cases/strelka-logo.webp",
+          "alt": "Strelka — логотип",
+          "fit": "contain"
+        },
+        {
+          "src": "/cases/strelka-belgi.webp",
+          "alt": "Strelka — знак бренда",
+          "fit": "contain"
+        },
+        {
+          "src": "/cases/strelka-firma-uslubi.webp",
+          "alt": "Strelka — фирменный стиль",
+          "fit": "cover"
+        }
+      ],
+      "beforeAfter": null
     },
     {
       "slug": "rustambek-somsalari",
@@ -235,7 +345,25 @@
           "Название",
           "Логотип"
         ]
-      }
+      },
+      "cover": {
+        "src": "/cases/rustambek-qadoq.webp",
+        "alt": "Rustambek somsalari — дизайн упаковки",
+        "fit": "cover"
+      },
+      "gallery": [
+        {
+          "src": "/cases/rustambek-logo.webp",
+          "alt": "Rustambek somsalari — логотип",
+          "fit": "contain"
+        },
+        {
+          "src": "/cases/rustambek-naqsh.webp",
+          "alt": "Rustambek somsalari — национальный орнамент",
+          "fit": "cover"
+        }
+      ],
+      "beforeAfter": null
     }
   ]
 }

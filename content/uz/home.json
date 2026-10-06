@@ -46,8 +46,10 @@
       "company": "Kompaniya",
       "industry": "Soha",
       "product": "Mahsulot",
-      "platform": "Platforma"
-    }
+      "platform": "Platforma",
+      "after": "Keyin"
+    },
+    "galleryTitle": "Ishlardan namunalar"
   },
   "process": {
     "title": "Qanday *ishlaymiz*",

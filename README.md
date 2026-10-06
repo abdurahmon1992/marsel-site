@@ -54,6 +54,13 @@ raqamli kartochka, birinchi 4 tasi; `branding`), `tags` (`/cases` filtri: `smm`,
 to‘ldirilsa, keys bosh sahifadagi «Brending» qatorida chiqadi. Bo‘sh maydonlar (`""`, `[]`)
 saytda ko‘rsatilmaydi. Raqamlarni faqat tasdiqlangan manbadan yozing.
 
+**Keys rasmlari:** fayllar `public/cases/` papkasida (`.webp`). `cases.json` da:
+`cover` — kartochka muqovasi, `gallery` — keys sahifasidagi galereya, `beforeAfter` — «Oldin / Keyin»
+yonma-yon (Peri). Har rasmda `src`, `alt` (har tilning faylida o‘z tilida) va `fit`:
+`cover` — 4:3 ramkani to‘ldiradi, `contain` — logotiplar uchun, och fonda kesilmaydi.
+Fayl hali yuklanmagan bo‘lsa, sayt rasmsiz tipografik kartochkani ko‘rsatadi; fayl qo‘shilgach
+keyingi deployda rasm avtomatik chiqadi.
+
 **Yashirin bloklar:** «Mijozlar fikri» (`home.json → testimonials.items`) va FAQ
 (`home.json → faq.items`) bo‘sh bo‘lsa, saytda umuman chiqmaydi. Tasdiqlangan
 matnlarni shu ro‘yxatlarga qo‘shing.

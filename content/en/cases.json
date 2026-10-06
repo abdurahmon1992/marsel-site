@@ -1,5 +1,5 @@
 {
-  "_izoh": "Case studies. kind: numeric (number card on the home page) or branding. tags: filter (smm, target, branding). If branding.name is set, the case appears in the “Branding” row on the home page. Empty fields are hidden.",
+  "_izoh": "Case studies. kind: numeric (number card on the home page) or branding. tags: filter (smm, target, branding). If branding.name is set, the case appears in the “Branding” row on the home page. Empty fields are hidden. Images: public/cases/; cover — card cover, gallery — case page gallery, beforeAfter — “Before / After”. fit: cover or contain (logos). If the file is missing, a text-only card is shown.",
   "items": [
     {
       "slug": "shinam-house",
@@ -30,7 +30,12 @@
           "label": "monthly reach"
         }
       ],
-      "before": [],
+      "before": [
+        "Poorly designed profile",
+        "Wrong audience targeting",
+        "Purely informational content",
+        "Few customers"
+      ],
       "done": [
         "Created the name: Shinam — “space and comfort”",
         "Designed the logo and brand guide",
@@ -45,7 +50,40 @@
           "Logo",
           "Brand guide"
         ]
-      }
+      },
+      "cover": {
+        "src": "/cases/shinam-house-reklama.webp",
+        "alt": "Shinam House — ad creative",
+        "fit": "cover"
+      },
+      "gallery": [
+        {
+          "src": "/cases/shinam-house-lenta.webp",
+          "alt": "Shinam House — Instagram feed",
+          "fit": "cover"
+        },
+        {
+          "src": "/cases/shinam-house-postlar.webp",
+          "alt": "Shinam House — post designs",
+          "fit": "cover"
+        },
+        {
+          "src": "/cases/shinam-logo.webp",
+          "alt": "Shinam — logo",
+          "fit": "contain"
+        },
+        {
+          "src": "/cases/shinam-vizitka.webp",
+          "alt": "Shinam — business card design",
+          "fit": "contain"
+        },
+        {
+          "src": "/cases/shinam-blank.webp",
+          "alt": "Shinam — letterhead",
+          "fit": "contain"
+        }
+      ],
+      "beforeAfter": null
     },
     {
       "slug": "inoria",
@@ -89,7 +127,25 @@
       "branding": {
         "name": "",
         "items": []
-      }
+      },
+      "cover": {
+        "src": "/cases/inoria-logo.webp",
+        "alt": "Inoria — logo",
+        "fit": "contain"
+      },
+      "gallery": [
+        {
+          "src": "/cases/inoria-profil.webp",
+          "alt": "Inoria — Instagram profile",
+          "fit": "cover"
+        },
+        {
+          "src": "/cases/inoria-auditoriya.webp",
+          "alt": "Inoria — target audience analysis",
+          "fit": "cover"
+        }
+      ],
+      "beforeAfter": null
     },
     {
       "slug": "peri",
@@ -129,6 +185,24 @@
       "branding": {
         "name": "",
         "items": []
+      },
+      "cover": {
+        "src": "/cases/peri-keyin.webp",
+        "alt": "Peri — profile after",
+        "fit": "cover"
+      },
+      "gallery": [],
+      "beforeAfter": {
+        "before": {
+          "src": "/cases/peri-oldin.webp",
+          "alt": "Peri — profile before",
+          "fit": "cover"
+        },
+        "after": {
+          "src": "/cases/peri-keyin.webp",
+          "alt": "Peri — profile after",
+          "fit": "cover"
+        }
       }
     },
     {
@@ -170,7 +244,20 @@
       "branding": {
         "name": "",
         "items": []
-      }
+      },
+      "cover": {
+        "src": "/cases/future-house-profil.webp",
+        "alt": "Future House Development — Instagram profile",
+        "fit": "cover"
+      },
+      "gallery": [
+        {
+          "src": "/cases/future-house-postlar.webp",
+          "alt": "Future House Development — post designs",
+          "fit": "cover"
+        }
+      ],
+      "beforeAfter": null
     },
     {
       "slug": "strelka",
@@ -203,7 +290,30 @@
           "Concept",
           "Identity"
         ]
-      }
+      },
+      "cover": {
+        "src": "/cases/strelka-muqova.webp",
+        "alt": "Strelka — brand concept",
+        "fit": "cover"
+      },
+      "gallery": [
+        {
+          "src": "/cases/strelka-logo.webp",
+          "alt": "Strelka — logo",
+          "fit": "contain"
+        },
+        {
+          "src": "/cases/strelka-belgi.webp",
+          "alt": "Strelka — brand mark",
+          "fit": "contain"
+        },
+        {
+          "src": "/cases/strelka-firma-uslubi.webp",
+          "alt": "Strelka — corporate identity",
+          "fit": "cover"
+        }
+      ],
+      "beforeAfter": null
     },
     {
       "slug": "rustambek-somsalari",
@@ -235,7 +345,25 @@
           "Name",
           "Logo"
         ]
-      }
+      },
+      "cover": {
+        "src": "/cases/rustambek-qadoq.webp",
+        "alt": "Rustambek somsalari — packaging design",
+        "fit": "cover"
+      },
+      "gallery": [
+        {
+          "src": "/cases/rustambek-logo.webp",
+          "alt": "Rustambek somsalari — logo",
+          "fit": "contain"
+        },
+        {
+          "src": "/cases/rustambek-naqsh.webp",
+          "alt": "Rustambek somsalari — national pattern",
+          "fit": "cover"
+        }
+      ],
+      "beforeAfter": null
     }
   ]
 }

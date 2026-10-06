@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { CaseImage } from "@/components/CaseImage";
 import { AuditOffer } from "@/components/home/AuditOffer";
 import { PageHeader } from "@/components/PageHeader";
 import { container } from "@/components/ui/styles";
@@ -68,10 +69,45 @@ export default async function CasePage({ params }: PageProps<"/[lang]/cases/[slu
           ))}
         </dl>
 
-        {item.result.value && (
-          <div className="mt-10">
-            <p className="font-display text-[3.25rem] leading-none font-bold text-accent sm:text-8xl lg:text-9xl">{item.result.value}</p>
-            <p className="mt-3 text-xl font-semibold">{item.result.label}</p>
+        {(item.result.value || item.cover) && (
+          <div className="mt-10 grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
+            {item.result.value && (
+              <div>
+                <p className="font-display text-[3.25rem] leading-none font-bold text-accent sm:text-8xl lg:text-9xl">{item.result.value}</p>
+                <p className="mt-3 text-xl font-semibold">{item.result.label}</p>
+              </div>
+            )}
+            {item.cover && !item.beforeAfter && (
+              <CaseImage
+                image={item.cover}
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                eager
+                className={item.result.value ? "" : "lg:col-span-2"}
+              />
+            )}
+          </div>
+        )}
+
+        {/* Oldin / Keyin — yonma-yon */}
+        {item.beforeAfter && (
+          <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-4">
+            {(
+              [
+                [l.before, item.beforeAfter.before],
+                [l.after, item.beforeAfter.after],
+              ] as const
+            ).map(([label, img], i) => (
+              <figure key={img.src}>
+                <CaseImage image={img} sizes="50vw" eager />
+                <figcaption
+                  className={`mt-2 inline-block px-3 py-1 text-xs font-semibold tracking-wide uppercase ${
+                    i ? "bg-accent text-on-accent" : "bg-subtle text-text"
+                  }`}
+                >
+                  {label}
+                </figcaption>
+              </figure>
+            ))}
           </div>
         )}
 
@@ -113,7 +149,7 @@ export default async function CasePage({ params }: PageProps<"/[lang]/cases/[slu
               {l.result}
             </h2>
             {metrics.length > 0 ? (
-              <ul className="mt-5 grid grid-cols-2 gap-px bg-border">
+              <ul className={`mt-5 grid gap-px bg-border ${metrics.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
                 {metrics.map((m) => (
                   <li key={m.label} className="bg-bg py-3 pr-3">
                     <p className="font-display text-2xl font-bold sm:text-3xl">{m.value}</p>
@@ -126,6 +162,19 @@ export default async function CasePage({ params }: PageProps<"/[lang]/cases/[slu
             )}
           </li>
         </ol>
+
+        {item.gallery.length > 0 && (
+          <div className="mt-12">
+            <h2 className="text-3xl">{home.case.galleryTitle}</h2>
+            <ul className="mt-6 grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
+              {item.gallery.map((img) => (
+                <li key={img.src}>
+                  <CaseImage image={img} sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" />
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
         <div className="mt-12 flex flex-col gap-5 bg-surface p-8 text-on-surface sm:flex-row sm:items-center sm:justify-between lg:p-12">
           <p className="font-display text-3xl font-bold uppercase lg:text-4xl">{common.pages.caseCta}</p>

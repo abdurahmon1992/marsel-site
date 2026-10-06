@@ -25,6 +25,12 @@ export type FormDict = {
   errorRate: string;
   required: string;
   phoneInvalid: string;
+  niche: string;
+  nichePlaceholder: string;
+  serviceSelect: string;
+  serviceSelectPlaceholder: string;
+  comment: string;
+  commentPlaceholder: string;
 };
 
 type Props = {
@@ -32,6 +38,9 @@ type Props = {
   lang: string;
   privacyHref: string;
   telegramUrl: string;
+  /** short — ism, telefon, Instagram (bosh sahifa); full — + soha, xizmat, izoh (/audit) */
+  variant?: "short" | "full";
+  serviceOptions?: string[];
 };
 
 type Status = "idle" | "sending" | "success" | "error" | "rate";
@@ -62,12 +71,15 @@ const field =
   "h-12 w-full border border-transparent bg-bg px-4 text-base text-text placeholder:text-muted focus:border-accent focus:outline-none aria-[invalid=true]:border-accent";
 const label = "mb-1.5 block text-xs font-semibold tracking-wide text-on-surface-muted uppercase";
 
-export function LeadForm({ t, lang, privacyHref, telegramUrl }: Props) {
+export function LeadForm({ t, lang, privacyHref, telegramUrl, variant = "short", serviceOptions = [] }: Props) {
+  const full = variant === "full";
   const id = useId();
   const [name, setName] = useState("");
   const [phone, setPhone] = useState(""); // mahalliy 9 raqam
   const [instagram, setInstagram] = useState("");
   const [service, setService] = useState("");
+  const [niche, setNiche] = useState("");
+  const [comment, setComment] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<{ name?: string; phone?: string }>({});
 
@@ -100,6 +112,8 @@ export function LeadForm({ t, lang, privacyHref, telegramUrl }: Props) {
           phone: `+998${phone}`,
           instagram: instagram.trim(),
           service,
+          niche: niche.trim(),
+          comment: comment.trim(),
           lang,
           page: window.location.pathname,
           utm: readUtm(),
@@ -130,7 +144,7 @@ export function LeadForm({ t, lang, privacyHref, telegramUrl }: Props) {
 
   return (
     <form onSubmit={onSubmit} noValidate className="grid gap-4">
-      {service && (
+      {!full && service && (
         <p className="flex items-center gap-2 text-sm">
           <span className="text-on-surface-muted">{t.service}:</span>
           <span className="inline-flex items-center gap-2 bg-accent px-3 py-1 font-semibold text-on-accent">
@@ -206,6 +220,57 @@ export function LeadForm({ t, lang, privacyHref, telegramUrl }: Props) {
           className={field}
         />
       </div>
+
+      {full && (
+        <>
+          <div>
+            <label htmlFor={`${id}-niche`} className={label}>
+              {t.niche} <span className="font-normal normal-case">({t.optional})</span>
+            </label>
+            <input
+              id={`${id}-niche`}
+              name="niche"
+              placeholder={t.nichePlaceholder}
+              value={niche}
+              onChange={(e) => setNiche(e.target.value.slice(0, 100))}
+              className={field}
+            />
+          </div>
+          <div>
+            <label htmlFor={`${id}-service`} className={label}>
+              {t.serviceSelect} <span className="font-normal normal-case">({t.optional})</span>
+            </label>
+            <select
+              id={`${id}-service`}
+              name="service"
+              value={service}
+              onChange={(e) => setService(e.target.value)}
+              className={`${field} appearance-none bg-[linear-gradient(45deg,transparent_50%,currentColor_50%),linear-gradient(135deg,currentColor_50%,transparent_50%)] bg-[size:6px_6px] bg-[position:calc(100%-22px)_center,calc(100%-16px)_center] bg-no-repeat pr-10`}
+            >
+              <option value="">{t.serviceSelectPlaceholder}</option>
+              {[...new Set([...serviceOptions, ...(service && !serviceOptions.includes(service) ? [service] : [])])].map((o) => (
+                <option key={o} value={o}>
+                  {o}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label htmlFor={`${id}-comment`} className={label}>
+              {t.comment} <span className="font-normal normal-case">({t.optional})</span>
+            </label>
+            <textarea
+              id={`${id}-comment`}
+              name="comment"
+              rows={3}
+              placeholder={t.commentPlaceholder}
+              value={comment}
+              onChange={(e) => setComment(e.target.value.slice(0, 1000))}
+              className={`${field} h-auto py-3`}
+            />
+          </div>
+        </>
+      )}
 
       {/* Honeypot: odamlar ko'rmaydi, botlar to'ldiradi */}
       <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">

@@ -18,14 +18,14 @@ export function Footer({ locale, t }: Props) {
   const year = new Date().getFullYear();
   const links = [
     { href: `${home}#services`, label: t.nav.services },
-    { href: `${home}#cases`, label: t.nav.cases },
+    { href: localizedPath(locale, "/cases"), label: t.nav.cases },
     { href: `${home}#pricing`, label: t.nav.pricing },
     { href: `${home}#audit`, label: t.cta.audit },
     { href: localizedPath(locale, "/privacy"), label: t.footer.privacy },
   ];
 
   return (
-    <footer id="contacts" className="mt-6 bg-surface text-on-surface lg:mt-10">
+    <footer className="mt-6 bg-surface text-on-surface lg:mt-10">
       <div className="mx-auto flex max-w-7xl flex-col items-center px-4 py-14 text-center sm:px-6 lg:px-8 lg:py-20">
         <Link href={home} aria-label="MarSel Marketing">
           <Logo tone="light" />

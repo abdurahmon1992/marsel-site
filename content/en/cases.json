@@ -1,20 +1,241 @@
 {
+  "_izoh": "Case studies. kind: numeric (number card on the home page) or branding. tags: filter (smm, target, branding). If branding.name is set, the case appears in the “Branding” row on the home page. Empty fields are hidden.",
   "items": [
     {
-      "slug": "inoria",
-      "featured": true,
-      "company": "Inoria",
-      "type": "SMM + paid social",
-      "product": "Paint",
-      "platform": "Instagram",
-      "result": "46,635 reach",
-      "summary": "A $45 ad budget brought 46,635 reach, 86,963 views and +327 followers.",
+      "slug": "shinam-house",
+      "kind": "numeric",
+      "tags": [
+        "branding",
+        "smm",
+        "target"
+      ],
+      "name": "Shinam House",
+      "industry": "Residential complex",
+      "type": "Branding + SMM + paid ads",
+      "product": "",
+      "platform": "",
+      "title": "Shinam House: monthly inquiries 19 → 223",
+      "result": {
+        "value": "19 → 223",
+        "label": "monthly inquiries"
+      },
+      "summary": "We started with the name, logo and brand guide, then used SMM to grow inquiries from 19 to 223 a month.",
       "metrics": [
-        { "value": "$45", "label": "ad budget" },
-        { "value": "46,635", "label": "reach" },
-        { "value": "86,963", "label": "views" },
-        { "value": "+327", "label": "followers" }
-      ]
+        {
+          "value": "19 → 223",
+          "label": "monthly inquiries"
+        },
+        {
+          "value": "4K → 41K",
+          "label": "monthly reach"
+        }
+      ],
+      "before": [],
+      "done": [
+        "Created the name: Shinam — “space and comfort”",
+        "Designed the logo and brand guide",
+        "Designed the profile",
+        "Built a content plan",
+        "Targeted the right audience"
+      ],
+      "branding": {
+        "name": "Shinam",
+        "items": [
+          "Name",
+          "Logo",
+          "Brand guide"
+        ]
+      }
+    },
+    {
+      "slug": "inoria",
+      "kind": "numeric",
+      "tags": [
+        "smm",
+        "target"
+      ],
+      "name": "Inoria",
+      "industry": "Paint, new brand",
+      "type": "SMM + paid ads",
+      "product": "",
+      "platform": "Instagram",
+      "title": "Inoria: 7,000 reach in 7 days",
+      "result": {
+        "value": "7,000",
+        "label": "reach in 7 days"
+      },
+      "summary": "A profile launched from scratch reached 7,000 people and gained +79 followers in 7 days.",
+      "metrics": [
+        {
+          "value": "7,000",
+          "label": "reach in 7 days"
+        },
+        {
+          "value": "+79",
+          "label": "followers in 7 days"
+        }
+      ],
+      "before": [
+        "No social media profile",
+        "Priced above local alternatives",
+        "No clear positioning"
+      ],
+      "done": [
+        "Launched the profile",
+        "Built a content plan for buyers and the tradespeople who decide (decorative finishing pros, aged 25–35)",
+        "Brought the positioning into the content",
+        "Launched ads"
+      ],
+      "branding": {
+        "name": "",
+        "items": []
+      }
+    },
+    {
+      "slug": "peri",
+      "kind": "numeric",
+      "tags": [
+        "smm",
+        "target"
+      ],
+      "name": "Peri",
+      "industry": "Hygiene products",
+      "type": "Digital marketing",
+      "product": "",
+      "platform": "",
+      "title": "Peri: ad reach +41% in one month",
+      "result": {
+        "value": "+41%",
+        "label": "ad reach in one month"
+      },
+      "summary": "A new profile, a new design style and reconfigured ads grew reach within a month.",
+      "metrics": [
+        {
+          "value": "+41%",
+          "label": "ad reach in one month"
+        }
+      ],
+      "before": [
+        "Poorly designed profile",
+        "Basic designs",
+        "Misconfigured ads",
+        "Low brand awareness and repeat sales"
+      ],
+      "done": [
+        "Created a new profile",
+        "Developed a content plan and a new design style",
+        "Set up paid ads"
+      ],
+      "branding": {
+        "name": "",
+        "items": []
+      }
+    },
+    {
+      "slug": "future-house",
+      "kind": "numeric",
+      "tags": [
+        "smm"
+      ],
+      "name": "Future House Development",
+      "industry": "Construction company",
+      "type": "SMM",
+      "product": "",
+      "platform": "",
+      "title": "Future House Development: 851 organic reach",
+      "result": {
+        "value": "0 → 851",
+        "label": "reach without ads"
+      },
+      "summary": "Content that builds reputation and trust brought reach and engagement without ads.",
+      "metrics": [
+        {
+          "value": "0 → 851",
+          "label": "reach without ads"
+        },
+        {
+          "value": "0 → 23",
+          "label": "engagement"
+        }
+      ],
+      "before": [
+        "The developer had no reputation",
+        "Customers didn’t trust them",
+        "An ineffective content plan"
+      ],
+      "done": [
+        "Designed the profile",
+        "Built a content plan that creates reputation and trust"
+      ],
+      "branding": {
+        "name": "",
+        "items": []
+      }
+    },
+    {
+      "slug": "strelka",
+      "kind": "branding",
+      "tags": [
+        "branding"
+      ],
+      "name": "Strelka",
+      "industry": "Residential complex",
+      "type": "Branding",
+      "product": "",
+      "platform": "",
+      "title": "Strelka: “Post luxury” branding",
+      "result": {
+        "value": "",
+        "label": ""
+      },
+      "summary": "“Post luxury” — a residential complex for the new elite.",
+      "metrics": [],
+      "before": [],
+      "done": [
+        "Positioning",
+        "Creative concept",
+        "Refined name and corporate identity"
+      ],
+      "branding": {
+        "name": "Strelka",
+        "items": [
+          "Positioning",
+          "Concept",
+          "Identity"
+        ]
+      }
+    },
+    {
+      "slug": "rustambek-somsalari",
+      "kind": "branding",
+      "tags": [
+        "branding"
+      ],
+      "name": "Rustambek somsalari",
+      "industry": "",
+      "type": "Branding",
+      "product": "",
+      "platform": "",
+      "title": "Rustambek somsalari: a brand in national style",
+      "result": {
+        "value": "",
+        "label": ""
+      },
+      "summary": "A name and logo in national style that highlight the chef’s 20 years of experience.",
+      "metrics": [],
+      "before": [],
+      "done": [
+        "Name in national style",
+        "Logo",
+        "Emphasis on the chef’s 20 years of experience"
+      ],
+      "branding": {
+        "name": "Rustambek somsalari",
+        "items": [
+          "Name",
+          "Logo"
+        ]
+      }
     }
   ]
 }

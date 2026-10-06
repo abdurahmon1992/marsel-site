@@ -6,9 +6,18 @@
     "primary": "Bepul audit olish",
     "secondary": "Keyslarni ko‘rish",
     "stats": [
-      { "value": "30+", "label": "loyiha" },
-      { "value": "19 → 223", "label": "oylik murojaat" },
-      { "value": "$45 → 46 635", "label": "qamrov" }
+      {
+        "value": "30+",
+        "label": "loyiha"
+      },
+      {
+        "value": "19 → 223",
+        "label": "oylik murojaat"
+      },
+      {
+        "value": "+41%",
+        "label": "reklama qamrovi 1 oyda"
+      }
     ]
   },
   "clients": {
@@ -24,17 +33,46 @@
     ]
   },
   "case": {
-    "eyebrow": "Keys",
+    "eyebrow": "Keyslar",
     "title": "Natija — *raqamda*",
+    "brandingTitle": "Brending",
+    "more": "Batafsil",
+    "all": "Barcha keyslar",
     "labels": {
+      "before": "Oldin",
+      "done": "Nima qildik",
       "result": "Natija",
       "type": "Turi",
       "company": "Kompaniya",
+      "industry": "Soha",
       "product": "Mahsulot",
       "platform": "Platforma"
-    },
-    "more": "Batafsil",
-    "imagePlaceholder": "[RASM]"
+    }
+  },
+  "process": {
+    "title": "Qanday *ishlaymiz*",
+    "steps": [
+      {
+        "title": "Bepul audit",
+        "tag": "24 soat",
+        "text": "Sahifangizni ko‘rib chiqamiz va mijoz qayerda yo‘qolayotganini videoda ko‘rsatamiz."
+      },
+      {
+        "title": "Strategiya va kontent reja",
+        "tag": "",
+        "text": "Maqsad, auditoriya va kanallarni belgilaymiz, oylik kontent rejani siz bilan kelishamiz."
+      },
+      {
+        "title": "Ishga tushirish",
+        "tag": "",
+        "text": "Kontent, s’yomka va reklamani ishga tushiramiz, natijani doimiy kuzatamiz."
+      },
+      {
+        "title": "Har oy hisobot",
+        "tag": "",
+        "text": "Murojaatlar, qamrov va xarajatlarni raqamlarda ko‘rsatamiz va keyingi oy rejasini tuzamiz."
+      }
+    ]
   },
   "services": {
     "title": "Barcha marketingingizni *o‘zimiz yuritamiz*",
@@ -93,38 +131,49 @@
     "cta": "Shu paketni tanlash",
     "note": "Reklama byudjeti narxga kirmaydi. Brending va sayt alohida hisoblanadi.",
     "features": {
-      "start": ["4 ta post", "1 ta Reels", "4 ta stories", "1 ta target kampaniya"],
-      "growth": ["6 ta post", "4 ta Reels", "8 ta stories", "2 kunlik s’yomka"],
-      "scale": ["10 ta post", "6 ta Reels", "12 ta stories", "3 kunlik s’yomka"]
+      "start": [
+        "4 ta post",
+        "1 ta Reels",
+        "4 ta stories",
+        "1 ta target kampaniya"
+      ],
+      "growth": [
+        "6 ta post",
+        "4 ta Reels",
+        "8 ta stories",
+        "2 kunlik s’yomka"
+      ],
+      "scale": [
+        "10 ta post",
+        "6 ta Reels",
+        "12 ta stories",
+        "3 kunlik s’yomka"
+      ]
     }
   },
   "testimonials": {
     "title": "Mijozlar *fikri*",
-    "items": [
-      {
-        "quote": "[TASDIQLASH] Mijoz iqtibosi shu yerda bo‘ladi.",
-        "name": "[TASDIQLASH] Ism Familiya",
-        "role": "[TASDIQLASH] Kompaniya"
-      },
-      {
-        "quote": "[TASDIQLASH] Mijoz iqtibosi shu yerda bo‘ladi.",
-        "name": "[TASDIQLASH] Ism Familiya",
-        "role": "[TASDIQLASH] Kompaniya"
-      }
-    ],
-    "imagePlaceholder": "[RASM]"
+    "items": [],
+    "imagePlaceholder": "[RASM]",
+    "_izoh": "Haqiqiy otzivlar kelguncha items bo‘sh — blok saytda ko‘rinmaydi. Namuna: {\"quote\": \"...\", \"name\": \"...\", \"role\": \"...\"}"
   },
   "audit": {
     "title": "Bepul audit — *24 soatda*",
     "text": "Sahifangizni ko‘rib chiqamiz va mijoz qayerda yo‘qolayotganini 3–5 daqiqalik videoda ko‘rsatamiz. Majburiyat yo‘q.",
-    "points": ["3–5 daqiqalik video-tahlil", "Mijoz qayerda yo‘qolayotgani", "Majburiyat yo‘q"]
+    "points": [
+      "3–5 daqiqalik video-tahlil",
+      "Mijoz qayerda yo‘qolayotgani",
+      "Majburiyat yo‘q"
+    ]
   },
   "faq": {
+    "_izoh": "FAQ hozircha yashirin: items bo‘sh bo‘lsa blok chiqmaydi. Tasdiqlangan savol-javoblarni items ga qo‘shing ({\"q\": \"...\", \"a\": \"...\"}). _hidden — oldingi qoralamalar.",
     "title": "Ko‘p beriladigan *savollar*",
-    "items": [
+    "items": [],
+    "_hidden": [
       {
         "q": "Natija qachon ko‘rinadi?",
-        "a": "[TASDIQLASH] Natijani har oylik hisobotda raqamlar bilan ko‘rsatamiz. Aniq muddat soha va boshlang‘ich holatga bog‘liq — buni bepul auditda aytamiz."
+        "a": ""
       },
       {
         "q": "Reklama byudjeti narxga kiradimi?",
@@ -132,15 +181,15 @@
       },
       {
         "q": "Shartnoma qancha muddatga tuziladi?",
-        "a": "[TASDIQLASH] Minimal muddat va shartlarni birinchi uchrashuvda kelishamiz."
+        "a": ""
       },
       {
         "q": "Toshkentdan tashqarida ishlaysizmi?",
-        "a": "[TASDIQLASH] Ha, boshqa shaharlardagi bizneslar bilan onlayn ishlaymiz; s’yomka uchun safar alohida kelishiladi."
+        "a": ""
       },
       {
         "q": "Kontentni kim tasdiqlaydi?",
-        "a": "[TASDIQLASH] Kontent reja va har bir post e’lon qilinishidan oldin siz bilan kelishiladi."
+        "a": ""
       }
     ]
   }

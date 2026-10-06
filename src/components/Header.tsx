@@ -11,7 +11,7 @@ export function Header({ locale, t }: Props) {
   const home = localizedPath(locale);
   const items = [
     { href: `${home}#services`, label: t.nav.services },
-    { href: `${home}#cases`, label: t.nav.cases },
+    { href: localizedPath(locale, "/cases"), label: t.nav.cases },
     { href: `${home}#pricing`, label: t.nav.pricing },
     { href: `${home}#contacts`, label: t.nav.contacts },
   ];

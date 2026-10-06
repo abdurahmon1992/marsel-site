@@ -9,5 +9,6 @@
     "telegram": "https://t.me/marselmarketing_uz",
     "linkedin": "https://www.linkedin.com/company/83506047/"
   },
-  "bot": "MarSelMarketingBot"
+  "bot": "MarSelMarketingBot",
+  "yandexMapWidget": "https://yandex.uz/map-widget/v1/org/marsel_marketing/90284910463/"
 }

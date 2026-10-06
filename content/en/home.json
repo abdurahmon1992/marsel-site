@@ -6,9 +6,18 @@
     "primary": "Get a free audit",
     "secondary": "See case studies",
     "stats": [
-      { "value": "30+", "label": "projects" },
-      { "value": "19 → 223", "label": "monthly inquiries" },
-      { "value": "$45 → 46,635", "label": "reach" }
+      {
+        "value": "30+",
+        "label": "projects"
+      },
+      {
+        "value": "19 → 223",
+        "label": "monthly inquiries"
+      },
+      {
+        "value": "+41%",
+        "label": "ad reach in 1 month"
+      }
     ]
   },
   "clients": {
@@ -24,17 +33,46 @@
     ]
   },
   "case": {
-    "eyebrow": "Case study",
+    "eyebrow": "Case studies",
     "title": "Results — *in numbers*",
+    "brandingTitle": "Branding",
+    "more": "Learn more",
+    "all": "All case studies",
     "labels": {
+      "before": "Before",
+      "done": "What we did",
       "result": "Result",
       "type": "Type",
       "company": "Company",
+      "industry": "Industry",
       "product": "Product",
       "platform": "Platform"
-    },
-    "more": "Learn more",
-    "imagePlaceholder": "[IMAGE]"
+    }
+  },
+  "process": {
+    "title": "How we *work*",
+    "steps": [
+      {
+        "title": "Free audit",
+        "tag": "24 hours",
+        "text": "We review your page and show you on video where customers get lost."
+      },
+      {
+        "title": "Strategy & content plan",
+        "tag": "",
+        "text": "We define goals, audience and channels, and agree a monthly content plan with you."
+      },
+      {
+        "title": "Launch",
+        "tag": "",
+        "text": "We launch content, shoots and ads, and track results continuously."
+      },
+      {
+        "title": "Monthly report",
+        "tag": "",
+        "text": "We show inquiries, reach and spend in numbers and plan the next month."
+      }
+    ]
   },
   "services": {
     "title": "We run *all your marketing*",
@@ -93,38 +131,49 @@
     "cta": "Choose this package",
     "note": "Ad budget is not included. Branding and websites are priced separately.",
     "features": {
-      "start": ["4 posts", "1 Reels", "4 stories", "1 ad campaign"],
-      "growth": ["6 posts", "4 Reels", "8 stories", "2 shooting days"],
-      "scale": ["10 posts", "6 Reels", "12 stories", "3 shooting days"]
+      "start": [
+        "4 posts",
+        "1 Reels",
+        "4 stories",
+        "1 ad campaign"
+      ],
+      "growth": [
+        "6 posts",
+        "4 Reels",
+        "8 stories",
+        "2 shooting days"
+      ],
+      "scale": [
+        "10 posts",
+        "6 Reels",
+        "12 stories",
+        "3 shooting days"
+      ]
     }
   },
   "testimonials": {
     "title": "What clients *say*",
-    "items": [
-      {
-        "quote": "[TASDIQLASH] Client testimonial goes here.",
-        "name": "[TASDIQLASH] Full name",
-        "role": "[TASDIQLASH] Company"
-      },
-      {
-        "quote": "[TASDIQLASH] Client testimonial goes here.",
-        "name": "[TASDIQLASH] Full name",
-        "role": "[TASDIQLASH] Company"
-      }
-    ],
-    "imagePlaceholder": "[IMAGE]"
+    "items": [],
+    "imagePlaceholder": "[IMAGE]",
+    "_izoh": "While items is empty the block is hidden. Example: {\"quote\": \"...\", \"name\": \"...\", \"role\": \"...\"}"
   },
   "audit": {
     "title": "Free audit — *within 24 hours*",
     "text": "We review your page and show you, in a 3–5 minute video, where customers are getting lost. No strings attached.",
-    "points": ["3–5 minute video review", "Where customers get lost", "No strings attached"]
+    "points": [
+      "3–5 minute video review",
+      "Where customers get lost",
+      "No strings attached"
+    ]
   },
   "faq": {
+    "_izoh": "FAQ is hidden for now: when items is empty the block is not rendered. _hidden — earlier drafts.",
     "title": "Frequently asked *questions*",
-    "items": [
+    "items": [],
+    "_hidden": [
       {
         "q": "When will I see results?",
-        "a": "[TASDIQLASH] We show results in numbers in a monthly report. The exact timeline depends on your niche and starting point — we’ll tell you during the free audit."
+        "a": ""
       },
       {
         "q": "Is the ad budget included in the price?",
@@ -132,15 +181,15 @@
       },
       {
         "q": "How long is the contract?",
-        "a": "[TASDIQLASH] We agree on the minimum term and conditions at our first meeting."
+        "a": ""
       },
       {
         "q": "Do you work outside Tashkent?",
-        "a": "[TASDIQLASH] Yes, we work with businesses in other cities online; travel for shoots is agreed separately."
+        "a": ""
       },
       {
         "q": "Who approves the content?",
-        "a": "[TASDIQLASH] The content plan and every post are approved by you before publishing."
+        "a": ""
       }
     ]
   }

@@ -1,20 +1,241 @@
 {
+  "_izoh": "Keyslar. kind: numeric (bosh sahifada raqamli kartochka) yoki branding. tags: filtr (smm, target, branding). branding.name to‘ldirilgan bo‘lsa — bosh sahifadagi «Brending» qatorida chiqadi. Bo‘sh maydonlar (\"\" yoki []) saytda ko‘rsatilmaydi.",
   "items": [
     {
-      "slug": "inoria",
-      "featured": true,
-      "company": "Inoria",
-      "type": "SMM + target reklama",
-      "product": "Bo‘yoq",
-      "platform": "Instagram",
-      "result": "46 635 qamrov",
-      "summary": "$45 reklama byudjeti bilan 46 635 qamrov, 86 963 ko‘rish va +327 obunachi.",
+      "slug": "shinam-house",
+      "kind": "numeric",
+      "tags": [
+        "branding",
+        "smm",
+        "target"
+      ],
+      "name": "Shinam House",
+      "industry": "Turar-joy majmuasi",
+      "type": "Brending + SMM + target",
+      "product": "",
+      "platform": "",
+      "title": "Shinam House: oylik murojaatlar 19 → 223",
+      "result": {
+        "value": "19 → 223",
+        "label": "oylik murojaat"
+      },
+      "summary": "Nom, logotip va gaydbukdan boshlab, SMM bilan oylik murojaatlarni 19 tadan 223 tagacha oshirdik.",
       "metrics": [
-        { "value": "$45", "label": "reklama byudjeti" },
-        { "value": "46 635", "label": "qamrov" },
-        { "value": "86 963", "label": "ko‘rish" },
-        { "value": "+327", "label": "obunachi" }
-      ]
+        {
+          "value": "19 → 223",
+          "label": "oylik murojaat"
+        },
+        {
+          "value": "4K → 41K",
+          "label": "oylik qamrov"
+        }
+      ],
+      "before": [],
+      "done": [
+        "Nom yaratdik: Shinam — «kenglik va qulaylik»",
+        "Logotip va gaydbuk ishlab chiqdik",
+        "Profilni bezadik",
+        "Kontent reja tuzdik",
+        "To‘g‘ri auditoriyani tanladik"
+      ],
+      "branding": {
+        "name": "Shinam",
+        "items": [
+          "Nom",
+          "Logotip",
+          "Gaydbuk"
+        ]
+      }
+    },
+    {
+      "slug": "inoria",
+      "kind": "numeric",
+      "tags": [
+        "smm",
+        "target"
+      ],
+      "name": "Inoria",
+      "industry": "Bo‘yoq, yangi brend",
+      "type": "SMM + target",
+      "product": "",
+      "platform": "Instagram",
+      "title": "Inoria: 7 kunda 7 000 qamrov",
+      "result": {
+        "value": "7 000",
+        "label": "qamrov 7 kunda"
+      },
+      "summary": "Noldan ochilgan profil 7 kunda 7 000 qamrov va +79 obunachi oldi.",
+      "metrics": [
+        {
+          "value": "7 000",
+          "label": "qamrov 7 kunda"
+        },
+        {
+          "value": "+79",
+          "label": "obunachi 7 kunda"
+        }
+      ],
+      "before": [
+        "Ijtimoiy tarmoqda profil yo‘q",
+        "Narx mahalliy mahsulotlardan qimmat",
+        "Pozitsiya shakllanmagan"
+      ],
+      "done": [
+        "Profil ochdik",
+        "Xaridor va qaror qiluvchi ustalar (dekorativ ishlar ustasi, 25–35 yosh) uchun kontent reja tuzdik",
+        "Pozitsiyani kontentga kiritdik",
+        "Reklamani ishga tushirdik"
+      ],
+      "branding": {
+        "name": "",
+        "items": []
+      }
+    },
+    {
+      "slug": "peri",
+      "kind": "numeric",
+      "tags": [
+        "smm",
+        "target"
+      ],
+      "name": "Peri",
+      "industry": "Gigiyena vositalari",
+      "type": "Digital marketing",
+      "product": "",
+      "platform": "",
+      "title": "Peri: reklama qamrovi bir oyda +41%",
+      "result": {
+        "value": "+41%",
+        "label": "reklama qamrovi bir oyda"
+      },
+      "summary": "Yangi profil, dizayn uslubi va qayta sozlangan target reklama bilan qamrov bir oyda o‘sdi.",
+      "metrics": [
+        {
+          "value": "+41%",
+          "label": "reklama qamrovi bir oyda"
+        }
+      ],
+      "before": [
+        "Profil noto‘g‘ri bezatilgan",
+        "Dizaynlar oddiy",
+        "Reklama noto‘g‘ri sozlangan",
+        "Brend kam taniladi, takroriy sotuv past"
+      ],
+      "done": [
+        "Yangi profil yaratdik",
+        "Kontent reja va yangi dizayn uslubini ishlab chiqdik",
+        "Target reklamani sozladik"
+      ],
+      "branding": {
+        "name": "",
+        "items": []
+      }
+    },
+    {
+      "slug": "future-house",
+      "kind": "numeric",
+      "tags": [
+        "smm"
+      ],
+      "name": "Future House Development",
+      "industry": "Quruvchi kompaniya",
+      "type": "SMM",
+      "product": "",
+      "platform": "",
+      "title": "Future House Development: reklamasiz 851 qamrov",
+      "result": {
+        "value": "0 → 851",
+        "label": "reklamasiz qamrov"
+      },
+      "summary": "Obro‘ va ishonch yaratadigan kontent bilan reklamasiz qamrov va faollik paydo bo‘ldi.",
+      "metrics": [
+        {
+          "value": "0 → 851",
+          "label": "reklamasiz qamrov"
+        },
+        {
+          "value": "0 → 23",
+          "label": "faollik"
+        }
+      ],
+      "before": [
+        "Quruvchining obro‘si yo‘q",
+        "Mijozlar ishonmaydi",
+        "Kontent reja samarasiz"
+      ],
+      "done": [
+        "Profilni bezadik",
+        "Obro‘ va ishonch yaratadigan kontent reja tuzdik"
+      ],
+      "branding": {
+        "name": "",
+        "items": []
+      }
+    },
+    {
+      "slug": "strelka",
+      "kind": "branding",
+      "tags": [
+        "branding"
+      ],
+      "name": "Strelka",
+      "industry": "Turar-joy majmuasi",
+      "type": "Brending",
+      "product": "",
+      "platform": "",
+      "title": "Strelka: «Post luxury» brending",
+      "result": {
+        "value": "",
+        "label": ""
+      },
+      "summary": "«Post luxury» — yangi elita uchun turar-joy majmuasi.",
+      "metrics": [],
+      "before": [],
+      "done": [
+        "Pozitsiya",
+        "Kreativ konsepsiya",
+        "Nom va firma uslubini takomillashtirish"
+      ],
+      "branding": {
+        "name": "Strelka",
+        "items": [
+          "Pozitsiya",
+          "Konsepsiya",
+          "Firma uslubi"
+        ]
+      }
+    },
+    {
+      "slug": "rustambek-somsalari",
+      "kind": "branding",
+      "tags": [
+        "branding"
+      ],
+      "name": "Rustambek somsalari",
+      "industry": "",
+      "type": "Brending",
+      "product": "",
+      "platform": "",
+      "title": "Rustambek somsalari: milliy uslubdagi brend",
+      "result": {
+        "value": "",
+        "label": ""
+      },
+      "summary": "Oshpazning 20 yillik tajribasiga urg‘u beruvchi milliy uslubdagi nom va logotip.",
+      "metrics": [],
+      "before": [],
+      "done": [
+        "Milliy uslubda nom",
+        "Logotip",
+        "Oshpazning 20 yillik tajribasiga urg‘u"
+      ],
+      "branding": {
+        "name": "Rustambek somsalari",
+        "items": [
+          "Nom",
+          "Logotip"
+        ]
+      }
     }
   ]
 }

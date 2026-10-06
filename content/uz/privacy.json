@@ -1,0 +1,56 @@
+{
+  "title": "Maxfiylik *siyosati*",
+  "updatedLabel": "Oxirgi yangilanish",
+  "updated": "2026-10-06",
+  "sections": [
+    {
+      "h": "Umumiy qoidalar",
+      "p": [
+        "Ushbu siyosat MarSel Marketing (keyingi o‘rinlarda — «biz») saytidan foydalanganingizda qanday ma’lumotlar yig‘ilishi, ular nima uchun va qanday ishlatilishini tushuntiradi.",
+        "Saytdagi formani yuborish orqali siz ushbu siyosatda ko‘rsatilgan shartlarda ma’lumotlaringiz qayta ishlanishiga rozilik bildirasiz."
+      ]
+    },
+    {
+      "h": "Qanday ma’lumotlar yig‘iladi",
+      "p": [
+        "Formada o‘zingiz kiritgan ma’lumotlar: ism, telefon raqami, Instagram sahifasi yoki sayt havolasi, soha, tanlangan xizmat va izoh.",
+        "Texnik ma’lumotlar: ariza yuborilgan sahifa, sayt tili va reklama manbasi (UTM belgilari).",
+        "Siz roziligingizni berganingizdan keyin — analitika xizmatlari orqali saytdan foydalanish statistikasi (quyida «Cookie va analitika» bo‘limiga qarang)."
+      ]
+    },
+    {
+      "h": "Ma’lumotlar nima uchun ishlatiladi",
+      "p": [
+        "Siz bilan bog‘lanish, bepul audit o‘tkazish va xizmatlarimiz bo‘yicha taklif tayyorlash uchun.",
+        "Sayt va reklama samaradorligini tahlil qilish uchun (faqat umumlashtirilgan ko‘rinishda).",
+        "Ma’lumotlaringizni sotmaymiz va reklama maqsadida uchinchi shaxslarga bermaymiz."
+      ]
+    },
+    {
+      "h": "Ma’lumotlar qayerda saqlanadi",
+      "p": [
+        "Arizalar Telegram messenjeri orqali MarSel Marketing jamoasining ishchi chatiga yuboriladi va faqat jamoa a’zolariga ko‘rinadi.",
+        "Sayt Vercel platformasida joylashgan."
+      ]
+    },
+    {
+      "h": "Cookie va analitika",
+      "p": [
+        "Saytda Google Analytics, Meta Pixel va Yandex Metrika xizmatlari faqat siz cookie fayllaridan foydalanishga rozilik berganingizdan keyin ishga tushadi.",
+        "Roziligingizni istalgan vaqtda brauzer sozlamalarida cookie fayllarini o‘chirish orqali bekor qilishingiz mumkin."
+      ]
+    },
+    {
+      "h": "Sizning huquqlaringiz",
+      "p": [
+        "Siz o‘zingiz haqingizdagi ma’lumotlarni ko‘rish, tuzatish yoki o‘chirishni so‘rashingiz mumkin. Buning uchun marsel.marketinguz@gmail.com manziliga yozing yoki +998 95 090 92 92 raqamiga qo‘ng‘iroq qiling."
+      ]
+    },
+    {
+      "h": "Kontaktlar",
+      "p": [
+        "MarSel Marketing. Toshkent, Mirobod tumani, Shahrisabz ko‘chasi 16A. Telefon: +998 95 090 92 92. Email: marsel.marketinguz@gmail.com."
+      ]
+    }
+  ]
+}

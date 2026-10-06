@@ -2,7 +2,13 @@ import type { HomeDict } from "@/lib/i18n";
 import { Accent } from "../ui/Accent";
 import { container, sectionTitle } from "../ui/styles";
 
+// Javobi bo'sh savollar (tasdiqlanmagan) ko'rsatilmaydi.
+type FaqItem = { q: string; a: string };
+export const visibleFaq = (t: HomeDict["faq"]) => (t.items as FaqItem[]).filter((i) => i.a.trim());
+
 export function Faq({ t }: { t: HomeDict["faq"] }) {
+  const items = visibleFaq(t);
+  if (!items.length) return null;
   return (
     <section id="faq" className="py-16 lg:py-24">
       <div className={`${container} grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20`}>
@@ -10,7 +16,7 @@ export function Faq({ t }: { t: HomeDict["faq"] }) {
           <Accent text={t.title} />
         </h2>
         <div className="border-t-2 border-text">
-          {t.items.map((item) => (
+          {items.map((item) => (
             <details key={item.q} className="group border-b border-border">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5 text-lg font-semibold [&::-webkit-details-marker]:hidden">
                 {item.q}

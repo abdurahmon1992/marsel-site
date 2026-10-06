@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { DM_Sans, Onest, Oswald, Sora } from "next/font/google";
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
 import { getCommon, hasLocale, locales } from "@/lib/i18n";
 import { htmlLang } from "@/lib/locales";
 import { alternates, siteUrl } from "@/lib/site";
@@ -54,15 +52,11 @@ export default async function LangLayout({ children, params }: LayoutProps<"/[la
       <body className="flex min-h-dvh flex-col">
         <a
           href="#main"
-          className="sr-only z-50 rounded-full bg-accent px-4 py-2 text-on-accent focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
+          className="sr-only z-50 bg-accent px-4 py-2 text-on-accent focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
         >
           {t.skipLink}
         </a>
-        <Header locale={lang} t={t} />
-        <main id="main" className="flex-1">
-          {children}
-        </main>
-        <Footer locale={lang} t={t} />
+        {children}
       </body>
     </html>
   );

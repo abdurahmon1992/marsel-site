@@ -28,8 +28,10 @@ content/                  MATNLAR — kodga tegmasdan tahrirlanadi
   pricing.json            paket narxlari va reklama byudjeti (USD) — bitta joyda
   uz|ru|en/common.json    header, footer, forma matnlari, 404, sahifa title/description
   uz|ru|en/home.json      bosh sahifa bloklari (hero, muammolar, xizmatlar, paket tarkibi, FAQ...)
-  uz|ru|en/cases.json     keyslar (bosh sahifada "featured": true bo'lgani chiqadi)
-src/app/[lang]/           sahifalar (har biri 3 tilda statik generatsiya qilinadi)
+  uz|ru|en/cases.json     keyslar (Oldin -> Nima qildik -> Natija), /cases va bosh sahifa
+  uz|ru|en/privacy.json   maxfiylik siyosati matni
+src/app/[lang]/(site)/    asosiy sayt: bosh sahifa, /cases, /cases/[slug], /privacy, 404
+src/app/[lang]/(landing)/ reklama lendingi /audit (menyusiz header, to'liq forma)
 src/app/api/lead/         POST /api/lead — ariza -> Telegram
 src/app/globals.css       TOKENLAR (ranglar, shriftlar)
 src/components/home/      bosh sahifa bloklari
@@ -46,10 +48,19 @@ src/proxy.ts              tilsiz manzillarni (/, /cases) /uz/... ga yo'naltiradi
 5. O‘zbekcha imlo: `o‘`, `g‘` — U+2018 (‘) belgisi bilan; tutuq belgisi — ’ (U+2019).
 6. Commit + push → Vercel avtomatik qayta deploy qiladi.
 
+**Keyslar** (`content/<til>/cases.json`): har keysda `kind` (`numeric` — bosh sahifada
+raqamli kartochka, birinchi 4 tasi; `branding`), `tags` (`/cases` filtri: `smm`, `target`,
+`branding`), `result` (katta raqam), `before` / `done` / `metrics`. `branding.name`
+to‘ldirilsa, keys bosh sahifadagi «Brending» qatorida chiqadi. Bo‘sh maydonlar (`""`, `[]`)
+saytda ko‘rsatilmaydi. Raqamlarni faqat tasdiqlangan manbadan yozing.
+
+**Yashirin bloklar:** «Mijozlar fikri» (`home.json → testimonials.items`) va FAQ
+(`home.json → faq.items`) bo‘sh bo‘lsa, saytda umuman chiqmaydi. Tasdiqlangan
+matnlarni shu ro‘yxatlarga qo‘shing.
+
 **Narxni o‘zgartirish:** `content/pricing.json` dagi `price` / `adBudgetFrom`.
 Paket tarkibi (post, Reels soni) — har tilning `home.json` → `pricing.features`.
 
-Aniqlanmagan ma'lumotlar matnda `[TASDIQLASH]`, rasm o‘rinlari `[RASM]` deb belgilangan.
 
 ## Ranglar va shriftlar
 

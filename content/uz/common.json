@@ -52,6 +52,43 @@
     "error": "Ariza yuborilmadi. Iltimos, bizga Telegram’da yozing:",
     "errorRate": "Juda ko‘p urinish. Bir daqiqadan keyin qayta urinib ko‘ring yoki Telegram’da yozing:",
     "required": "Ismingizni kiriting",
-    "phoneInvalid": "Telefon raqamini to‘liq kiriting"
+    "phoneInvalid": "Telefon raqamini to‘liq kiriting",
+    "niche": "Soha",
+    "nichePlaceholder": "Masalan: mebel, restoran, klinika",
+    "serviceSelect": "Xizmat",
+    "serviceSelectPlaceholder": "Tanlang",
+    "comment": "Izoh",
+    "commentPlaceholder": "Vazifa yoki savolingiz"
+  },
+  "pages": {
+    "cases": {
+      "title": "Keyslar",
+      "description": "MarSel Marketing keyslari: SMM, target reklama va brending natijalari raqamlarda.",
+      "h1": "*Keyslar*",
+      "intro": "Mijozlarimiz bilan qilgan ishlarimiz va ularning natijalari.",
+      "filters": {
+        "all": "Barchasi",
+        "smm": "SMM",
+        "target": "Target",
+        "branding": "Brending"
+      }
+    },
+    "audit": {
+      "title": "Bepul marketing audit — 24 soatda",
+      "description": "Instagram sahifangizni ko‘rib chiqamiz va mijoz qayerda yo‘qolayotganini 3–5 daqiqalik videoda ko‘rsatamiz. Bepul, majburiyatsiz."
+    },
+    "privacy": {
+      "title": "Maxfiylik siyosati",
+      "description": "MarSel Marketing saytida shaxsiy ma’lumotlar qanday yig‘iladi va ishlatiladi."
+    },
+    "caseCta": "Sizda ham shunday natija bo‘lsinmi?",
+    "back": "Barcha keyslar",
+    "caseCtaButton": "Bepul audit olish"
+  },
+  "contactsBlock": {
+    "title": "Kontaktlar",
+    "map": "Yandex xaritada MarSel Marketing ofisi",
+    "mapLoad": "Xarita yuklanmoqda…",
+    "openMap": "Yandex Xaritada ochish"
   }
 }

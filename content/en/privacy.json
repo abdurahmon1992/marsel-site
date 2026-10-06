@@ -1,0 +1,56 @@
+{
+  "title": "Privacy *policy*",
+  "updatedLabel": "Last updated",
+  "updated": "2026-10-06",
+  "sections": [
+    {
+      "h": "General",
+      "p": [
+        "This policy explains what data the MarSel Marketing website (“we”) collects, why, and how it is used.",
+        "By submitting a form on this website, you agree to the processing of your data under this policy."
+      ]
+    },
+    {
+      "h": "What we collect",
+      "p": [
+        "Data you enter in the form: name, phone number, Instagram or website link, industry, selected service and comment.",
+        "Technical data: the page the request was sent from, the site language and the ad source (UTM tags).",
+        "With your consent — website usage statistics via analytics services (see “Cookies and analytics”)."
+      ]
+    },
+    {
+      "h": "How we use it",
+      "p": [
+        "To contact you, carry out the free audit and prepare an offer for our services.",
+        "To analyse the performance of the website and ads (in aggregated form only).",
+        "We do not sell your data or share it with third parties for advertising."
+      ]
+    },
+    {
+      "h": "Where data is stored",
+      "p": [
+        "Requests are delivered via Telegram to the MarSel Marketing team’s work chat and are visible only to the team.",
+        "The website is hosted on Vercel."
+      ]
+    },
+    {
+      "h": "Cookies and analytics",
+      "p": [
+        "Google Analytics, Meta Pixel and Yandex Metrica run on this website only after you consent to cookies.",
+        "You can withdraw consent at any time by deleting cookies in your browser settings."
+      ]
+    },
+    {
+      "h": "Your rights",
+      "p": [
+        "You can ask to access, correct or delete your data. Email marsel.marketinguz@gmail.com or call +998 95 090 92 92."
+      ]
+    },
+    {
+      "h": "Contacts",
+      "p": [
+        "MarSel Marketing. 16A Shahrisabz St, Mirobod district, Tashkent. Phone: +998 95 090 92 92. Email: marsel.marketinguz@gmail.com."
+      ]
+    }
+  ]
+}

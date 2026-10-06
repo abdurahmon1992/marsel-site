@@ -1,67 +1,81 @@
 import Link from "next/link";
 import type { CaseItem, HomeDict } from "@/lib/i18n";
+import { CaseCard } from "../CaseCard";
 import { Accent } from "../ui/Accent";
 import { container, sectionTitle } from "../ui/styles";
 
-type Props = { t: HomeDict["case"]; item: CaseItem; href: string };
+type Props = {
+  t: HomeDict["case"];
+  items: CaseItem[];
+  caseHref: (slug: string) => string;
+  allHref: string;
+};
 
-function PhonePlaceholder({ label, className }: { label: string; className: string }) {
-  return (
-    <div
-      className={`absolute grid aspect-[9/18] place-items-center rounded-[1.75rem] border-[6px] border-surface bg-subtle text-xs font-semibold tracking-widest text-muted shadow-xl ${className}`}
-    >
-      {label}
-    </div>
-  );
-}
-
-export function CaseStudy({ t, item, href }: Props) {
-  const rows: [string, string][] = [
-    [t.labels.type, item.type],
-    [t.labels.company, item.company],
-    [t.labels.product, item.product],
-    [t.labels.platform, item.platform],
-  ];
+export function CaseStudy({ t, items, caseHref, allHref }: Props) {
+  const numeric = items.filter((c) => c.kind === "numeric").slice(0, 4);
+  const branding = items.filter((c) => c.branding.name);
 
   return (
     <section id="cases" className="relative overflow-hidden py-16 lg:py-24">
-      {/* Nuqtali fon pattern */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[radial-gradient(var(--border)_1.5px,transparent_1.5px)] bg-size-[22px_22px] [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]"
+        className="absolute inset-0 bg-[radial-gradient(var(--border)_1.5px,transparent_1.5px)] bg-size-[22px_22px] [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]"
       />
-      <div className={`${container} relative grid items-center gap-12 lg:grid-cols-2 lg:gap-20`}>
-        <div className="relative mx-auto h-[360px] w-full max-w-md sm:h-[440px]">
-          <PhonePlaceholder label={t.imagePlaceholder} className="top-10 left-0 w-[38%] -rotate-6" />
-          <PhonePlaceholder label={t.imagePlaceholder} className="top-0 left-1/2 z-10 w-[42%] -translate-x-1/2" />
-          <PhonePlaceholder label={t.imagePlaceholder} className="top-12 right-0 w-[38%] rotate-6" />
-          <div aria-hidden="true" className="absolute -bottom-2 left-1/2 h-3 w-2/3 -translate-x-1/2 bg-accent" />
+      <div className={`${container} relative`}>
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-xs font-semibold tracking-[0.2em] text-accent uppercase">{t.eyebrow}</p>
+            <h2 className={`mt-3 ${sectionTitle}`}>
+              <Accent text={t.title} />
+            </h2>
+          </div>
+          <Link href={allHref} className="hidden text-sm font-semibold tracking-wide uppercase hover:text-accent sm:inline">
+            {t.all} →
+          </Link>
         </div>
 
-        <div>
-          <p className="text-xs font-semibold tracking-[0.2em] text-accent uppercase">{t.eyebrow}</p>
-          <h2 className={`mt-3 ${sectionTitle}`}>
-            <Accent text={t.title} />
-          </h2>
+        {/* Mobilda gorizontal slayder, md+ da grid */}
+        <ul className="-mx-4 mt-10 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 md:mx-0 md:grid md:grid-cols-2 md:gap-4 md:overflow-visible md:px-0 md:pb-0">
+          {numeric.map((c, i) => (
+            <li
+              key={c.slug}
+              className={`flex w-[82%] shrink-0 snap-start md:w-auto ${
+                i === numeric.length - 1 && numeric.length % 2 ? "md:col-span-2" : ""
+              }`}
+            >
+              <CaseCard item={c} href={caseHref(c.slug)} more={t.more} />
+            </li>
+          ))}
+        </ul>
 
-          <dl className="mt-8 border-t-2 border-text">
-            <div className="grid grid-cols-[7.5rem_1fr] items-baseline gap-4 border-b border-border py-4 sm:grid-cols-[9rem_1fr]">
-              <dt className="text-xs font-semibold tracking-widest text-muted uppercase">{t.labels.result}</dt>
-              <dd className="font-display text-3xl font-bold text-accent sm:text-4xl">{item.result}</dd>
-            </div>
-            {rows.map(([label, value]) => (
-              <div key={label} className="grid grid-cols-[7.5rem_1fr] items-baseline gap-4 border-b border-border py-4 sm:grid-cols-[9rem_1fr]">
-                <dt className="text-xs font-semibold tracking-widest text-muted uppercase">{label}</dt>
-                <dd className="font-semibold">{value}</dd>
-              </div>
-            ))}
-          </dl>
-          <p className="mt-5 text-muted">{item.summary}</p>
+        {branding.length > 0 && (
+          <div className="mt-10 grid gap-4 border-t-2 border-text pt-6 lg:grid-cols-[12rem_1fr] lg:items-start">
+            <h3 className="font-display text-2xl font-semibold uppercase">{t.brandingTitle}</h3>
+            <ul className="grid gap-3 md:grid-cols-3">
+              {branding.map((c) => (
+                <li key={c.slug}>
+                  <Link
+                    href={caseHref(c.slug)}
+                    className="group flex items-center justify-between gap-4 border border-border bg-bg px-5 py-4 transition-colors hover:border-text"
+                  >
+                    <span>
+                      <span className="block font-display text-xl font-bold uppercase">{c.branding.name}</span>
+                      <span className="text-sm text-muted">{c.branding.items.join(" · ")}</span>
+                    </span>
+                    <span aria-hidden="true" className="text-xl group-hover:text-accent">→</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <div className="mt-10 text-center">
           <Link
-            href={href}
-            className="mt-6 inline-flex h-12 items-center border-2 border-text px-6 text-sm font-semibold tracking-wide uppercase transition-colors hover:bg-text hover:text-bg"
+            href={allHref}
+            className="inline-flex h-12 items-center bg-text px-7 text-sm font-semibold tracking-wide text-bg uppercase transition-colors hover:bg-accent"
           >
-            {t.more} →
+            {t.all} →
           </Link>
         </div>
       </div>

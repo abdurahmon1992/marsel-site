@@ -52,6 +52,43 @@
     "error": "Your request wasn’t sent. Please message us on Telegram:",
     "errorRate": "Too many attempts. Try again in a minute or message us on Telegram:",
     "required": "Please enter your name",
-    "phoneInvalid": "Please enter the full phone number"
+    "phoneInvalid": "Please enter the full phone number",
+    "niche": "Industry",
+    "nichePlaceholder": "E.g. furniture, restaurant, clinic",
+    "serviceSelect": "Service",
+    "serviceSelectPlaceholder": "Choose",
+    "comment": "Comment",
+    "commentPlaceholder": "Your task or question"
+  },
+  "pages": {
+    "cases": {
+      "title": "Case studies",
+      "description": "MarSel Marketing case studies: SMM, paid social and branding results in numbers.",
+      "h1": "*Case studies*",
+      "intro": "Work we have done with our clients and the results.",
+      "filters": {
+        "all": "All",
+        "smm": "SMM",
+        "target": "Paid ads",
+        "branding": "Branding"
+      }
+    },
+    "audit": {
+      "title": "Free marketing audit within 24 hours",
+      "description": "We review your Instagram page and show you, in a 3–5 minute video, where customers get lost. Free, no strings attached."
+    },
+    "privacy": {
+      "title": "Privacy policy",
+      "description": "How the MarSel Marketing website collects and uses personal data."
+    },
+    "caseCta": "Want results like this?",
+    "back": "All case studies",
+    "caseCtaButton": "Get a free audit"
+  },
+  "contactsBlock": {
+    "title": "Contacts",
+    "map": "MarSel Marketing office on Yandex Maps",
+    "mapLoad": "Loading map…",
+    "openMap": "Open in Yandex Maps"
   }
 }

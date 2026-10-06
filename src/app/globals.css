@@ -96,19 +96,22 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1,
-h2 {
-  font-family: var(--font-display);
-  font-weight: 700;
-  text-transform: uppercase;
-  line-height: 1;
-  letter-spacing: -0.005em;
-}
+@layer base {
+  /* @layer ichida — Tailwind utility sinflari (font-sans, normal-case) ustun bo'lishi uchun */
+  h1,
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: -0.005em;
+  }
 
-h3,
-h4 {
-  font-family: var(--font-display);
-  font-weight: 600;
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+  }
 }
 
 :focus-visible {

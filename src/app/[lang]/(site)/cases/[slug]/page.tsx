@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { Badge } from "@/components/CaseCard";
 import { CaseImage } from "@/components/CaseImage";
 import { JsonLd } from "@/components/JsonLd";
 import { caseSchema } from "@/lib/schema";
@@ -73,12 +74,11 @@ export default async function CasePage({ params }: PageProps<"/[lang]/cases/[slu
 
       <section className={`${container} pb-16 lg:pb-24`}>
         {item.badge && (
-          <p className="mb-4 inline-flex items-center gap-1.5 bg-accent px-3 py-1 text-xs font-semibold tracking-wide text-on-accent uppercase">
-            <span aria-hidden="true" className="size-1.5 rounded-full bg-on-accent motion-safe:animate-pulse" />
-            {item.badge}
+          <p className="mb-4">
+            <Badge>{item.badge}</Badge>
           </p>
         )}
-        <dl className="flex flex-wrap gap-x-10 gap-y-3 border-y border-border py-4 text-sm">
+        <dl className="flex flex-wrap gap-x-10 gap-y-3 border-y border-line py-4 text-sm">
           {facts.map(([label, value]) => (
             <div key={label} className="flex gap-2">
               <dt className="text-muted">{label}:</dt>
@@ -92,8 +92,8 @@ export default async function CasePage({ params }: PageProps<"/[lang]/cases/[slu
             {item.result.value && (
               <div>
                 <p
-                  className={`font-display leading-none font-bold text-accent ${
-                    item.kind === "strategy" ? "text-5xl uppercase sm:text-6xl lg:text-7xl" : "text-[3.25rem] sm:text-8xl lg:text-9xl"
+                  className={`leading-none font-bold tracking-tight text-accent ${
+                    item.kind === "strategy" ? "text-4xl sm:text-5xl" : "text-5xl sm:text-6xl lg:text-7xl"
                   }`}
                 >
                   {item.result.value}
@@ -125,8 +125,8 @@ export default async function CasePage({ params }: PageProps<"/[lang]/cases/[slu
               <figure key={img.src}>
                 <CaseImage image={img} sizes="(min-width: 1024px) 450px, 50vw" frameWidth={450} eager aspect="aspect-square" />
                 <figcaption
-                  className={`mt-2 inline-block px-3 py-1 text-xs font-semibold tracking-wide uppercase ${
-                    i ? "bg-accent text-on-accent" : "bg-subtle text-text"
+                  className={`mt-2 inline-block rounded-full px-3 py-1 text-xs font-semibold ${
+                    i ? "bg-surface-2 text-accent" : "bg-surface text-muted"
                   }`}
                 >
                   {label}
@@ -137,16 +137,16 @@ export default async function CasePage({ params }: PageProps<"/[lang]/cases/[slu
         )}
 
         {/* Oldin -> Qildik -> Natija */}
-        <ol className={`mt-12 grid gap-px bg-border ${stepCols}`}>
+        <ol className={`mt-12 grid gap-4 ${stepCols}`}>
           {before.length > 0 && (
-            <li className="bg-bg py-8 lg:pr-8">
-              <h2 className="text-3xl">
-                <span className="text-accent">01</span> {firstLabel}
+            <li className="rounded-2xl border border-line bg-bg p-6 sm:p-7">
+              <h2 className="text-xl">
+                <span className="mr-1 text-sm font-semibold text-accent tabular-nums">01</span> {firstLabel}
               </h2>
               <ul className="mt-5 space-y-3">
                 {before.map((b) => (
                   <li key={b} className="flex gap-3">
-                    <span aria-hidden="true" className="mt-2.5 size-2 shrink-0 bg-muted" />
+                    <span aria-hidden="true" className="mt-2.5 size-1.5 shrink-0 rounded-full bg-muted/60" />
                     {b}
                   </li>
                 ))}
@@ -154,41 +154,41 @@ export default async function CasePage({ params }: PageProps<"/[lang]/cases/[slu
             </li>
           )}
           {done.length > 0 && (
-            <li className="bg-bg py-8 lg:px-8">
-              <h2 className="text-3xl">
-                <span className="text-accent">{before.length ? "02" : "01"}</span> {l.done}
+            <li className="rounded-2xl border border-line bg-bg p-6 sm:p-7">
+              <h2 className="text-xl">
+                <span className="mr-1 text-sm font-semibold text-accent tabular-nums">{before.length ? "02" : "01"}</span> {l.done}
               </h2>
               <ul className="mt-5 space-y-3">
                 {done.map((d) => (
                   <li key={d} className="flex gap-3">
-                    <span aria-hidden="true" className="mt-2.5 size-2 shrink-0 bg-accent" />
+                    <span aria-hidden="true" className="mt-2.5 size-1.5 shrink-0 rounded-full bg-accent" />
                     {d}
                   </li>
                 ))}
               </ul>
             </li>
           )}
-          <li className="bg-bg py-8 lg:pl-8">
-            <h2 className="text-3xl">
-              <span className="text-accent">{String((before.length ? 1 : 0) + (done.length ? 1 : 0) + 1).padStart(2, "0")}</span>{" "}
+          <li className="rounded-2xl border border-line bg-bg p-6 sm:p-7">
+            <h2 className="text-xl">
+              <span className="mr-1 text-sm font-semibold text-accent tabular-nums">{String((before.length ? 1 : 0) + (done.length ? 1 : 0) + 1).padStart(2, "0")}</span>{" "}
               {l.result}
             </h2>
             {metrics.length > 0 ? (
-              <ul className={`mt-5 grid gap-px bg-border ${metrics.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+              <ul className={`mt-5 grid gap-px overflow-hidden rounded-xl bg-line ${metrics.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
                 {metrics.map((m) => (
-                  <li key={m.label} className="bg-bg py-3 pr-3">
-                    <p className="font-display text-2xl font-bold sm:text-3xl">{m.value}</p>
+                  <li key={m.label} className="bg-bg p-3">
+                    <p className="text-xl font-bold tracking-tight text-accent sm:text-2xl">{m.value}</p>
                     <p className="mt-1 text-sm text-muted">{m.label}</p>
                   </li>
                 ))}
               </ul>
             ) : (
-              <p className="mt-5 text-lg">{item.resultText || item.summary}</p>
+              <p className="mt-5">{item.resultText || item.summary}</p>
             )}
             {related && (
               <Link
                 href={localizedPath(lang, `/cases/${related.slug}`)}
-                className="mt-6 inline-flex items-start gap-2 border-l-2 border-accent pl-3 text-sm font-semibold hover:text-accent"
+                className="mt-6 inline-flex items-start gap-2 rounded-xl bg-surface-2 px-4 py-3 text-sm font-semibold text-accent hover:underline"
               >
                 {related.text} →
               </Link>
@@ -198,7 +198,7 @@ export default async function CasePage({ params }: PageProps<"/[lang]/cases/[slu
 
         {item.gallery.length > 0 && (
           <div className="mt-12">
-            <h2 className="text-3xl">{home.case.galleryTitle}</h2>
+            <h2 className="text-2xl">{home.case.galleryTitle}</h2>
             <ul className="mt-6 grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
               {item.gallery.map((img) => (
                 <li key={img.src} className={img.wide ? "sm:col-span-2 lg:col-span-3" : undefined}>
@@ -213,12 +213,12 @@ export default async function CasePage({ params }: PageProps<"/[lang]/cases/[slu
           </div>
         )}
 
-        <div className="mt-12 flex flex-col gap-5 bg-surface p-8 text-on-surface sm:flex-row sm:items-center sm:justify-between lg:p-12">
-          <p className="font-display text-3xl font-bold uppercase lg:text-4xl">{common.pages.caseCta}</p>
+        <div className="mt-12 flex flex-col gap-5 rounded-2xl bg-surface-2 p-7 sm:flex-row sm:items-center sm:justify-between lg:p-10">
+          <p className="text-2xl font-bold tracking-tight lg:text-[1.75rem]">{common.pages.caseCta}</p>
           <a
             href="#audit"
             data-cta={`case_${item.slug}`}
-            className="inline-flex h-14 shrink-0 items-center justify-center bg-accent px-8 text-sm font-semibold tracking-wide text-on-accent uppercase transition-colors hover:bg-accent-hover"
+            className="inline-flex h-12 shrink-0 items-center justify-center rounded-[10px] bg-accent px-7 text-[15px] font-semibold text-on-accent transition-colors hover:bg-accent-hover"
           >
             {common.pages.caseCtaButton}
           </a>

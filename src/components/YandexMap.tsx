@@ -26,7 +26,7 @@ export function YandexMap({ src, title, loadingLabel, className = "" }: Props) {
   }, []);
 
   return (
-    <div ref={ref} className={`relative overflow-hidden bg-surface-raised ${className}`}>
+    <div ref={ref} className={`relative overflow-hidden bg-bg ${className}`}>
       {visible ? (
         <iframe
           src={src}
@@ -37,7 +37,7 @@ export function YandexMap({ src, title, loadingLabel, className = "" }: Props) {
           className="absolute inset-0 size-full border-0"
         />
       ) : (
-        <span className="absolute inset-0 grid place-items-center text-sm text-on-surface-muted">{loadingLabel}</span>
+        <span className="absolute inset-0 grid place-items-center text-sm text-muted">{loadingLabel}</span>
       )}
     </div>
   );

@@ -1,121 +1,83 @@
 @import "tailwindcss";
 
 /*
- * Oswald (sarlavhalar) — o'zimiz joylashtiramiz: lotin va kirill alohida fayl,
- * shunda kirill fayli faqat /ru sahifalarida oldindan yuklanadi (src/app/[lang]/layout.tsx).
- */
-@font-face {
-  font-family: "Oswald";
-  font-style: normal;
-  font-weight: 200 700;
-  font-display: swap;
-  src: url("/fonts/oswald-latin-wght-normal.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
-    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: "Oswald";
-  font-style: normal;
-  font-weight: 200 700;
-  font-display: swap;
-  src: url("/fonts/oswald-cyrillic-wght-normal.woff2") format("woff2");
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-/* Shrift yuklanguncha joy o'zgarmasligi uchun Oswald o'lchamiga moslangan Arial */
-@font-face {
-  font-family: "Oswald Fallback";
-  src: local("Arial");
-  ascent-override: 146.51%;
-  descent-override: 35.49%;
-  line-gap-override: 0%;
-  size-adjust: 81.43%;
-}
-
-/*
- * TOKENLAR. Loyihada hex qiymatlar FAQAT shu yerda (va CSS ishlamaydigan joylar
- * uchun src/lib/tokens.ts da) yoziladi. Komponentlar faqat Tailwind sinflari
- * orqali semantik o'zgaruvchilarga murojaat qiladi: bg-bg, bg-surface, text-accent ...
+ * TOKENLAR — C brend (kobalt + marjon). Loyihada hex qiymatlar FAQAT shu yerda
+ * (va CSS ishlamaydigan joylar — OG rasm, ikonka — uchun src/lib/tokens.ts da) yoziladi.
+ * Komponentlar faqat Tailwind sinflari orqali semantik o'zgaruvchilarga murojaat qiladi.
  *
- * 1) Primitivlar — ikkala palitraning xom ranglari.
- * 2) Semantik tokenlar — hozir REFERENS palitrasi (oq fon, qora kartalar, qizil accent).
- * 3) [data-palette="c"] — tasdiqlangan C brend palitrasi. Qaytarish uchun
- *    src/app/[lang]/layout.tsx dagi <html data-palette="..."> qiymatini "c" qiling.
+ * Kontrast (WCAG AA): accent/oq 6.19 · oq matn accent tugmada 6.19 · muted/surface 5.57 ·
+ * text/surface 16.7. accent-2 (marjon, 3.08) — FAQAT dekor: matn yoki tugma foni emas.
  */
 :root {
-  /* --- 1. Primitivlar ------------------------------------------------- */
-  /* C brend (tasdiqlangan) */
-  --brand-kobalt: #2346ff;
-  --brand-marjon: #ff5a4e;
-  --brand-siyoh: #0e1330;
-  --brand-tuman: #f2f4fa;
-  /* Referens palitrasi */
-  --ref-ink: #111111;
-  --ref-card: #1c1c1c;
-  --ref-red: #dc2f2a; /* ~#E5322D, oq matn bilan WCAG AA kontrasti uchun biroz to'qroq */
+  /* --- Brend ranglari ------------------------------------------------- */
   --white: #ffffff;
-  --black: #000000;
+  --ink: #0e1330; /* Siyoh */
+  --cobalt: #2346ff; /* Kobalt */
+  --cobalt-hover: #1a36d6;
+  --coral: #ff5a4e; /* Marjon — faqat dekor */
+  --mist: #f3f5fa; /* Tuman */
+  --cobalt-soft: #eef2ff;
+  --line-color: #e3e7f1;
+  --slate: #5a6180;
+  --black: #000000; /* faqat qora fonli rasmlar (contain) atrofi uchun */
 
-  /* --- 2. Semantik tokenlar (referens) -------------------------------- */
+  /* --- Semantik tokenlar --------------------------------------------- */
   --bg: var(--white);
-  --text: var(--ref-ink);
-  --surface: var(--ref-card); /* katta qora kartalar */
-  --on-surface: var(--white);
-  --accent: var(--ref-red);
-  --accent-2: var(--ref-red);
+  --surface: var(--mist); /* kartochkalar, bo'limlar foni */
+  --surface-2: var(--cobalt-soft); /* chiplar, nishonlar, forma bloki foni */
+  --line: var(--line-color);
+  --text: var(--ink);
+  --muted: var(--slate);
+  --accent: var(--cobalt); /* tugmalar, havolalar, katta raqamlar */
+  --accent-hover: var(--cobalt-hover);
+  --accent-2: var(--coral);
   --on-accent: var(--white);
-  --media-dark: var(--black); /* qora fonli rasmlar (contain) uchun */
+  --media-dark: var(--black);
 
-  /* Logotip palitradan qat'i nazar o'zgarmaydi */
-  --logo-mark: var(--brand-kobalt);
-  --logo-dot: var(--brand-marjon);
+  /* Yagona to'q blok — footer */
+  --dark: var(--ink);
+  --on-dark: var(--white);
+  --on-dark-muted: color-mix(in srgb, var(--white) 68%, var(--ink));
+  --dark-line: color-mix(in srgb, var(--white) 14%, var(--ink));
+
+  /* Logotip */
+  --logo-mark: var(--cobalt);
+  --logo-dot: var(--coral);
   --logo-line: var(--white);
 
-  /* Hosilalar */
-  --muted: color-mix(in srgb, var(--text) 62%, var(--bg));
-  --border: color-mix(in srgb, var(--text) 12%, var(--bg));
-  --subtle: color-mix(in srgb, var(--text) 5%, var(--bg)); /* och kulrang fon */
-  --on-surface-muted: color-mix(in srgb, var(--on-surface) 66%, var(--surface));
-  --surface-border: color-mix(in srgb, var(--on-surface) 14%, var(--surface));
-  --surface-raised: color-mix(in srgb, var(--on-surface) 7%, var(--surface));
-  --accent-hover: color-mix(in srgb, var(--accent) 84%, var(--ref-ink));
-
+  --shadow-soft-value: 0 1px 2px color-mix(in srgb, var(--ink) 4%, transparent);
   --header-h: 4rem;
   color-scheme: light;
-}
-
-:root[data-palette="c"] {
-  --text: var(--brand-siyoh);
-  --surface: var(--brand-siyoh);
-  --accent: var(--brand-kobalt);
-  --accent-2: var(--brand-marjon);
-  --subtle: var(--brand-tuman);
-  --accent-hover: color-mix(in srgb, var(--accent) 86%, var(--brand-siyoh));
 }
 
 @theme inline {
   --color-bg: var(--bg);
   --color-text: var(--text);
   --color-muted: var(--muted);
-  --color-border: var(--border);
-  --color-subtle: var(--subtle);
+  --color-line: var(--line);
   --color-surface: var(--surface);
-  --color-surface-raised: var(--surface-raised);
-  --color-surface-border: var(--surface-border);
-  --color-on-surface: var(--on-surface);
-  --color-on-surface-muted: var(--on-surface-muted);
+  --color-surface-2: var(--surface-2);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
   --color-accent-2: var(--accent-2);
   --color-on-accent: var(--on-accent);
   --color-media-dark: var(--media-dark);
+  --color-dark: var(--dark);
+  --color-on-dark: var(--on-dark);
+  --color-on-dark-muted: var(--on-dark-muted);
+  --color-dark-line: var(--dark-line);
   --color-logo-mark: var(--logo-mark);
   --color-logo-dot: var(--logo-dot);
   --color-logo-line: var(--logo-line);
 
-  /* Oswald — lotin + kirill. DM Sans'da kirill yo'q: ru matnda Onest'ga o'tadi. */
-  --font-display: "Oswald", "Oswald Fallback", ui-sans-serif, system-ui, sans-serif;
-  --font-logo: var(--font-sora), ui-sans-serif, system-ui, sans-serif; /* faqat wordmark */
-  --font-sans: var(--font-dm-sans), var(--font-onest), ui-sans-serif, system-ui, sans-serif;
+  /* Bitta oila: Manrope (lotin + kirill) — sarlavha ham, matn ham */
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-logo: var(--font-sora), ui-sans-serif, system-ui, sans-serif; /* faqat "marsel." wordmark */
+
+  --shadow-soft: var(--shadow-soft-value);
+  --shadow-float: 0 8px 30px color-mix(in srgb, var(--ink) 8%, transparent);
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 html {
@@ -131,21 +93,40 @@ body {
 }
 
 @layer base {
-  /* @layer ichida — Tailwind utility sinflari (font-sans, normal-case) ustun bo'lishi uchun */
+  /* @layer ichida — Tailwind utility sinflari ustun bo'lishi uchun */
   h1,
-  h2 {
-    font-family: var(--font-display);
-    font-weight: 700;
-    text-transform: uppercase;
-    line-height: 1;
-    letter-spacing: -0.005em;
-  }
-
+  h2,
   h3,
   h4 {
     font-family: var(--font-display);
-    font-weight: 600;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
   }
+  h1,
+  h2 {
+    font-weight: 700;
+    line-height: 1.12;
+  }
+  h3,
+  h4 {
+    font-weight: 600;
+    line-height: 1.25;
+  }
+}
+
+/* Yengil paydo bo'lish: faqat opacity + 10px siljish, ease-out */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@utility animate-rise {
+  animation: rise-in 0.5s var(--ease-out-soft) both;
 }
 
 :focus-visible {
@@ -156,5 +137,11 @@ body {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }

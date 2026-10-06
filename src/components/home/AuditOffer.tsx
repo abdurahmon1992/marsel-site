@@ -3,7 +3,7 @@ import type { CommonDict, HomeDict } from "@/lib/i18n";
 import { MailIcon, PhoneIcon, PinIcon, TelegramIcon } from "../icons";
 import { LeadForm } from "../LeadForm";
 import { Accent } from "../ui/Accent";
-import { cardContainer, darkCard, sectionTitle } from "../ui/styles";
+import { cardContainer, dot, panelSoft, sectionTitle, textLink } from "../ui/styles";
 import { YandexMap } from "../YandexMap";
 
 type Props = {
@@ -17,29 +17,31 @@ export function AuditOffer({ t, common, lang, privacyHref }: Props) {
   const c = common.contactsBlock;
   return (
     <section id="audit" className={`${cardContainer} py-3 lg:py-4`}>
-      <div className={darkCard}>
+      <div className={panelSoft}>
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
             <h2 className={sectionTitle}>
-              <Accent text={t.title} />
+              <Accent text={t.title} highlight />
             </h2>
-            <p className="mt-6 max-w-md text-lg text-on-surface-muted">{t.text}</p>
+            <p className="mt-5 max-w-md text-lg text-muted">{t.text}</p>
             <ul className="mt-8 space-y-3">
               {t.points.map((p) => (
                 <li key={p} className="flex items-center gap-3">
-                  <span aria-hidden="true" className="size-2.5 shrink-0 bg-accent" />
+                  <span aria-hidden="true" className={dot} />
                   {p}
                 </li>
               ))}
             </ul>
           </div>
-          <LeadForm t={common.form} lang={lang} privacyHref={privacyHref} telegramUrl={contacts.socials.telegram} />
+          <div className="rounded-2xl border border-line bg-bg p-5 shadow-soft sm:p-7">
+            <LeadForm t={common.form} lang={lang} privacyHref={privacyHref} telegramUrl={contacts.socials.telegram} />
+          </div>
         </div>
 
         {/* Kontaktlar + xarita */}
-        <div id="contacts" className="mt-12 grid gap-8 border-t border-surface-border pt-10 lg:mt-16 lg:grid-cols-2 lg:gap-16">
+        <div id="contacts" className="mt-12 grid gap-8 border-t border-line pt-10 lg:mt-14 lg:grid-cols-2 lg:gap-16">
           <div>
-            <h3 className="text-2xl uppercase">{c.title}</h3>
+            <h3 className="text-xl">{c.title}</h3>
             <ul className="mt-6 space-y-4">
               <li>
                 <a href={`tel:${contacts.phone}`} data-track="phone_click" className="inline-flex items-center gap-3 text-xl font-semibold hover:text-accent">
@@ -68,13 +70,8 @@ export function AuditOffer({ t, common, lang, privacyHref }: Props) {
                 <PinIcon className="mt-0.5 size-5 shrink-0 text-accent" />
                 <span>
                   {common.footer.address}
-                  <span className="block text-on-surface-muted">{common.footer.addressNote}</span>
-                  <a
-                    href={contacts.yandexMaps}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-2 inline-block text-sm font-semibold underline underline-offset-4 hover:text-accent"
-                  >
+                  <span className="block text-muted">{common.footer.addressNote}</span>
+                  <a href={contacts.yandexMaps} target="_blank" rel="noopener noreferrer" className={`mt-2 inline-block text-sm ${textLink}`}>
                     {c.openMap} →
                   </a>
                 </span>
@@ -85,7 +82,7 @@ export function AuditOffer({ t, common, lang, privacyHref }: Props) {
             src={contacts.yandexMapWidget}
             title={c.map}
             loadingLabel={c.mapLoad}
-            className="aspect-[4/3] w-full lg:aspect-auto lg:min-h-80"
+            className="aspect-[4/3] w-full rounded-2xl border border-line lg:aspect-auto lg:min-h-80"
           />
         </div>
       </div>

@@ -109,11 +109,11 @@ export function Analytics({ ids, t, privacyHref }: { ids: Ids; t: Dict; privacyH
         <div
           role="dialog"
           aria-label={t.label}
-          className="fixed inset-x-2 bottom-2 z-50 mx-auto max-w-3xl bg-surface p-4 text-on-surface shadow-2xl sm:inset-x-4 sm:bottom-4 sm:flex sm:items-center sm:gap-6 sm:p-5"
+          className="animate-rise fixed inset-x-2 bottom-2 z-50 mx-auto max-w-3xl rounded-2xl border border-line bg-bg p-4 text-text shadow-float sm:inset-x-4 sm:bottom-4 sm:flex sm:items-center sm:gap-6 sm:p-5"
         >
-          <p className="text-sm text-on-surface-muted">
+          <p className="text-sm text-muted">
             {t.text}{" "}
-            <Link href={privacyHref} className="whitespace-nowrap text-on-surface underline underline-offset-2">
+            <Link href={privacyHref} className="whitespace-nowrap font-medium text-accent underline underline-offset-2">
               {t.more}
             </Link>
           </p>
@@ -121,14 +121,14 @@ export function Analytics({ ids, t, privacyHref }: { ids: Ids; t: Dict; privacyH
             <button
               type="button"
               onClick={() => choose("necessary")}
-              className="h-10 flex-1 border border-surface-border px-4 text-xs font-semibold tracking-wide uppercase hover:border-on-surface sm:flex-none"
+              className="h-10 flex-1 rounded-[10px] border border-line px-4 text-sm font-semibold text-accent transition-colors hover:border-accent sm:flex-none"
             >
               {t.necessary}
             </button>
             <button
               type="button"
               onClick={() => choose("all")}
-              className="h-10 flex-1 bg-accent px-5 text-xs font-semibold tracking-wide text-on-accent uppercase hover:bg-accent-hover sm:flex-none"
+              className="h-10 flex-1 rounded-[10px] bg-accent px-5 text-sm font-semibold text-on-accent transition-colors hover:bg-accent-hover sm:flex-none"
             >
               {t.accept}
             </button>

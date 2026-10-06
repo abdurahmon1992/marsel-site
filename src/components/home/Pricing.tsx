@@ -2,65 +2,57 @@ import pricing from "../../../content/pricing.json";
 import type { HomeDict } from "@/lib/i18n";
 import { SelectService } from "../SelectService";
 import { Accent } from "../ui/Accent";
-import { cardContainer, darkCard, sectionTitle } from "../ui/styles";
+import { btnPrimary, btnSecondary, cardContainer, dot, panel, sectionTitle } from "../ui/styles";
 
 type PlanId = keyof HomeDict["pricing"]["features"];
 
 export function Pricing({ t }: { t: HomeDict["pricing"] }) {
   return (
     <section id="pricing" className={`${cardContainer} py-3 lg:py-4`}>
-      <div className={darkCard}>
-        <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+      <div className={panel}>
+        <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
           <h2 className={sectionTitle}>
             <Accent text={t.title} />
           </h2>
-          <p className="max-w-sm text-sm text-on-surface-muted">{t.note}</p>
+          <p className="max-w-sm text-sm text-muted">{t.note}</p>
         </div>
 
-        <ul className="mt-10 grid gap-4 md:grid-cols-3 lg:mt-14">
+        <ul className="mt-10 grid gap-4 md:grid-cols-3 lg:mt-12">
           {pricing.plans.map((plan) => {
             const popular = plan.popular;
             const features = t.features[plan.id as PlanId] ?? [];
             return (
               <li
                 key={plan.id}
-                className={`relative flex flex-col p-6 sm:p-8 ${
-                  popular ? "bg-bg text-text" : "border border-surface-border bg-surface-raised"
+                className={`relative flex flex-col rounded-2xl bg-bg p-6 sm:p-7 ${
+                  popular ? "border-[1.5px] border-accent" : "border border-line"
                 }`}
               >
-                {popular && (
-                  <span className="absolute top-0 right-6 -translate-y-1/2 bg-accent px-3 py-1 text-xs font-semibold tracking-wide text-on-accent uppercase">
-                    {t.popular}
-                  </span>
-                )}
-                <h3 className="text-2xl uppercase">{plan.name}</h3>
+                <div className="flex items-center justify-between gap-3">
+                  <h3 className="text-lg">{plan.name}</h3>
+                  {popular && (
+                    <span className="rounded-full bg-surface-2 px-2.5 py-1 text-xs font-semibold text-accent">{t.popular}</span>
+                  )}
+                </div>
                 <p className="mt-4 flex items-baseline gap-1">
-                  <span className="font-display text-5xl font-bold">
+                  <span className="text-4xl font-bold tracking-tight">
                     {pricing.currency}
                     {plan.price}
                   </span>
-                  <span className={popular ? "text-muted" : "text-on-surface-muted"}>{t.perMonth}</span>
+                  <span className="text-muted">{t.perMonth}</span>
                 </p>
-                <p className={`mt-2 text-sm ${popular ? "text-muted" : "text-on-surface-muted"}`}>
+                <p className="mt-1 text-sm text-muted">
                   {t.adBudget.replace("{amount}", `${pricing.currency}${plan.adBudgetFrom}`)}
                 </p>
-                <ul className={`mt-6 flex-1 space-y-3 border-t pt-6 ${popular ? "border-border" : "border-surface-border"}`}>
+                <ul className="mt-6 flex-1 space-y-2.5 border-t border-line pt-6 text-[15px]">
                   {features.map((f) => (
                     <li key={f} className="flex items-center gap-3">
-                      <span aria-hidden="true" className="size-2 shrink-0 bg-accent" />
+                      <span aria-hidden="true" className={dot} />
                       {f}
                     </li>
                   ))}
                 </ul>
-                <SelectService
-                  value={plan.name}
-                  source={`pricing_${plan.id}`}
-                  className={`mt-8 inline-flex h-12 items-center justify-center text-sm font-semibold tracking-wide uppercase transition-colors ${
-                    popular
-                      ? "bg-accent text-on-accent hover:bg-accent-hover"
-                      : "border border-on-surface text-on-surface hover:bg-on-surface hover:text-surface"
-                  }`}
-                >
+                <SelectService value={plan.name} source={`pricing_${plan.id}`} className={`mt-8 w-full ${popular ? btnPrimary : btnSecondary}`}>
                   {t.cta}
                 </SelectService>
               </li>

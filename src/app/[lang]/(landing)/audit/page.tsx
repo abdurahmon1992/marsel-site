@@ -4,7 +4,7 @@ import contacts from "../../../../../content/contacts.json";
 import pricing from "../../../../../content/pricing.json";
 import { LeadForm } from "@/components/LeadForm";
 import { Accent } from "@/components/ui/Accent";
-import { cardContainer, darkCard } from "@/components/ui/styles";
+import { cardContainer, dot, panelSoft } from "@/components/ui/styles";
 import { getCommon, getHome, hasLocale } from "@/lib/i18n";
 import { alternates, localizedPath, openGraphFor } from "@/lib/site";
 
@@ -28,26 +28,26 @@ export default async function AuditPage({ params }: PageProps<"/[lang]/audit">) 
 
   return (
     <section id="audit" className={`${cardContainer} py-3 sm:py-6 lg:py-10`}>
-      <div className={`${darkCard} grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16`}>
+      <div className={`${panelSoft} grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16`}>
         <div>
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl">
-            <Accent text={home.audit.title} />
+          <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem]">
+            <Accent text={home.audit.title} highlight />
           </h1>
-          <p className="mt-6 max-w-lg text-lg text-on-surface-muted">{home.audit.text}</p>
+          <p className="mt-5 max-w-lg text-lg text-muted">{home.audit.text}</p>
           <ul className="mt-8 space-y-3">
             {home.audit.points.map((p) => (
               <li key={p} className="flex items-center gap-3">
-                <span aria-hidden="true" className="size-2.5 shrink-0 bg-accent" />
+                <span aria-hidden="true" className={dot} />
                 {p}
               </li>
             ))}
           </ul>
 
-          <dl className="mt-10 grid gap-4 border-t border-surface-border pt-6 sm:grid-cols-3">
+          <dl className="mt-10 grid gap-4 border-t border-line pt-6 sm:grid-cols-3">
             {home.hero.stats.map((s) => (
               <div key={s.label} className="flex flex-col-reverse">
-                <dt className="mt-1 text-sm text-on-surface-muted">{s.label}</dt>
-                <dd className="font-display text-2xl font-bold whitespace-nowrap xl:text-3xl">{s.value}</dd>
+                <dt className="mt-1 text-sm text-muted">{s.label}</dt>
+                <dd className="text-2xl font-bold tracking-tight whitespace-nowrap text-accent">{s.value}</dd>
               </div>
             ))}
           </dl>
@@ -55,13 +55,14 @@ export default async function AuditPage({ params }: PageProps<"/[lang]/audit">) 
           <ol className="mt-10 grid gap-4 sm:grid-cols-2">
             {home.process.steps.map((step, i) => (
               <li key={step.title} className="flex gap-3">
-                <span className="font-display text-2xl leading-none font-bold text-accent">{String(i + 1).padStart(2, "0")}</span>
+                <span className="text-sm font-semibold text-accent tabular-nums">{String(i + 1).padStart(2, "0")}</span>
                 <span className="font-semibold">{step.title}</span>
               </li>
             ))}
           </ol>
         </div>
 
+        <div className="rounded-2xl border border-line bg-bg p-5 shadow-soft sm:p-7 lg:self-start">
         <LeadForm
           t={common.form}
           lang={lang}
@@ -70,6 +71,7 @@ export default async function AuditPage({ params }: PageProps<"/[lang]/audit">) 
           variant="full"
           serviceOptions={serviceOptions}
         />
+        </div>
       </div>
     </section>
   );

@@ -26,11 +26,11 @@ export default async function PrivacyPage({ params }: PageProps<"/[lang]/privacy
     <>
       <PageHeader title={t.title} intro={`${t.updatedLabel}: ${t.updated.split("-").reverse().join(".")}`} />
       <article className={`${container} pb-16 lg:pb-24`}>
-        <div className="max-w-3xl border-t-2 border-text">
+        <div className="max-w-3xl border-t border-line">
           {t.sections.map((s, i) => (
-            <section key={s.h} className="border-b border-border py-8">
-              <h2 className="text-2xl sm:text-3xl">
-                <span className="text-accent">{String(i + 1).padStart(2, "0")}</span> {s.h}
+            <section key={s.h} className="border-b border-line py-8">
+              <h2 className="text-xl sm:text-2xl">
+                <span className="mr-1 text-sm font-semibold text-accent tabular-nums">{String(i + 1).padStart(2, "0")}</span> {s.h}
               </h2>
               <div className="mt-4 space-y-3 text-muted">
                 {s.p.map((p) => (

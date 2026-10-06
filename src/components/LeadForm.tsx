@@ -68,8 +68,8 @@ function readUtm(): Record<string, string> {
 }
 
 const field =
-  "h-12 w-full border border-transparent bg-bg px-4 text-base text-text placeholder:text-muted focus:border-accent focus:outline-none aria-[invalid=true]:border-accent";
-const label = "mb-1.5 block text-xs font-semibold tracking-wide text-on-surface-muted uppercase";
+  "h-12 w-full rounded-[10px] border border-line bg-bg px-4 text-base text-text placeholder:text-muted/80 transition-colors focus:border-accent focus:outline-none aria-[invalid=true]:border-accent";
+const label = "mb-1.5 block text-sm font-medium text-text";
 
 export function LeadForm({ t, lang, privacyHref, telegramUrl, variant = "short", serviceOptions = [] }: Props) {
   const full = variant === "full";
@@ -133,8 +133,8 @@ export function LeadForm({ t, lang, privacyHref, telegramUrl, variant = "short",
 
   if (status === "success") {
     return (
-      <div role="status" className="bg-bg p-8 text-text">
-        <p className="font-display text-3xl font-bold uppercase">{t.successTitle}</p>
+      <div role="status" className="rounded-2xl bg-surface-2 p-7 text-text">
+        <p className="text-2xl font-bold">{t.successTitle}</p>
         <p className="mt-2 text-muted">{t.successText}</p>
       </div>
     );
@@ -146,8 +146,8 @@ export function LeadForm({ t, lang, privacyHref, telegramUrl, variant = "short",
     <form onSubmit={onSubmit} noValidate className="grid gap-4">
       {!full && service && (
         <p className="flex items-center gap-2 text-sm">
-          <span className="text-on-surface-muted">{t.service}:</span>
-          <span className="inline-flex items-center gap-2 bg-accent px-3 py-1 font-semibold text-on-accent">
+          <span className="text-muted">{t.service}:</span>
+          <span className="inline-flex items-center gap-2 rounded-full bg-surface-2 px-3 py-1 font-semibold text-accent">
             {service}
             <button
               type="button"
@@ -177,7 +177,7 @@ export function LeadForm({ t, lang, privacyHref, telegramUrl, variant = "short",
           className={field}
         />
         {errors.name && (
-          <p id={`${id}-name-err`} className="mt-1 text-sm text-accent">
+          <p id={`${id}-name-err`} className="mt-1 text-sm font-medium text-accent">
             {errors.name}
           </p>
         )}
@@ -201,7 +201,7 @@ export function LeadForm({ t, lang, privacyHref, telegramUrl, variant = "short",
           className={field}
         />
         {errors.phone && (
-          <p id={`${id}-phone-err`} className="mt-1 text-sm text-accent">
+          <p id={`${id}-phone-err`} className="mt-1 text-sm font-medium text-accent">
             {errors.phone}
           </p>
         )}
@@ -209,7 +209,7 @@ export function LeadForm({ t, lang, privacyHref, telegramUrl, variant = "short",
 
       <div>
         <label htmlFor={`${id}-ig`} className={label}>
-          {t.instagram} <span className="font-normal normal-case">({t.optional})</span>
+          {t.instagram} <span className="font-normal text-muted">({t.optional})</span>
         </label>
         <input
           id={`${id}-ig`}
@@ -225,7 +225,7 @@ export function LeadForm({ t, lang, privacyHref, telegramUrl, variant = "short",
         <>
           <div>
             <label htmlFor={`${id}-niche`} className={label}>
-              {t.niche} <span className="font-normal normal-case">({t.optional})</span>
+              {t.niche} <span className="font-normal text-muted">({t.optional})</span>
             </label>
             <input
               id={`${id}-niche`}
@@ -238,7 +238,7 @@ export function LeadForm({ t, lang, privacyHref, telegramUrl, variant = "short",
           </div>
           <div>
             <label htmlFor={`${id}-service`} className={label}>
-              {t.serviceSelect} <span className="font-normal normal-case">({t.optional})</span>
+              {t.serviceSelect} <span className="font-normal text-muted">({t.optional})</span>
             </label>
             <select
               id={`${id}-service`}
@@ -257,7 +257,7 @@ export function LeadForm({ t, lang, privacyHref, telegramUrl, variant = "short",
           </div>
           <div>
             <label htmlFor={`${id}-comment`} className={label}>
-              {t.comment} <span className="font-normal normal-case">({t.optional})</span>
+              {t.comment} <span className="font-normal text-muted">({t.optional})</span>
             </label>
             <textarea
               id={`${id}-comment`}
@@ -281,13 +281,13 @@ export function LeadForm({ t, lang, privacyHref, telegramUrl, variant = "short",
       <button
         type="submit"
         disabled={status === "sending"}
-        className="mt-2 inline-flex h-14 items-center justify-center bg-accent px-8 text-sm font-semibold tracking-wide text-on-accent uppercase transition-colors hover:bg-accent-hover disabled:opacity-70"
+        className="mt-2 inline-flex h-13 items-center justify-center rounded-[10px] bg-accent px-8 text-[15px] font-semibold text-on-accent transition-colors hover:bg-accent-hover disabled:opacity-70"
       >
         {status === "sending" ? t.sending : t.submit}
       </button>
 
       {(status === "error" || status === "rate") && (
-        <p role="alert" className="bg-bg p-4 text-sm text-text">
+        <p role="alert" className="rounded-[10px] border border-line bg-surface p-4 text-sm text-text">
           {status === "rate" ? t.errorRate : t.error}{" "}
           <a
             href={telegramUrl}
@@ -301,9 +301,9 @@ export function LeadForm({ t, lang, privacyHref, telegramUrl, variant = "short",
         </p>
       )}
 
-      <p className="text-xs text-on-surface-muted">
+      <p className="text-xs text-muted">
         {consentBefore}
-        <Link href={privacyHref} className="underline hover:text-on-surface">
+        <Link href={privacyHref} className="underline hover:text-text">
           {t.privacyLink}
         </Link>
         {consentAfter}

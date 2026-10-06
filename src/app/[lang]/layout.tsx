@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { DM_Sans, Onest, Sora } from "next/font/google";
-import { preload } from "react-dom";
+import { Manrope, Sora } from "next/font/google";
 import { getCommon, hasLocale, locales } from "@/lib/i18n";
 import { htmlLang } from "@/lib/locales";
 import { Analytics } from "@/components/Analytics";
@@ -10,9 +9,8 @@ import { localBusinessSchema } from "@/lib/schema";
 import { alternates, isProduction, localizedPath, openGraphFor, siteUrl } from "@/lib/site";
 import "../globals.css";
 
-// Matn: DM Sans; kirill glifi Onest'dan (preload o'chiq — uz/en sahifalarda yuklanmaydi)
-const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dm-sans", display: "swap" });
-const onest = Onest({ subsets: ["cyrillic"], variable: "--font-onest", display: "swap", preload: false });
+// Yagona shrift: Manrope (lotin + kirill) — ruscha ham o'zbekcha bilan bir xil ko'rinadi
+const manrope = Manrope({ subsets: ["latin", "latin-ext", "cyrillic"], variable: "--font-manrope", display: "swap" });
 // Faqat "marsel." wordmark uchun (logotip o'zgarmaydi)
 const sora = Sora({ subsets: ["latin"], weight: "700", variable: "--font-sora", display: "swap", preload: false });
 
@@ -40,21 +38,15 @@ export default async function LangLayout({ children, params }: LayoutProps<"/[la
   if (!hasLocale(lang)) notFound();
   const t = await getCommon(lang);
 
-  // Oswald (globals.css): lotin fayli hamma sahifada, kirill — faqat ru'da oldindan yuklanadi
-  const fontOpts = { as: "font", type: "font/woff2", crossOrigin: "anonymous" } as const;
-  preload("/fonts/oswald-latin-wght-normal.woff2", fontOpts);
-  if (lang === "ru") preload("/fonts/oswald-cyrillic-wght-normal.woff2", fontOpts);
-
   return (
     <html
       lang={htmlLang[lang]}
-      data-palette="ref"
-      className={`${dmSans.variable} ${onest.variable} ${sora.variable}`}
+      className={`${manrope.variable} ${sora.variable}`}
     >
       <body className="flex min-h-dvh flex-col">
         <a
           href="#main"
-          className="sr-only z-50 bg-accent px-4 py-2 text-on-accent focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
+          className="sr-only z-50 rounded-[10px] bg-accent px-4 py-2 text-on-accent focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
         >
           {t.skipLink}
         </a>

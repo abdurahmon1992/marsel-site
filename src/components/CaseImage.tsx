@@ -9,18 +9,20 @@ type Props = {
   className?: string;
   eager?: boolean;
   aspect?: string;
+  /** Kartochka ichida (chetma-chet) — o'z radiusisiz */
+  flush?: boolean;
 };
 
 // 4:3 ramka (aspect bilan o'zgartirish mumkin). fit="contain" — logotiplar uchun: och fonda, kesilmaydi.
 // Manba eni ramkadan kichik bo'lsa — och fonda, o'z o'lchamidan kattalashtirilmaydi (scale-down), xiralashmaydi.
-export function CaseImage({ image, sizes, frameWidth, className = "", eager = false, aspect = "aspect-[4/3]" }: Props) {
+export function CaseImage({ image, sizes, frameWidth, className = "", eager = false, aspect = "aspect-[4/3]", flush = false }: Props) {
   const tooSmall = !!image.width && image.width < frameWidth;
   const contain = image.fit === "contain" || tooSmall;
-  const bg = image.bg === "dark" ? "bg-media-dark" : contain ? "bg-subtle" : "bg-border";
+  const bg = image.bg === "dark" ? "bg-media-dark" : contain ? "bg-surface" : "bg-line";
   // wide: asl nisbatda (kesilmaydi), ramka nisbati rasm o'lchamidan olinadi
   const ratio = image.wide && image.width && image.height ? { aspectRatio: `${image.width} / ${image.height}` } : undefined;
   return (
-    <div style={ratio} className={`relative ${ratio ? "" : aspect} overflow-hidden ${bg} ${className}`}>
+    <div style={ratio} className={`relative ${ratio ? "" : aspect} overflow-hidden ${flush ? "" : "rounded-2xl"} ${bg} ${className}`}>
       <Image
         src={image.src}
         alt={image.alt}

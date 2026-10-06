@@ -29,7 +29,7 @@ export function Logo({ className = "", tone = "dark" }: Props) {
       <LogoMark className="size-8 shrink-0 sm:size-9" />
       <span
         className={`font-logo text-[1.4rem] leading-none font-bold tracking-tight ${
-          tone === "light" ? "text-on-surface" : "text-text"
+          tone === "light" ? "text-on-dark" : "text-text"
         }`}
       >
         marsel<span className="text-logo-dot">.</span>

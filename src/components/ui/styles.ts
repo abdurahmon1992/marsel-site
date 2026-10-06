@@ -1,9 +1,23 @@
-// Takrorlanadigan Tailwind sinflari (referens uslubi: to'rtburchak qizil tugma, katta qora karta).
+// Takrorlanadigan Tailwind sinflari — ochiq, yengil, vazmin uslub (C brend).
 export const container = "mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8";
-// Mobilda qora kartalar deyarli to'liq kenglikda
-export const cardContainer = "mx-auto w-full max-w-7xl px-2 sm:px-6 lg:px-8";
-export const darkCard =
-  "relative overflow-clip rounded-[1.75rem] bg-surface text-on-surface px-5 py-10 sm:px-10 sm:py-14 lg:rounded-[2.5rem] lg:px-16 lg:py-20";
+export const cardContainer = "mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8";
+
+/** Och fonli katta bo'lim kartochkasi (avvalgi qora kartalar o'rnida) */
+export const panel = "relative overflow-clip rounded-2xl bg-surface px-5 py-10 sm:px-10 sm:py-12 lg:px-14 lg:py-16";
+/** Kobalt-soft fonli bo'lim (forma bloki) */
+export const panelSoft = "relative overflow-clip rounded-2xl bg-surface-2 px-5 py-10 sm:px-10 sm:py-12 lg:px-14 lg:py-16";
+/** Oq kartochka: 1px chegara, 16px radius, deyarli soyasiz */
+export const card = "rounded-2xl border border-line bg-bg shadow-soft";
+
 export const btnPrimary =
-  "inline-flex h-12 items-center justify-center gap-2 bg-accent px-7 text-sm font-semibold tracking-wide text-on-accent uppercase transition-colors hover:bg-accent-hover";
-export const sectionTitle = "text-4xl sm:text-5xl lg:text-6xl";
+  "inline-flex h-12 items-center justify-center gap-2 rounded-[10px] bg-accent px-6 text-[15px] font-semibold text-on-accent transition-colors duration-200 hover:bg-accent-hover";
+export const btnSecondary =
+  "inline-flex h-12 items-center justify-center gap-2 rounded-[10px] border border-line bg-transparent px-6 text-[15px] font-semibold text-accent transition-colors duration-200 hover:border-accent";
+export const textLink = "font-semibold text-accent underline-offset-4 hover:underline";
+
+/** Eyebrow: 12px, muted, uppercase — faqat shu yerda */
+export const eyebrow = "text-xs font-semibold tracking-[0.08em] text-muted uppercase";
+/** H2 ~28 / 32 / 40px */
+export const sectionTitle = "text-[1.75rem] sm:text-[2rem] lg:text-[2.5rem]";
+/** Mayda dekor nuqta (ro'yxatlar) */
+export const dot = "size-1.5 shrink-0 rounded-full bg-accent";

@@ -72,7 +72,7 @@ qatori: `home.json → case.enterprise`.
 sahifasida qizil nishon bo‘lib chiqadi. Rasmda `"bg": "dark"` — qora fon (qora fonli muqovalar),
 `"wide": true` — galereyada to‘liq enda, asl nisbatda. Mijozlar lentasida (`clients.json`)
 `{"name": "...", "logo": "/logos/<slug>.webp"}` — rasmli logotip (`name` alt matn bo‘ladi; logo
-bo‘lmasa nom Oswald matn bo‘lib chiqadi). Logotiplar `public/logos/` da: ~240 px balandlik, shaffof fon.
+bo‘lmasa nom matn bo‘lib chiqadi). Logotiplar `public/logos/` da: ~240 px balandlik, shaffof fon.
 
 **Yashirin bloklar:** «Mijozlar fikri» (`home.json → testimonials.items`) va FAQ
 (`home.json → faq.items`) bo‘sh bo‘lsa, saytda umuman chiqmaydi. Tasdiqlangan
@@ -84,27 +84,33 @@ Paket tarkibi (post, Reels soni) — har tilning `home.json` → `pricing.featur
 
 ## Ranglar va shriftlar
 
-Hex qiymatlar faqat `src/app/globals.css` (`:root`) da va CSS ishlamaydigan joylar
-(favicon, OG rasm) uchun `src/lib/tokens.ts` da. Komponentlar faqat
-`bg-surface`, `text-accent`, `text-muted` kabi semantik sinflardan foydalanadi.
+Sayt va logotip — bitta **C brend** (kobalt + marjon). Kayfiyat: ochiq, yengil, vazmin.
+Hex qiymatlar faqat `src/app/globals.css` (`:root`) da va CSS ishlamaydigan joylar (favicon, OG rasm)
+uchun `src/lib/tokens.ts` da. Komponentlar faqat `bg-surface`, `text-accent`, `border-line` kabi
+semantik sinflardan foydalanadi.
 
-Hozir **referens palitrasi** faol (`<html data-palette="ref">`):
-
-| Token | Referens (faol) | C brend |
+| Token | Qiymat | Qayerda |
 |---|---|---|
-| `--bg` | #FFFFFF | #FFFFFF |
-| `--text` | #111111 | #0E1330 Siyoh |
-| `--surface` (katta kartalar) | #1C1C1C | #0E1330 Siyoh |
-| `--accent` | #DC2F2A qizil | #2346FF Kobalt |
-| `--accent-2` | = accent | #FF5A4E Marjon |
-| `--subtle` (och fon) | text 5% | #F2F4FA Tuman |
+| `--bg` | #FFFFFF | sahifa foni |
+| `--surface` | #F3F5FA | kartochkalar, bo‘lim fonlari |
+| `--surface-2` | #EEF2FF | chiplar, nishonlar, forma bloki foni |
+| `--line` | #E3E7F1 | chegaralar, ajratgichlar |
+| `--text` | #0E1330 | matn; footer foni (saytdagi yagona to‘q blok) |
+| `--muted` | #5A6180 | ikkinchi darajali matn |
+| `--accent` | #2346FF | tugmalar, havolalar, katta raqamlar |
+| `--accent-hover` | #1A36D6 | tugma hover |
+| `--accent-2` | #FF5A4E | **faqat dekor** (logodagi nuqta, nishon nuqtasi) — matn/tugma uchun emas |
 
-**C brend palitrasiga qaytish:** `src/app/[lang]/layout.tsx` da `data-palette="ref"` ni
-`data-palette="c"` ga almashtiring — boshqa hech narsa o‘zgarmaydi.
-Logotip ranglari (`--logo-*`) palitradan qat'i nazar o‘zgarmaydi.
+Kontrast (WCAG AA): accent/oq 6.19, oq matn accent tugmada 6.19, muted/surface 5.57, text/surface 16.7.
 
-Shriftlar: **Oswald** (sarlavha, raqamlar — lotin + kirill), **DM Sans** (matn; kirill
-glifi **Onest** dan), **Sora** — faqat "marsel." wordmark uchun.
+**Shrift:** bitta oila — **Manrope** (`next/font`, lotin + kirill): sarlavhalar 600/700 oddiy registrda,
+matn 400/500. Ruscha sahifalar ham bir xil ko‘rinadi. **Sora** — faqat "marsel." wordmark uchun.
+Sarlavhadagi `*so‘z*` faqat hero, «Natija — raqamda» va audit blokida kobalt rangda chiqadi
+(`<Accent highlight />`), boshqa sarlavhalarda oddiy matn.
+
+**Komponentlar:** tugma — radius 10px, 600 vazn, katta harf emas; ikkilamchi tugma — kobalt matn,
+1px chegara. Kartochkalar — radius 16px, 1px chegara, deyarli soyasiz. Animatsiya — faqat yengil
+paydo bo‘lish (10px, ease-out); `prefers-reduced-motion` da o‘chadi.
 
 ## Ariza formasi
 
@@ -121,7 +127,7 @@ Xatoda foydalanuvchiga Telegram havolasi ko‘rsatiladi. Env sozlanmagan bo‘ls
 - `sitemap.xml` (barcha sahifalar va keyslar, 3 tilda, hreflang bilan) va `robots.txt` — `src/app/sitemap.ts`,
   `src/app/robots.ts`. Preview deploylar (`VERCEL_ENV=preview`) indekslanmaydi.
 - OG rasmlar (1200×630, har til) — `src/app/[lang]/opengraph-image.tsx`, matni `common.json → og`.
-  Shrift: `assets/og/` (Oswald, OFL).
+  Shrift: `assets/og/` (Manrope va Sora, OFL).
 - Favicon va apple-icon — `src/app/icon.tsx`, `src/app/apple-icon.tsx` (marsel belgisi).
 - schema.org (JSON-LD): `LocalBusiness` (har sahifada), `Service` ×4 (bosh sahifa, SMM paketlari narxi bilan),
   `CreativeWork` (har keys) — `src/lib/schema.ts`. Manzil va koordinatalar — `content/contacts.json`
@@ -137,11 +143,6 @@ Xatoda foydalanuvchiga Telegram havolasi ko‘rsatiladi. Env sozlanmagan bo‘ls
   `telegram_click`, `lang_switch`. GA4 — `gtag event`, Pixel — `trackCustom`, Metrika — `reachGoal`
   (Metrika'da shu nomlar bilan maqsadlar yarating).
 - Yangi elementga hodisa qo‘shish: `data-track="phone_click"` yoki `data-cta="manba-nomi"` atributi.
-
-## Shriftlar
-
-Oswald (sarlavhalar) `public/fonts/` dan yuklanadi: lotin fayli hamma sahifada, kirill — faqat `/ru` da
-oldindan yuklanadi (CLS va LCP uchun). DM Sans / Onest / Sora — `next/font`.
 
 ## Muhit o‘zgaruvchilari
 

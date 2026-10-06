@@ -15,7 +15,7 @@ export default async function LandingLayout({ children, params }: LayoutProps<"/
 
   return (
     <>
-      <header className="border-b border-border">
+      <header className="border-b border-line">
         <div className="mx-auto flex h-(--header-h) max-w-7xl items-center gap-3 px-4 sm:px-6 lg:px-8">
           <Link href={localizedPath(lang)} aria-label="MarSel Marketing" className="mr-auto">
             <Logo />
@@ -35,7 +35,7 @@ export default async function LandingLayout({ children, params }: LayoutProps<"/
       <main id="main" className="flex-1">
         {children}
       </main>
-      <footer className="border-t border-border">
+      <footer className="border-t border-line">
         <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-6 text-xs text-muted sm:flex-row sm:justify-between sm:px-6 lg:px-8">
           <p>
             © {new Date().getFullYear()} {contacts.brand}. {t.footer.rights}

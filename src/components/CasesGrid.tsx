@@ -21,15 +21,15 @@ export function CasesGrid({ items, filters, label }: Props) {
             type="button"
             aria-pressed={active === k}
             onClick={() => setActive(k)}
-            className={`h-10 border px-4 text-sm font-semibold tracking-wide uppercase transition-colors ${
-              active === k ? "border-text bg-text text-bg" : "border-border hover:border-text"
+            className={`h-9 rounded-full border px-4 text-sm font-semibold transition-colors ${
+              active === k ? "border-accent bg-surface-2 text-accent" : "border-line text-muted hover:border-accent/40 hover:text-text"
             }`}
           >
             {filters[k]}
           </button>
         ))}
       </div>
-      <ul className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <ul className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {items.map((it) => (
           <li key={it.slug} hidden={active !== "all" && !it.tags.includes(active)} className="flex">
             {it.card}

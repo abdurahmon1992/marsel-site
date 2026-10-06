@@ -8,12 +8,12 @@ export function PageHeader({ title, intro, back, eyebrow }: Props) {
   return (
     <header className={`${container} pt-12 pb-10 lg:pt-20 lg:pb-14`}>
       {back && (
-        <Link href={back.href} className="text-sm font-semibold tracking-wide uppercase hover:text-accent">
+        <Link href={back.href} className="text-sm font-semibold text-accent underline-offset-4 hover:underline">
           ← {back.label}
         </Link>
       )}
-      {eyebrow && <p className="mt-6 text-xs font-semibold tracking-[0.2em] text-accent uppercase">{eyebrow}</p>}
-      <h1 className={`text-4xl break-words hyphens-auto min-[400px]:text-5xl sm:text-6xl lg:text-7xl ${back || eyebrow ? "mt-4" : ""}`}>
+      {eyebrow && <p className="mt-6 text-xs font-semibold tracking-[0.08em] text-muted uppercase">{eyebrow}</p>}
+      <h1 className={`max-w-4xl text-[2rem] break-words hyphens-auto sm:text-4xl lg:text-5xl ${back || eyebrow ? "mt-3" : ""}`}>
         <Accent text={title} />
       </h1>
       {intro && <p className="mt-5 max-w-2xl text-lg text-muted">{intro}</p>}

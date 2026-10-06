@@ -17,8 +17,8 @@ export function Testimonials({ t }: { t: HomeDict["testimonials"] }) {
           </h2>
           <div className="mt-10 grid gap-5">
             {items.map((item, i) => (
-              <figure key={i} className="border border-border bg-bg p-6 shadow-[0_12px_40px_-20px] shadow-text/25 sm:p-8">
-                <span aria-hidden="true" className="block font-display text-6xl leading-[0.6] font-bold text-accent">
+              <figure key={i} className="rounded-2xl border border-line bg-bg p-6 shadow-soft sm:p-8">
+                <span aria-hidden="true" className="block text-5xl leading-[0.6] font-bold text-accent">
                   “
                 </span>
                 <blockquote className="mt-4 text-lg">{item.quote}</blockquote>
@@ -34,9 +34,9 @@ export function Testimonials({ t }: { t: HomeDict["testimonials"] }) {
         <div className="relative mx-auto aspect-[4/5] w-full max-w-md">
           <div
             aria-hidden="true"
-            className="absolute -inset-x-6 inset-y-10 bg-accent [clip-path:polygon(30%_0,100%_0,70%_100%,0_100%)]"
+            className="absolute -inset-x-6 inset-y-10 rounded-3xl bg-surface-2"
           />
-          <div className="absolute inset-6 grid place-items-center bg-subtle text-sm font-semibold tracking-widest text-muted grayscale">
+          <div className="absolute inset-6 grid place-items-center rounded-2xl bg-surface text-sm font-semibold text-muted">
             {t.imagePlaceholder}
           </div>
         </div>

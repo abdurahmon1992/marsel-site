@@ -16,7 +16,17 @@ type Props = {
 /** Kartochka sarlavhasi: mijoz nomi (bo'lsa) yoki soha, va xizmat turi. */
 export const caseMeta = (item: CaseItem) => [item.name || item.industry, item.type].filter(Boolean).join(" · ");
 
-// Muqova rasmi bo'lsa — rasm + matn; bo'lmasa — tipografik kartochka (katta qizil raqam yoki brend nomi).
+/** "Hozir ishlayapmiz" kabi nishon: kobalt-soft fon, marjon nuqta (faqat dekor) */
+export function Badge({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return (
+    <span className={`inline-flex items-center gap-1.5 rounded-full bg-surface-2 px-2.5 py-1 text-xs font-semibold text-accent ${className}`}>
+      <span aria-hidden="true" className="size-1.5 rounded-full bg-accent-2" />
+      {children}
+    </span>
+  );
+}
+
+// Muqova rasmi bo'lsa — rasm + matn; bo'lmasa — tipografik kartochka (katta kobalt raqam yoki brend nomi).
 export function CaseCard({
   item,
   href,
@@ -30,42 +40,36 @@ export function CaseCard({
   return (
     <Link
       href={href}
-      className={`group relative flex w-full flex-col border border-border bg-bg transition-colors hover:border-text ${className}`}
+      className={`group relative flex w-full flex-col overflow-hidden rounded-2xl border border-line bg-bg shadow-soft transition-colors duration-200 hover:border-accent/40 ${className}`}
     >
-      <span aria-hidden="true" className="absolute top-0 left-0 z-10 h-1.5 w-12 bg-accent transition-all group-hover:w-full" />
-      {item.badge && (
-        <span className="absolute top-4 right-4 z-10 inline-flex items-center gap-1.5 bg-accent px-2.5 py-1 text-xs font-semibold tracking-wide text-on-accent uppercase">
-          <span aria-hidden="true" className="size-1.5 rounded-full bg-on-accent motion-safe:animate-pulse" />
-          {item.badge}
-        </span>
-      )}
-      {item.cover && <CaseImage image={item.cover} sizes={sizes} frameWidth={frameWidth} eager={eager} />}
-      <div className="flex flex-1 flex-col p-6 sm:p-8">
-        <p className="text-xs font-semibold tracking-widest text-muted uppercase">
-          {branding ? item.type : caseMeta(item)}
-        </p>
+      {item.badge && <Badge className="absolute top-4 right-4 z-10 shadow-soft">{item.badge}</Badge>}
+      {item.cover && <CaseImage image={item.cover} sizes={sizes} frameWidth={frameWidth} eager={eager} flush />}
+      <div className="flex flex-1 flex-col p-6 sm:p-7">
+        <p className="text-xs font-semibold tracking-[0.08em] text-muted uppercase">{branding ? item.type : caseMeta(item)}</p>
         {branding ? (
           <>
-            <h3 className="mt-4 font-display text-3xl leading-none font-bold uppercase sm:text-4xl">{item.name}</h3>
-            <p className="mt-3 text-accent">{item.done.join(" · ")}</p>
+            <h3 className="mt-3 text-2xl font-bold sm:text-[1.75rem]">{item.name}</h3>
+            <p className="mt-2 text-sm text-muted">{item.done.join(" · ")}</p>
           </>
         ) : (
           <>
             {/* Raqam bo'lmasa (strategiya) — matn qatorga sig'masa ko'chadi */}
             <p
-              className={`mt-5 font-display leading-none font-bold text-accent ${
+              className={`mt-4 leading-none font-bold tracking-tight text-accent ${
                 item.kind === "strategy"
-                  ? "text-4xl uppercase xl:text-5xl"
-                  : "text-[2.5rem] whitespace-nowrap min-[400px]:text-5xl md:text-[2.75rem] xl:text-6xl"
+                  ? "text-3xl"
+                  : "text-[2.25rem] whitespace-nowrap min-[400px]:text-[2.5rem] md:text-[2.25rem] xl:text-5xl"
               }`}
             >
               {item.result.value}
             </p>
-            <h3 className="mt-2 font-sans text-base font-semibold">{item.result.label}</h3>
+            <h3 className="mt-2 text-base font-semibold tracking-normal">{item.result.label}</h3>
           </>
         )}
-        <p className="mt-4 flex-1 text-sm text-muted">{item.summary}</p>
-        <span className="mt-6 text-sm font-semibold tracking-wide uppercase group-hover:text-accent">{more} →</span>
+        <p className="mt-3 flex-1 text-sm text-muted">{item.summary}</p>
+        <span className="mt-5 text-sm font-semibold text-accent">
+          {more} <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
+        </span>
       </div>
     </Link>
   );

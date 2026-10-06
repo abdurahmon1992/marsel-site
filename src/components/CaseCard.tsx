@@ -41,7 +41,14 @@ export function CaseCard({
           </>
         ) : (
           <>
-            <p className="mt-5 font-display text-[2.5rem] leading-none font-bold whitespace-nowrap text-accent min-[400px]:text-5xl md:text-[2.75rem] xl:text-6xl">
+            {/* Raqam bo'lmasa (strategiya) — matn qatorga sig'masa ko'chadi */}
+            <p
+              className={`mt-5 font-display leading-none font-bold text-accent ${
+                item.kind === "strategy"
+                  ? "text-4xl uppercase xl:text-5xl"
+                  : "text-[2.5rem] whitespace-nowrap min-[400px]:text-5xl md:text-[2.75rem] xl:text-6xl"
+              }`}
+            >
               {item.result.value}
             </p>
             <h3 className="mt-2 font-sans text-base font-semibold">{item.result.label}</h3>

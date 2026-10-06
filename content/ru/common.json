@@ -70,7 +70,8 @@
         "all": "Все",
         "smm": "SMM",
         "target": "Таргет",
-        "branding": "Брендинг"
+        "branding": "Брендинг",
+        "strategy": "Стратегия"
       }
     },
     "audit": {

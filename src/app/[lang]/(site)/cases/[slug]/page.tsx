@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CaseImage } from "@/components/CaseImage";
@@ -45,9 +46,14 @@ export default async function CasePage({ params }: PageProps<"/[lang]/cases/[slu
       [l.type, item.type],
       [l.product, item.product],
       [l.platform, item.platform],
+      [l.period, item.period],
     ] as [string, string][]
   ).filter(([, v]) => v);
-  const before: string[] = item.before;
+  // "Vazifa" (task) bo'lsa, birinchi bosqich sifatida "Oldin" o'rnida chiqadi
+  const task: string[] = item.task;
+  const before: string[] = task.length ? task : item.before;
+  const firstLabel = task.length ? l.task : l.before;
+  const related = item.related as { slug: string; text: string } | null;
   const done: string[] = item.done;
   const metrics: { value: string; label: string }[] = item.metrics;
   // Bo'sh bosqich (masalan, brendingda "Oldin") bo'lsa, setkada bo'sh katak qolmasin
@@ -82,7 +88,13 @@ export default async function CasePage({ params }: PageProps<"/[lang]/cases/[slu
           <div className="mt-10 grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
             {item.result.value && (
               <div>
-                <p className="font-display text-[3.25rem] leading-none font-bold text-accent sm:text-8xl lg:text-9xl">{item.result.value}</p>
+                <p
+                  className={`font-display leading-none font-bold text-accent ${
+                    item.kind === "strategy" ? "text-5xl uppercase sm:text-6xl lg:text-7xl" : "text-[3.25rem] sm:text-8xl lg:text-9xl"
+                  }`}
+                >
+                  {item.result.value}
+                </p>
                 <p className="mt-3 text-xl font-semibold">{item.result.label}</p>
               </div>
             )}
@@ -126,7 +138,7 @@ export default async function CasePage({ params }: PageProps<"/[lang]/cases/[slu
           {before.length > 0 && (
             <li className="bg-bg py-8 lg:pr-8">
               <h2 className="text-3xl">
-                <span className="text-accent">01</span> {l.before}
+                <span className="text-accent">01</span> {firstLabel}
               </h2>
               <ul className="mt-5 space-y-3">
                 {before.map((b) => (
@@ -168,7 +180,15 @@ export default async function CasePage({ params }: PageProps<"/[lang]/cases/[slu
                 ))}
               </ul>
             ) : (
-              <p className="mt-5">{item.summary}</p>
+              <p className="mt-5 text-lg">{item.resultText || item.summary}</p>
+            )}
+            {related && (
+              <Link
+                href={localizedPath(lang, `/cases/${related.slug}`)}
+                className="mt-6 inline-flex items-start gap-2 border-l-2 border-accent pl-3 text-sm font-semibold hover:text-accent"
+              >
+                {related.text} →
+              </Link>
             )}
           </li>
         </ol>

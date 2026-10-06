@@ -1,5 +1,5 @@
 {
-  "_izoh": "Case studies. kind: numeric (number card on the home page) or branding. tags: filter (smm, target, branding). If branding.name is set, the case appears in the “Branding” row on the home page. Empty fields are hidden. Images: public/cases/; cover — card cover, gallery — case page gallery, beforeAfter — “Before / After”. fit: cover or contain (logos). If the file is missing, a text-only card is shown. badge — card label. Image bg: \"dark\" — black background, wide: true — full-width in the gallery.",
+  "_izoh": "Case studies. kind: numeric (number card on the home page) or branding. tags: filter (smm, target, branding). If branding.name is set, the case appears in the “Branding” row on the home page. Empty fields are hidden. Images: public/cases/; cover — card cover, gallery — case page gallery, beforeAfter — “Before / After”. fit: cover or contain (logos). If the file is missing, a text-only card is shown. badge — card label. Image bg: \"dark\" — black background, wide: true — full-width in the gallery. period — project period; task — “Task” block; resultText — non-numeric result; related — link to another case. kind: strategy — not shown in home page cards.",
   "items": [
     {
       "slug": "selsil",
@@ -82,7 +82,59 @@
         }
       ],
       "beforeAfter": null,
-      "badge": "Current client"
+      "badge": "Current client",
+      "period": "",
+      "task": [],
+      "resultText": "",
+      "related": null
+    },
+    {
+      "slug": "sunlight",
+      "kind": "strategy",
+      "tags": [
+        "strategy"
+      ],
+      "name": "Sunlight Group",
+      "industry": "A major hygiene products manufacturer in Uzbekistan (pads, wipes, razors, paper products)",
+      "type": "Strategy + trade marketing",
+      "product": "",
+      "platform": "",
+      "title": "Sunlight Group: market research and trade marketing strategy",
+      "result": {
+        "value": "Market research",
+        "label": "and a trade marketing roadmap"
+      },
+      "summary": "A push-strategy trade marketing plan based on internal sales analysis, field research and market segmentation.",
+      "metrics": [],
+      "before": [],
+      "done": [
+        "Internal sales analysis: year-by-year summary, ABC analysis by category and sub-brand, seasonality, category and dealer shares",
+        "Field research at retail outlets in Tashkent (survey agreed with Sunlight management)",
+        "Market segmentation and price analysis (low / middle / high segments)",
+        "Competitor map and SWOT analysis",
+        "Market size estimate from customs data",
+        "Push-strategy trade marketing roadmap: merchandising, sales staff motivation, promotions",
+        "Then — launching the corporate website and SMM"
+      ],
+      "branding": {
+        "name": "",
+        "items": []
+      },
+      "cover": null,
+      "gallery": [],
+      "beforeAfter": null,
+      "badge": "",
+      "period": "2021, August–October",
+      "task": [
+        "Grow sales of razors and women’s pads",
+        "Expand distribution across regions and stores",
+        "Secure better shelf placement"
+      ],
+      "resultText": "A market map, competitor analysis and a 2-month trade marketing plan for Sunlight management.",
+      "related": {
+        "slug": "peri",
+        "text": "SMM for Peri, a brand of the same group — ad reach +41%"
+      }
     },
     {
       "slug": "shinam-house",
@@ -167,7 +219,11 @@
         }
       ],
       "beforeAfter": null,
-      "badge": ""
+      "badge": "",
+      "period": "",
+      "task": [],
+      "resultText": "",
+      "related": null
     },
     {
       "slug": "inoria",
@@ -230,7 +286,11 @@
         }
       ],
       "beforeAfter": null,
-      "badge": ""
+      "badge": "",
+      "period": "",
+      "task": [],
+      "resultText": "",
+      "related": null
     },
     {
       "slug": "peri",
@@ -289,7 +349,11 @@
           "fit": "cover"
         }
       },
-      "badge": ""
+      "badge": "",
+      "period": "",
+      "task": [],
+      "resultText": "",
+      "related": null
     },
     {
       "slug": "future-house",
@@ -344,7 +408,11 @@
         }
       ],
       "beforeAfter": null,
-      "badge": ""
+      "badge": "",
+      "period": "",
+      "task": [],
+      "resultText": "",
+      "related": null
     },
     {
       "slug": "strelka",
@@ -401,7 +469,11 @@
         }
       ],
       "beforeAfter": null,
-      "badge": ""
+      "badge": "",
+      "period": "",
+      "task": [],
+      "resultText": "",
+      "related": null
     },
     {
       "slug": "rustambek-somsalari",
@@ -452,7 +524,11 @@
         }
       ],
       "beforeAfter": null,
-      "badge": ""
+      "badge": "",
+      "period": "",
+      "task": [],
+      "resultText": "",
+      "related": null
     }
   ]
 }

@@ -47,9 +47,16 @@
       "industry": "Soha",
       "product": "Mahsulot",
       "platform": "Platforma",
-      "after": "Keyin"
+      "after": "Keyin",
+      "task": "Vazifa",
+      "period": "Davr"
     },
-    "galleryTitle": "Ishlardan namunalar"
+    "galleryTitle": "Ishlardan namunalar",
+    "enterprise": {
+      "text": "Yirik kompaniyalar bilan ham ishlaymiz:",
+      "link": "Sunlight Group — bozor tahlili va trade-marketing",
+      "slug": "sunlight"
+    }
   },
   "process": {
     "title": "Qanday *ishlaymiz*",

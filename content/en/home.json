@@ -47,9 +47,16 @@
       "industry": "Industry",
       "product": "Product",
       "platform": "Platform",
-      "after": "After"
+      "after": "After",
+      "task": "Task",
+      "period": "Period"
     },
-    "galleryTitle": "Work samples"
+    "galleryTitle": "Work samples",
+    "enterprise": {
+      "text": "We also work with large companies:",
+      "link": "Sunlight Group — market research and trade marketing",
+      "slug": "sunlight"
+    }
   },
   "process": {
     "title": "How we *work*",

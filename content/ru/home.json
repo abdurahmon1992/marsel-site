@@ -47,9 +47,16 @@
       "industry": "Сфера",
       "product": "Продукт",
       "platform": "Платформа",
-      "after": "После"
+      "after": "После",
+      "task": "Задача",
+      "period": "Период"
     },
-    "galleryTitle": "Примеры работ"
+    "galleryTitle": "Примеры работ",
+    "enterprise": {
+      "text": "Работаем и с крупными компаниями:",
+      "link": "Sunlight Group — анализ рынка и трейд-маркетинг",
+      "slug": "sunlight"
+    }
   },
   "process": {
     "title": "Как мы *работаем*",

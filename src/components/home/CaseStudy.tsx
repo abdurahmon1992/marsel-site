@@ -48,6 +48,15 @@ export function CaseStudy({ t, items, caseHref, allHref }: Props) {
           ))}
         </ul>
 
+        {t.enterprise && (
+          <p className="mt-8 flex flex-col gap-1 border-l-2 border-accent pl-4 sm:flex-row sm:flex-wrap sm:items-baseline sm:gap-2">
+            <span className="text-muted">{t.enterprise.text}</span>
+            <Link href={caseHref(t.enterprise.slug)} className="font-semibold underline-offset-4 hover:text-accent hover:underline">
+              {t.enterprise.link} →
+            </Link>
+          </p>
+        )}
+
         {branding.length > 0 && (
           <div className="mt-10 grid gap-4 border-t-2 border-text pt-6 lg:grid-cols-[12rem_1fr] lg:items-start">
             <h3 className="font-display text-2xl font-semibold uppercase">{t.brandingTitle}</h3>

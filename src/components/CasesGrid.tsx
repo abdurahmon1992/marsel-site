@@ -3,9 +3,9 @@
 import { useState, type ReactNode } from "react";
 
 type Item = { slug: string; tags: string[]; card: ReactNode };
-type Props = { items: Item[]; filters: { all: string; smm: string; target: string; branding: string }; label: string };
+type Props = { items: Item[]; filters: { all: string; smm: string; target: string; branding: string; strategy: string }; label: string };
 
-const keys = ["all", "smm", "target", "branding"] as const;
+const keys = ["all", "smm", "target", "branding", "strategy"] as const;
 
 // /cases filtri. Barcha kartochkalar HTML'da bor (SEO), filtr faqat ko'rinishni o'zgartiradi.
 export function CasesGrid({ items, filters, label }: Props) {

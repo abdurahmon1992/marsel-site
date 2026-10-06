@@ -63,6 +63,11 @@ avtomatik och fonda o‘z o‘lchamida chiqadi — cho‘zilib xiralashmaydi. Si
 Fayl hali yuklanmagan bo‘lsa, sayt rasmsiz tipografik kartochkani ko‘rsatadi; fayl qo‘shilgach
 keyingi deployda rasm avtomatik chiqadi.
 
+**Raqamsiz keyslar (strategiya):** `kind: "strategy"` — bosh sahifa kartochkalariga chiqmaydi,
+`result.value` da matn (masalan, «Bozor tahlili»). `task` — «Vazifa» bandi («Oldin» o‘rnida), `resultText` —
+natija matni, `related` — boshqa keysga havola, `period` — loyiha davri. Bosh sahifadagi «Yirik kompaniyalar»
+qatori: `home.json → case.enterprise`.
+
 **Nishon va maxsus rasmlar:** keysda `badge` (masalan, «Hozir ishlayapmiz») kartochkada va keys
 sahifasida qizil nishon bo‘lib chiqadi. Rasmda `"bg": "dark"` — qora fon (qora fonli muqovalar),
 `"wide": true` — galereyada to‘liq enda, asl nisbatda. Mijozlar lentasida (`clients.json`)

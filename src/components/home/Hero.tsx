@@ -1,6 +1,6 @@
 import type { HomeDict } from "@/lib/i18n";
 import { Accent } from "../ui/Accent";
-import { btnPrimary, container, textLink } from "../ui/styles";
+import { btnPrimary, container, eyebrow, textLink } from "../ui/styles";
 import { SelectService } from "../SelectService";
 import { WavyLines } from "./WavyLines";
 
@@ -9,6 +9,7 @@ export function Hero({ t }: { t: HomeDict["hero"] }) {
     <section className="relative overflow-hidden">
       <WavyLines className="pointer-events-none absolute -top-16 -right-48 h-[320px] w-[620px] [mask-image:linear-gradient(to_left,black_50%,transparent)] lg:top-0 lg:-right-24 lg:h-full lg:w-[55%]" />
       <div className={`${container} relative pt-32 pb-14 sm:pt-36 lg:pt-24 lg:pb-20`}>
+        <p className={`animate-rise mb-5 ${eyebrow}`}>{t.eyebrow}</p>
         <h1 className="animate-rise max-w-3xl text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-[4rem]">
           <Accent text={t.title} highlight />
         </h1>

@@ -1,6 +1,7 @@
 {
   "_izoh": "*yulduzcha* ichidagi so‘zlar sarlavhada qizil rangda chiqadi. \\n — yangi qator.",
   "hero": {
+    "eyebrow": "SMM agentlik · Toshkent",
     "title": "Instagram’ingiz chiroyli.\n*Endi sotsin.*",
     "subtitle": "Kichik va o‘rta biznes uchun SMM, Reels, target va sayt — bitta jamoada. Natijani raqamda ko‘rsatamiz.",
     "primary": "Bepul audit olish",
@@ -11,12 +12,12 @@
         "label": "loyiha"
       },
       {
-        "value": "19 → 223",
-        "label": "oylik murojaat"
+        "value": "124",
+        "label": "potensial mijoz 1 oyda"
       },
       {
-        "value": "+41%",
-        "label": "reklama qamrovi 1 oyda"
+        "value": "19 → 223",
+        "label": "oylik murojaat"
       }
     ]
   },

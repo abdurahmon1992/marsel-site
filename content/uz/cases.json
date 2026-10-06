@@ -1,0 +1,20 @@
+{
+  "items": [
+    {
+      "slug": "inoria",
+      "featured": true,
+      "company": "Inoria",
+      "type": "SMM + target reklama",
+      "product": "Bo‘yoq",
+      "platform": "Instagram",
+      "result": "46 635 qamrov",
+      "summary": "$45 reklama byudjeti bilan 46 635 qamrov, 86 963 ko‘rish va +327 obunachi.",
+      "metrics": [
+        { "value": "$45", "label": "reklama byudjeti" },
+        { "value": "46 635", "label": "qamrov" },
+        { "value": "86 963", "label": "ko‘rish" },
+        { "value": "+327", "label": "obunachi" }
+      ]
+    }
+  ]
+}

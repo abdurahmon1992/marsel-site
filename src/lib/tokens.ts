@@ -1,9 +1,11 @@
 // CSS o'zgaruvchilari ishlamaydigan joylar (favicon, OG rasmlar) uchun
-// brend tokenlari. Qiymatlar src/app/globals.css bilan bir xil bo'lishi shart.
+// tokenlar. Qiymatlar src/app/globals.css bilan bir xil bo'lishi shart.
 export const tokens = {
-  bg: "#ffffff",
-  surface: "#f2f4fa",
-  text: "#0e1330",
-  accent: "#2346ff",
-  accent2: "#ff5a4e",
+  white: "#ffffff",
+  ink: "#111111",
+  card: "#1c1c1c",
+  red: "#dc2f2a",
+  // logotip (palitradan qat'i nazar o'zgarmaydi)
+  logoMark: "#2346ff",
+  logoDot: "#ff5a4e",
 } as const;

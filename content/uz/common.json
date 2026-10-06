@@ -23,10 +23,8 @@
   "footer": {
     "tagline": "Kichik va o‘rta biznes uchun marketing agentligi.",
     "contacts": "Kontaktlar",
-    "addressTitle": "Manzil",
     "address": "Toshkent, Mirobod tumani, Shahrisabz ko‘chasi 16A",
     "addressNote": "Oybek metrosi yonida",
-    "openMap": "Xaritada ochish",
     "follow": "Ijtimoiy tarmoqlar",
     "privacy": "Maxfiylik siyosati",
     "rights": "Barcha huquqlar himoyalangan."
@@ -35,5 +33,25 @@
     "title": "Sahifa topilmadi",
     "text": "Bu manzilda sahifa yo‘q yoki u boshqa joyga ko‘chirilgan.",
     "home": "Bosh sahifaga qaytish"
+  },
+  "form": {
+    "name": "Ismingiz",
+    "namePlaceholder": "Ism",
+    "phone": "Telefon",
+    "instagram": "Instagram yoki sayt",
+    "instagramPlaceholder": "@sahifa yoki havola",
+    "optional": "ixtiyoriy",
+    "service": "Tanlangan",
+    "clearService": "Tanlovni bekor qilish",
+    "submit": "Bepul audit olish",
+    "sending": "Yuborilmoqda…",
+    "consent": "Tugmani bosib, siz {privacy}ga rozilik bildirasiz.",
+    "privacyLink": "maxfiylik siyosati",
+    "successTitle": "Arizangiz qabul qilindi!",
+    "successText": "24 soat ichida siz bilan bog‘lanamiz.",
+    "error": "Ariza yuborilmadi. Iltimos, bizga Telegram’da yozing:",
+    "errorRate": "Juda ko‘p urinish. Bir daqiqadan keyin qayta urinib ko‘ring yoki Telegram’da yozing:",
+    "required": "Ismingizni kiriting",
+    "phoneInvalid": "Telefon raqamini to‘liq kiriting"
   }
 }

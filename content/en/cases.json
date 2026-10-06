@@ -1,0 +1,20 @@
+{
+  "items": [
+    {
+      "slug": "inoria",
+      "featured": true,
+      "company": "Inoria",
+      "type": "SMM + paid social",
+      "product": "Paint",
+      "platform": "Instagram",
+      "result": "46,635 reach",
+      "summary": "A $45 ad budget brought 46,635 reach, 86,963 views and +327 followers.",
+      "metrics": [
+        { "value": "$45", "label": "ad budget" },
+        { "value": "46,635", "label": "reach" },
+        { "value": "86,963", "label": "views" },
+        { "value": "+327", "label": "followers" }
+      ]
+    }
+  ]
+}

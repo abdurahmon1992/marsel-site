@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { DM_Sans, Manrope, Onest, Sora } from "next/font/google";
+import { DM_Sans, Onest, Oswald, Sora } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { getCommon, hasLocale, locales } from "@/lib/i18n";
@@ -8,11 +8,14 @@ import { htmlLang } from "@/lib/locales";
 import { alternates, siteUrl } from "@/lib/site";
 import "../globals.css";
 
-const sora = Sora({ subsets: ["latin"], variable: "--font-sora", display: "swap" });
+// Sarlavhalar: Oswald. CSS'da barcha subsetlar (kirill ham) bor; `subsets` faqat qaysi
+// fayl oldindan yuklanishini belgilaydi — kirill fayli faqat ru sahifada yuklanadi.
+const oswald = Oswald({ subsets: ["latin"], variable: "--font-oswald", display: "swap" });
+// Matn: DM Sans; kirill glifi Onest'dan (preload o'chiq — uz/en sahifalarda yuklanmaydi)
 const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dm-sans", display: "swap" });
-// Faqat kirill glifi uchun (ru). preload o'chiq — uz/en sahifalarda umuman yuklanmaydi.
-const manrope = Manrope({ subsets: ["cyrillic"], variable: "--font-manrope", display: "swap", preload: false });
 const onest = Onest({ subsets: ["cyrillic"], variable: "--font-onest", display: "swap", preload: false });
+// Faqat "marsel." wordmark uchun (logotip o'zgarmaydi)
+const sora = Sora({ subsets: ["latin"], weight: "700", variable: "--font-sora", display: "swap", preload: false });
 
 export function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
@@ -45,7 +48,8 @@ export default async function LangLayout({ children, params }: LayoutProps<"/[la
   return (
     <html
       lang={htmlLang[lang]}
-      className={`${sora.variable} ${dmSans.variable} ${manrope.variable} ${onest.variable}`}
+      data-palette="ref"
+      className={`${oswald.variable} ${dmSans.variable} ${onest.variable} ${sora.variable}`}
     >
       <body className="flex min-h-dvh flex-col">
         <a

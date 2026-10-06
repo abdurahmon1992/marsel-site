@@ -23,10 +23,8 @@
   "footer": {
     "tagline": "Marketing agency for small and medium businesses.",
     "contacts": "Contacts",
-    "addressTitle": "Address",
     "address": "16A Shahrisabz St, Mirobod district, Tashkent",
     "addressNote": "next to Oybek metro station",
-    "openMap": "Open in maps",
     "follow": "Social media",
     "privacy": "Privacy policy",
     "rights": "All rights reserved."
@@ -35,5 +33,25 @@
     "title": "Page not found",
     "text": "There is no page at this address, or it has been moved.",
     "home": "Back to home"
+  },
+  "form": {
+    "name": "Your name",
+    "namePlaceholder": "Name",
+    "phone": "Phone",
+    "instagram": "Instagram or website",
+    "instagramPlaceholder": "@page or link",
+    "optional": "optional",
+    "service": "Selected",
+    "clearService": "Clear selection",
+    "submit": "Get a free audit",
+    "sending": "Sending…",
+    "consent": "By clicking the button, you agree to our {privacy}.",
+    "privacyLink": "privacy policy",
+    "successTitle": "Request received!",
+    "successText": "We’ll get back to you within 24 hours.",
+    "error": "Your request wasn’t sent. Please message us on Telegram:",
+    "errorRate": "Too many attempts. Try again in a minute or message us on Telegram:",
+    "required": "Please enter your name",
+    "phoneInvalid": "Please enter the full phone number"
   }
 }

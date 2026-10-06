@@ -29,7 +29,7 @@ export function MobileNav({ items, openLabel, closeLabel, children }: Props) {
         aria-expanded={open}
         aria-controls="mobile-menu"
         aria-label={open ? closeLabel : openLabel}
-        className="grid size-10 place-items-center rounded-full text-text hover:bg-surface"
+        className="grid size-10 place-items-center text-text hover:bg-subtle"
       >
         {open ? <CloseIcon className="size-6" /> : <MenuIcon className="size-6" />}
       </button>
@@ -39,13 +39,13 @@ export function MobileNav({ items, openLabel, closeLabel, children }: Props) {
         hidden={!open}
         className="absolute inset-x-0 top-full border-b border-border bg-bg shadow-lg"
       >
-        <nav className="mx-auto flex max-w-6xl flex-col px-4 py-3 sm:px-6">
+        <nav className="mx-auto flex max-w-7xl flex-col px-4 py-3 sm:px-6">
           {items.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="rounded-lg px-2 py-3 text-base font-medium text-text hover:bg-surface"
+              className="px-2 py-3 font-display text-xl font-semibold text-text uppercase hover:text-accent"
             >
               {item.label}
             </Link>

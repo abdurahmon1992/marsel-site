@@ -11,14 +11,14 @@ export function Header({ locale, t }: Props) {
   const home = localizedPath(locale);
   const items = [
     { href: `${home}#services`, label: t.nav.services },
-    { href: localizedPath(locale, "/cases"), label: t.nav.cases },
+    { href: `${home}#cases`, label: t.nav.cases },
     { href: `${home}#pricing`, label: t.nav.pricing },
     { href: `${home}#contacts`, label: t.nav.contacts },
   ];
 
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-bg/90 backdrop-blur supports-[backdrop-filter]:bg-bg/75">
-      <div className="relative mx-auto flex h-(--header-h) max-w-6xl items-center gap-2 px-4 sm:gap-3 sm:px-6">
+      <div className="relative mx-auto flex h-(--header-h) max-w-7xl items-center gap-2 px-4 sm:gap-3 sm:px-6 lg:px-8">
         <Link href={home} aria-label="MarSel Marketing" className="mr-auto shrink-0">
           <Logo />
         </Link>
@@ -28,7 +28,7 @@ export function Header({ locale, t }: Props) {
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-full px-3 py-2 text-sm font-medium text-muted transition-colors hover:text-text"
+              className="px-3 py-2 text-sm font-medium text-text transition-colors hover:text-accent"
             >
               {item.label}
             </Link>
@@ -41,7 +41,7 @@ export function Header({ locale, t }: Props) {
         <Link
           href={`${home}#audit`}
           data-cta="header"
-          className="inline-flex h-10 shrink-0 items-center rounded-full bg-accent px-3 text-sm font-semibold whitespace-nowrap text-on-accent transition-colors hover:bg-accent-hover min-[400px]:px-4 sm:px-5"
+          className="inline-flex h-10 shrink-0 items-center bg-accent px-3 text-xs font-semibold tracking-wide whitespace-nowrap text-on-accent uppercase transition-colors hover:bg-accent-hover min-[400px]:px-4 sm:px-5"
         >
           {t.cta.audit}
         </Link>

@@ -1,0 +1,9 @@
+{
+  "_izoh": "Narxlar USD, oyiga. Paket tarkibi har til uchun content/<til>/home.json -> pricing.features da.",
+  "currency": "$",
+  "plans": [
+    { "id": "start", "name": "SMM-Start", "price": 600, "adBudgetFrom": 150, "popular": false },
+    { "id": "growth", "name": "SMM-Growth", "price": 900, "adBudgetFrom": 300, "popular": true },
+    { "id": "scale", "name": "SMM-Scale", "price": 1300, "adBudgetFrom": 500, "popular": false }
+  ]
+}

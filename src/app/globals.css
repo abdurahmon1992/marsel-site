@@ -1,40 +1,86 @@
 @import "tailwindcss";
 
 /*
- * Brend tokenlari (C variant). Loyihada hex qiymatlar FAQAT shu yerda
- * (va CSS ishlamaydigan joylar uchun src/lib/tokens.ts da) yoziladi.
- * Komponentlar faqat Tailwind sinflari orqali shu o'zgaruvchilarga murojaat qiladi:
- * bg-bg, bg-surface, text-text, text-muted, bg-accent, text-accent-2 ...
+ * TOKENLAR. Loyihada hex qiymatlar FAQAT shu yerda (va CSS ishlamaydigan joylar
+ * uchun src/lib/tokens.ts da) yoziladi. Komponentlar faqat Tailwind sinflari
+ * orqali semantik o'zgaruvchilarga murojaat qiladi: bg-bg, bg-surface, text-accent ...
+ *
+ * 1) Primitivlar — ikkala palitraning xom ranglari.
+ * 2) Semantik tokenlar — hozir REFERENS palitrasi (oq fon, qora kartalar, qizil accent).
+ * 3) [data-palette="c"] — tasdiqlangan C brend palitrasi. Qaytarish uchun
+ *    src/app/[lang]/layout.tsx dagi <html data-palette="..."> qiymatini "c" qiling.
  */
 :root {
-  --bg: #ffffff;
-  --surface: #f2f4fa; /* Tuman */
-  --text: #0e1330; /* Siyoh */
-  --muted: color-mix(in srgb, var(--text) 64%, var(--bg));
+  /* --- 1. Primitivlar ------------------------------------------------- */
+  /* C brend (tasdiqlangan) */
+  --brand-kobalt: #2346ff;
+  --brand-marjon: #ff5a4e;
+  --brand-siyoh: #0e1330;
+  --brand-tuman: #f2f4fa;
+  /* Referens palitrasi */
+  --ref-ink: #111111;
+  --ref-card: #1c1c1c;
+  --ref-red: #dc2f2a; /* ~#E5322D, oq matn bilan WCAG AA kontrasti uchun biroz to'qroq */
+  --white: #ffffff;
+
+  /* --- 2. Semantik tokenlar (referens) -------------------------------- */
+  --bg: var(--white);
+  --text: var(--ref-ink);
+  --surface: var(--ref-card); /* katta qora kartalar */
+  --on-surface: var(--white);
+  --accent: var(--ref-red);
+  --accent-2: var(--ref-red);
+  --on-accent: var(--white);
+
+  /* Logotip palitradan qat'i nazar o'zgarmaydi */
+  --logo-mark: var(--brand-kobalt);
+  --logo-dot: var(--brand-marjon);
+  --logo-line: var(--white);
+
+  /* Hosilalar */
+  --muted: color-mix(in srgb, var(--text) 62%, var(--bg));
   --border: color-mix(in srgb, var(--text) 12%, var(--bg));
-  --accent: #2346ff; /* Kobalt */
-  --accent-hover: color-mix(in srgb, var(--accent) 86%, var(--text));
-  --accent-2: #ff5a4e; /* Marjon */
-  --on-accent: var(--bg);
+  --subtle: color-mix(in srgb, var(--text) 5%, var(--bg)); /* och kulrang fon */
+  --on-surface-muted: color-mix(in srgb, var(--on-surface) 66%, var(--surface));
+  --surface-border: color-mix(in srgb, var(--on-surface) 14%, var(--surface));
+  --surface-raised: color-mix(in srgb, var(--on-surface) 7%, var(--surface));
+  --accent-hover: color-mix(in srgb, var(--accent) 84%, var(--ref-ink));
 
   --header-h: 4rem;
   color-scheme: light;
 }
 
+:root[data-palette="c"] {
+  --text: var(--brand-siyoh);
+  --surface: var(--brand-siyoh);
+  --accent: var(--brand-kobalt);
+  --accent-2: var(--brand-marjon);
+  --subtle: var(--brand-tuman);
+  --accent-hover: color-mix(in srgb, var(--accent) 86%, var(--brand-siyoh));
+}
+
 @theme inline {
   --color-bg: var(--bg);
-  --color-surface: var(--surface);
   --color-text: var(--text);
   --color-muted: var(--muted);
   --color-border: var(--border);
+  --color-subtle: var(--subtle);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-border: var(--surface-border);
+  --color-on-surface: var(--on-surface);
+  --color-on-surface-muted: var(--on-surface-muted);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
   --color-accent-2: var(--accent-2);
   --color-on-accent: var(--on-accent);
+  --color-logo-mark: var(--logo-mark);
+  --color-logo-dot: var(--logo-dot);
+  --color-logo-line: var(--logo-line);
 
-  /* Sora va DM Sans'da kirill harflari yo'q — ru sahifada kirill glifi
-     avtomatik ravishda Manrope / Onest'dan olinadi (unicode-range). */
-  --font-display: var(--font-sora), var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  /* Oswald — lotin + kirill. DM Sans'da kirill yo'q: ru matnda Onest'ga o'tadi. */
+  --font-display: var(--font-oswald), ui-sans-serif, system-ui, sans-serif;
+  --font-logo: var(--font-sora), ui-sans-serif, system-ui, sans-serif; /* faqat wordmark */
   --font-sans: var(--font-dm-sans), var(--font-onest), ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -51,11 +97,18 @@ body {
 }
 
 h1,
-h2,
+h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: -0.005em;
+}
+
 h3,
 h4 {
   font-family: var(--font-display);
-  letter-spacing: -0.02em;
+  font-weight: 600;
 }
 
 :focus-visible {

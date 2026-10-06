@@ -17,7 +17,7 @@ export function LangSwitcher({ current, label, className = "" }: Props) {
   const rest = pathname.replace(/^\/(uz|ru|en)(?=\/|$)/, "");
 
   return (
-    <nav aria-label={label} className={`flex items-center rounded-full bg-surface p-1 ${className}`}>
+    <nav aria-label={label} className={`flex items-center bg-subtle p-1 ${className}`}>
       {locales.map((locale) => {
         const active = locale === current;
         return (
@@ -29,7 +29,7 @@ export function LangSwitcher({ current, label, className = "" }: Props) {
             title={localeLabels[locale]}
             aria-current={active ? "true" : undefined}
             onClick={() => rememberLocale(locale)}
-            className={`rounded-full px-2.5 py-1 text-xs font-semibold uppercase tracking-wide transition-colors ${
+            className={`px-2.5 py-1 text-xs font-semibold uppercase tracking-wide transition-colors ${
               active ? "bg-bg text-text shadow-sm" : "text-muted hover:text-text"
             }`}
           >

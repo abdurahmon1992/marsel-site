@@ -1,6 +1,7 @@
 {
+  "_izoh": "Words in *asterisks* are shown in red in headings. \\n — line break.",
   "hero": {
-    "title": "Your Instagram looks great. Now let it sell.",
+    "title": "Your Instagram looks great.\n*Now let it sell.*",
     "subtitle": "SMM, Reels, paid ads and websites for small and medium businesses — one team. We show results in numbers.",
     "primary": "Get a free audit",
     "secondary": "See case studies",
@@ -8,6 +9,139 @@
       { "value": "30+", "label": "projects" },
       { "value": "19 → 223", "label": "monthly inquiries" },
       { "value": "$45 → 46,635", "label": "reach" }
+    ]
+  },
+  "clients": {
+    "title": "Trusted by"
+  },
+  "problems": {
+    "title": "You need *help* if:",
+    "items": [
+      "You post regularly, but no customers come",
+      "You spent money on ads, but got no leads",
+      "Your SMM manager left and took the system with them",
+      "You have a page, but sales get lost in Direct"
+    ]
+  },
+  "case": {
+    "eyebrow": "Case study",
+    "title": "Results — *in numbers*",
+    "labels": {
+      "result": "Result",
+      "type": "Type",
+      "company": "Company",
+      "product": "Product",
+      "platform": "Platform"
+    },
+    "more": "Learn more",
+    "imagePlaceholder": "[IMAGE]"
+  },
+  "services": {
+    "title": "We run *all your marketing*",
+    "labels": {
+      "for": "For",
+      "includes": "What’s included",
+      "result": "Result",
+      "more": "Learn more"
+    },
+    "items": [
+      {
+        "id": "smm",
+        "name": "SMM",
+        "for": "Businesses with an Instagram page that isn’t run systematically",
+        "includes": "Content plan, posts, stories, design and copy",
+        "result": "A page that is updated regularly and turns followers into inquiries"
+      },
+      {
+        "id": "reels",
+        "name": "Reels & production",
+        "for": "Businesses that need to show their product or service on video",
+        "includes": "Script, filming, editing and Reels-ready formatting",
+        "result": "Short videos that reach new audiences"
+      },
+      {
+        "id": "target",
+        "name": "Paid social (Meta Ads, Telegram Ads)",
+        "for": "Businesses that want fast, measurable inquiries",
+        "includes": "Audience research, creatives, campaign setup and optimization",
+        "result": "The cost of every inquiry is visible in the report"
+      },
+      {
+        "id": "branding",
+        "name": "Branding & website",
+        "for": "New businesses or brands going through a refresh",
+        "includes": "Naming, logo, brand guide and landing page",
+        "result": "A consistent brand and a website that collects leads"
+      }
+    ],
+    "columns": [
+      {
+        "title": "For small businesses",
+        "text": "No need to hire an SMM manager, a designer and an ads specialist separately. One team runs your page, shoots video and sets up ads."
+      },
+      {
+        "title": "For mid-size businesses and chains",
+        "text": "One content system for several branches or product lines, ad campaigns and a monthly report."
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Packages & *pricing*",
+    "perMonth": "/mo",
+    "adBudget": "Ad budget from {amount}",
+    "popular": "Most popular",
+    "cta": "Choose this package",
+    "note": "Ad budget is not included. Branding and websites are priced separately.",
+    "features": {
+      "start": ["4 posts", "1 Reels", "4 stories", "1 ad campaign"],
+      "growth": ["6 posts", "4 Reels", "8 stories", "2 shooting days"],
+      "scale": ["10 posts", "6 Reels", "12 stories", "3 shooting days"]
+    }
+  },
+  "testimonials": {
+    "title": "What clients *say*",
+    "items": [
+      {
+        "quote": "[TASDIQLASH] Client testimonial goes here.",
+        "name": "[TASDIQLASH] Full name",
+        "role": "[TASDIQLASH] Company"
+      },
+      {
+        "quote": "[TASDIQLASH] Client testimonial goes here.",
+        "name": "[TASDIQLASH] Full name",
+        "role": "[TASDIQLASH] Company"
+      }
+    ],
+    "imagePlaceholder": "[IMAGE]"
+  },
+  "audit": {
+    "title": "Free audit — *within 24 hours*",
+    "text": "We review your page and show you, in a 3–5 minute video, where customers are getting lost. No strings attached.",
+    "points": ["3–5 minute video review", "Where customers get lost", "No strings attached"]
+  },
+  "faq": {
+    "title": "Frequently asked *questions*",
+    "items": [
+      {
+        "q": "When will I see results?",
+        "a": "[TASDIQLASH] We show results in numbers in a monthly report. The exact timeline depends on your niche and starting point — we’ll tell you during the free audit."
+      },
+      {
+        "q": "Is the ad budget included in the price?",
+        "a": "No, the ad budget is not included in the package price. The recommended minimum budget for each package is listed in the pricing section."
+      },
+      {
+        "q": "How long is the contract?",
+        "a": "[TASDIQLASH] We agree on the minimum term and conditions at our first meeting."
+      },
+      {
+        "q": "Do you work outside Tashkent?",
+        "a": "[TASDIQLASH] Yes, we work with businesses in other cities online; travel for shoots is agreed separately."
+      },
+      {
+        "q": "Who approves the content?",
+        "a": "[TASDIQLASH] The content plan and every post are approved by you before publishing."
+      }
     ]
   }
 }

@@ -1,6 +1,7 @@
 {
+  "_izoh": "*yulduzcha* ichidagi so‘zlar sarlavhada qizil rangda chiqadi. \\n — yangi qator.",
   "hero": {
-    "title": "Instagram’ingiz chiroyli. Endi sotsin.",
+    "title": "Instagram’ingiz chiroyli.\n*Endi sotsin.*",
     "subtitle": "Kichik va o‘rta biznes uchun SMM, Reels, target va sayt — bitta jamoada. Natijani raqamda ko‘rsatamiz.",
     "primary": "Bepul audit olish",
     "secondary": "Keyslarni ko‘rish",
@@ -8,6 +9,139 @@
       { "value": "30+", "label": "loyiha" },
       { "value": "19 → 223", "label": "oylik murojaat" },
       { "value": "$45 → 46 635", "label": "qamrov" }
+    ]
+  },
+  "clients": {
+    "title": "Bizga ishonganlar"
+  },
+  "problems": {
+    "title": "Sizga *yordam* kerak, agar:",
+    "items": [
+      "Post chiqyapti, mijoz yo‘q",
+      "Targetga pul ketdi, ariza kelmadi",
+      "SMMchi keldi-ketdi, tizim qolmadi",
+      "Sahifa bor, lekin sotuv Direct’da yo‘qoladi"
+    ]
+  },
+  "case": {
+    "eyebrow": "Keys",
+    "title": "Natija — *raqamda*",
+    "labels": {
+      "result": "Natija",
+      "type": "Turi",
+      "company": "Kompaniya",
+      "product": "Mahsulot",
+      "platform": "Platforma"
+    },
+    "more": "Batafsil",
+    "imagePlaceholder": "[RASM]"
+  },
+  "services": {
+    "title": "Barcha marketingingizni *o‘zimiz yuritamiz*",
+    "labels": {
+      "for": "Kimga",
+      "includes": "Nima kiradi",
+      "result": "Natija",
+      "more": "Batafsil"
+    },
+    "items": [
+      {
+        "id": "smm",
+        "name": "SMM",
+        "for": "Instagram’i bor, lekin sahifasi tizimli yuritilmayotgan biznes",
+        "includes": "Kontent reja, postlar, stories, dizayn va matnlar",
+        "result": "Sahifa muntazam yangilanadi va obunachini murojaatga olib boradi"
+      },
+      {
+        "id": "reels",
+        "name": "Reels va production",
+        "for": "Mahsulot yoki xizmatini videoda ko‘rsatishi kerak bo‘lgan biznes",
+        "includes": "Ssenariy, s’yomka, montaj va Reels formatiga moslash",
+        "result": "Yangi auditoriyaga chiqadigan qisqa videolar"
+      },
+      {
+        "id": "target",
+        "name": "Target reklama (Meta Ads, Telegram Ads)",
+        "for": "Tez va o‘lchanadigan murojaat olishni istagan biznes",
+        "includes": "Auditoriya tanlash, kreativlar, kampaniyani sozlash va optimizatsiya",
+        "result": "Har bir murojaat narxi hisobotda ko‘rinadi"
+      },
+      {
+        "id": "branding",
+        "name": "Brending va sayt",
+        "for": "Yangi ochilayotgan yoki qiyofasini yangilayotgan biznes",
+        "includes": "Nom, logotip, gaydbuk va lending sahifa",
+        "result": "Yagona uslubdagi brend va arizani qabul qiladigan sayt"
+      }
+    ],
+    "columns": [
+      {
+        "title": "Kichik biznes uchun",
+        "text": "SMMchi, dizayner va targetologni alohida yollash shart emas. Bitta jamoa sahifani yuritadi, video suratga oladi va reklamani sozlaydi."
+      },
+      {
+        "title": "O‘rta biznes va tarmoqlar uchun",
+        "text": "Bir nechta filial yoki yo‘nalish uchun yagona kontent tizimi, reklama kampaniyalari va har oylik hisobot."
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Paketlar va *narxlar*",
+    "perMonth": "/oy",
+    "adBudget": "Reklama byudjeti {amount} dan",
+    "popular": "Ko‘p tanlanadi",
+    "cta": "Shu paketni tanlash",
+    "note": "Reklama byudjeti narxga kirmaydi. Brending va sayt alohida hisoblanadi.",
+    "features": {
+      "start": ["4 ta post", "1 ta Reels", "4 ta stories", "1 ta target kampaniya"],
+      "growth": ["6 ta post", "4 ta Reels", "8 ta stories", "2 kunlik s’yomka"],
+      "scale": ["10 ta post", "6 ta Reels", "12 ta stories", "3 kunlik s’yomka"]
+    }
+  },
+  "testimonials": {
+    "title": "Mijozlar *fikri*",
+    "items": [
+      {
+        "quote": "[TASDIQLASH] Mijoz iqtibosi shu yerda bo‘ladi.",
+        "name": "[TASDIQLASH] Ism Familiya",
+        "role": "[TASDIQLASH] Kompaniya"
+      },
+      {
+        "quote": "[TASDIQLASH] Mijoz iqtibosi shu yerda bo‘ladi.",
+        "name": "[TASDIQLASH] Ism Familiya",
+        "role": "[TASDIQLASH] Kompaniya"
+      }
+    ],
+    "imagePlaceholder": "[RASM]"
+  },
+  "audit": {
+    "title": "Bepul audit — *24 soatda*",
+    "text": "Sahifangizni ko‘rib chiqamiz va mijoz qayerda yo‘qolayotganini 3–5 daqiqalik videoda ko‘rsatamiz. Majburiyat yo‘q.",
+    "points": ["3–5 daqiqalik video-tahlil", "Mijoz qayerda yo‘qolayotgani", "Majburiyat yo‘q"]
+  },
+  "faq": {
+    "title": "Ko‘p beriladigan *savollar*",
+    "items": [
+      {
+        "q": "Natija qachon ko‘rinadi?",
+        "a": "[TASDIQLASH] Natijani har oylik hisobotda raqamlar bilan ko‘rsatamiz. Aniq muddat soha va boshlang‘ich holatga bog‘liq — buni bepul auditda aytamiz."
+      },
+      {
+        "q": "Reklama byudjeti narxga kiradimi?",
+        "a": "Yo‘q, reklama byudjeti paket narxiga kirmaydi. Har bir paket uchun tavsiya etilgan minimal byudjet narxlar blokida ko‘rsatilgan."
+      },
+      {
+        "q": "Shartnoma qancha muddatga tuziladi?",
+        "a": "[TASDIQLASH] Minimal muddat va shartlarni birinchi uchrashuvda kelishamiz."
+      },
+      {
+        "q": "Toshkentdan tashqarida ishlaysizmi?",
+        "a": "[TASDIQLASH] Ha, boshqa shaharlardagi bizneslar bilan onlayn ishlaymiz; s’yomka uchun safar alohida kelishiladi."
+      },
+      {
+        "q": "Kontentni kim tasdiqlaydi?",
+        "a": "[TASDIQLASH] Kontent reja va har bir post e’lon qilinishidan oldin siz bilan kelishiladi."
+      }
     ]
   }
 }

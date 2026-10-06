@@ -2,7 +2,16 @@ import Link from "next/link";
 import type { CaseItem } from "@/lib/i18n";
 import { CaseImage } from "./CaseImage";
 
-type Props = { item: CaseItem; href: string; more: string; className?: string; sizes?: string; frameWidth?: number };
+type Props = {
+  item: CaseItem;
+  href: string;
+  more: string;
+  className?: string;
+  sizes?: string;
+  frameWidth?: number;
+  /** Birinchi ekrandagi kartochka (LCP) — rasm darhol yuklanadi */
+  eager?: boolean;
+};
 
 /** Kartochka sarlavhasi: mijoz nomi (bo'lsa) yoki soha, va xizmat turi. */
 export const caseMeta = (item: CaseItem) => [item.name || item.industry, item.type].filter(Boolean).join(" · ");
@@ -15,6 +24,7 @@ export function CaseCard({
   className = "",
   sizes = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 85vw",
   frameWidth = 400,
+  eager = false,
 }: Props) {
   const branding = item.kind === "branding";
   return (
@@ -29,7 +39,7 @@ export function CaseCard({
           {item.badge}
         </span>
       )}
-      {item.cover && <CaseImage image={item.cover} sizes={sizes} frameWidth={frameWidth} />}
+      {item.cover && <CaseImage image={item.cover} sizes={sizes} frameWidth={frameWidth} eager={eager} />}
       <div className="flex flex-1 flex-col p-6 sm:p-8">
         <p className="text-xs font-semibold tracking-widest text-muted uppercase">
           {branding ? item.type : caseMeta(item)}

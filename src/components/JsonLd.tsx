@@ -1,0 +1,10 @@
+// schema.org tuzilgan ma'lumotlari (<script type="application/ld+json">)
+export function JsonLd({ data }: { data: Record<string, unknown> | Record<string, unknown>[] }) {
+  return (
+    <script
+      type="application/ld+json"
+      // "<" belgisi qochiriladi — skript ichida HTML yopilib qolmasligi uchun
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }}
+    />
+  );
+}

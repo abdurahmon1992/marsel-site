@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { track } from "@/lib/analytics";
 import { LOCALE_COOKIE, localeLabels, locales, type Locale } from "@/lib/locales";
 
 // Tanlangan til eslab qolinadi: keyingi safar "/" ochilganda proxy shu tilga yo'naltiradi.
@@ -28,7 +29,10 @@ export function LangSwitcher({ current, label, className = "" }: Props) {
             lang={locale}
             title={localeLabels[locale]}
             aria-current={active ? "true" : undefined}
-            onClick={() => rememberLocale(locale)}
+            onClick={() => {
+              rememberLocale(locale);
+              if (!active) track("lang_switch", { from: current, to: locale });
+            }}
             className={`px-2.5 py-1 text-xs font-semibold uppercase tracking-wide transition-colors ${
               active ? "bg-bg text-text shadow-sm" : "text-muted hover:text-text"
             }`}

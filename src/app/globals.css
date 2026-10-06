@@ -1,6 +1,37 @@
 @import "tailwindcss";
 
 /*
+ * Oswald (sarlavhalar) — o'zimiz joylashtiramiz: lotin va kirill alohida fayl,
+ * shunda kirill fayli faqat /ru sahifalarida oldindan yuklanadi (src/app/[lang]/layout.tsx).
+ */
+@font-face {
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("/fonts/oswald-latin-wght-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("/fonts/oswald-cyrillic-wght-normal.woff2") format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* Shrift yuklanguncha joy o'zgarmasligi uchun Oswald o'lchamiga moslangan Arial */
+@font-face {
+  font-family: "Oswald Fallback";
+  src: local("Arial");
+  ascent-override: 146.51%;
+  descent-override: 35.49%;
+  line-gap-override: 0%;
+  size-adjust: 81.43%;
+}
+
+/*
  * TOKENLAR. Loyihada hex qiymatlar FAQAT shu yerda (va CSS ishlamaydigan joylar
  * uchun src/lib/tokens.ts da) yoziladi. Komponentlar faqat Tailwind sinflari
  * orqali semantik o'zgaruvchilarga murojaat qiladi: bg-bg, bg-surface, text-accent ...
@@ -82,7 +113,7 @@
   --color-logo-line: var(--logo-line);
 
   /* Oswald — lotin + kirill. DM Sans'da kirill yo'q: ru matnda Onest'ga o'tadi. */
-  --font-display: var(--font-oswald), ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Oswald", "Oswald Fallback", ui-sans-serif, system-ui, sans-serif;
   --font-logo: var(--font-sora), ui-sans-serif, system-ui, sans-serif; /* faqat wordmark */
   --font-sans: var(--font-dm-sans), var(--font-onest), ui-sans-serif, system-ui, sans-serif;
 }

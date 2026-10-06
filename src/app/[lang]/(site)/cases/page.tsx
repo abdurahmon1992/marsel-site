@@ -6,7 +6,7 @@ import { AuditOffer } from "@/components/home/AuditOffer";
 import { PageHeader } from "@/components/PageHeader";
 import { container } from "@/components/ui/styles";
 import { getCases, getCommon, getHome, hasLocale } from "@/lib/i18n";
-import { alternates, localizedPath } from "@/lib/site";
+import { alternates, localizedPath, openGraphFor } from "@/lib/site";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]/cases">): Promise<Metadata> {
   const { lang } = await params;
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/cases">): 
     title: pages.cases.title,
     description: pages.cases.description,
     alternates: alternates(lang, "/cases"),
-    openGraph: { title: pages.cases.title, description: pages.cases.description },
+    openGraph: openGraphFor(lang, pages.cases.title, pages.cases.description),
   };
 }
 
@@ -32,10 +32,10 @@ export default async function CasesPage({ params }: PageProps<"/[lang]/cases">) 
         <CasesGrid
           label={common.pages.cases.title}
           filters={common.pages.cases.filters}
-          items={cases.items.map((c) => ({
+          items={cases.items.map((c, i) => ({
             slug: c.slug,
             tags: c.tags,
-            card: <CaseCard item={c} href={localizedPath(lang, `/cases/${c.slug}`)} more={home.case.more} />,
+            card: <CaseCard item={c} href={localizedPath(lang, `/cases/${c.slug}`)} more={home.case.more} eager={i === 0} />,
           }))}
         />
       </section>

@@ -2,11 +2,13 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CaseImage } from "@/components/CaseImage";
+import { JsonLd } from "@/components/JsonLd";
+import { caseSchema } from "@/lib/schema";
 import { AuditOffer } from "@/components/home/AuditOffer";
 import { PageHeader } from "@/components/PageHeader";
 import { container } from "@/components/ui/styles";
 import { getCases, getCommon, getHome, hasLocale, type Locale } from "@/lib/i18n";
-import { alternates, localizedPath } from "@/lib/site";
+import { alternates, localizedPath, openGraphFor } from "@/lib/site";
 
 export async function generateStaticParams({ params }: { params: { lang: string } }) {
   if (!hasLocale(params.lang)) return [];
@@ -28,7 +30,7 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/cases/[slu
     title: item.title,
     description: item.summary,
     alternates: alternates(lang, `/cases/${slug}`),
-    openGraph: { title: item.title, description: item.summary },
+    openGraph: openGraphFor(lang, item.title, item.summary, "article"),
   };
 }
 
@@ -62,6 +64,7 @@ export default async function CasePage({ params }: PageProps<"/[lang]/cases/[slu
 
   return (
     <>
+      <JsonLd data={caseSchema(lang, item)} />
       <PageHeader
         title={item.title}
         eyebrow={home.case.eyebrow}
@@ -214,6 +217,7 @@ export default async function CasePage({ params }: PageProps<"/[lang]/cases/[slu
           <p className="font-display text-3xl font-bold uppercase lg:text-4xl">{common.pages.caseCta}</p>
           <a
             href="#audit"
+            data-cta={`case_${item.slug}`}
             className="inline-flex h-14 shrink-0 items-center justify-center bg-accent px-8 text-sm font-semibold tracking-wide text-on-accent uppercase transition-colors hover:bg-accent-hover"
           >
             {common.pages.caseCtaButton}

@@ -9,7 +9,9 @@ import { Problems } from "@/components/home/Problems";
 import { Process } from "@/components/home/Process";
 import { Services } from "@/components/home/Services";
 import { Testimonials } from "@/components/home/Testimonials";
+import { JsonLd } from "@/components/JsonLd";
 import { getCases, getCommon, getHome, hasLocale } from "@/lib/i18n";
+import { servicesSchema } from "@/lib/schema";
 import { localizedPath } from "@/lib/site";
 
 export default async function HomePage({ params }: PageProps<"/[lang]">) {
@@ -19,6 +21,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
 
   return (
     <>
+      <JsonLd data={servicesSchema(lang, t)} />
       <Hero t={t.hero} />
       <Clients title={t.clients.title} />
       <div className="pt-6 lg:pt-10">

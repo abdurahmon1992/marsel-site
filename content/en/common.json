@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "MarSel Marketing — SMM, Reels, paid ads and websites | Tashkent",
-    "description": "SMM, Reels, paid social and websites for small and medium businesses — one team. Free marketing audit within 24 hours."
+    "title": "SMM agency in Tashkent — Instagram ads, paid social, Reels | MarSel",
+    "description": "MarSel Marketing is an SMM agency in Tashkent: Instagram management, paid social (Meta, Telegram Ads), Reels and websites. Free marketing audit within 24 hours."
   },
   "skipLink": "Skip to main content",
   "nav": {
@@ -91,5 +91,17 @@
     "map": "MarSel Marketing office on Yandex Maps",
     "mapLoad": "Loading map…",
     "openMap": "Open in Yandex Maps"
+  },
+  "og": {
+    "tag": "SMM agency · Tashkent",
+    "services": "SMM · Reels · Paid social · Websites",
+    "cta": "Free audit — within 24 hours"
+  },
+  "consent": {
+    "text": "We use cookies (Google Analytics, Meta Pixel, Yandex Metrica) to improve the site and measure ad performance.",
+    "accept": "Accept",
+    "necessary": "Necessary only",
+    "more": "Privacy policy",
+    "label": "Cookie settings"
   }
 }

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { defaultLocale, htmlLang, locales, type Locale } from "./locales";
+import { defaultLocale, locales, type Locale } from "./locales";
 
 // Prod domen NEXT_PUBLIC_SITE_URL orqali beriladi; bo'lmasa Vercel avtomatik URL'i.
 export const siteUrl = (
@@ -17,7 +17,31 @@ export function localizedPath(locale: Locale, path = "") {
 /** Joriy sahifa uchun canonical + hreflang (har bir til + x-default). */
 export function alternates(locale: Locale, path = ""): Metadata["alternates"] {
   const languages: Record<string, string> = {};
-  for (const l of locales) languages[htmlLang[l]] = localizedPath(l, path);
+  for (const l of locales) languages[l] = localizedPath(l, path);
   languages["x-default"] = localizedPath(defaultLocale, path);
   return { canonical: localizedPath(locale, path), languages };
+}
+
+/** Open Graph locale kodlari */
+export const ogLocale: Record<Locale, string> = { uz: "uz_UZ", ru: "ru_RU", en: "en_US" };
+
+/** Preview (Vercel) deploylarni qidiruv tizimlari indekslamasin */
+export const isProduction = !process.env.VERCEL_ENV || process.env.VERCEL_ENV === "production";
+
+/** Sahifa uchun to'liq Open Graph (sahifa meta'si layout'dagini ustidan yozgani uchun hammasi shu yerda) */
+export function openGraphFor(
+  locale: Locale,
+  title: string,
+  description: string,
+  type: "website" | "article" = "website",
+): NonNullable<Metadata["openGraph"]> {
+  return {
+    type,
+    siteName: "MarSel Marketing",
+    locale: ogLocale[locale],
+    alternateLocale: locales.filter((l) => l !== locale).map((l) => ogLocale[l]),
+    title,
+    description,
+    images: [{ url: `/${locale}/opengraph-image`, width: 1200, height: 630, alt: "MarSel Marketing" }],
+  };
 }

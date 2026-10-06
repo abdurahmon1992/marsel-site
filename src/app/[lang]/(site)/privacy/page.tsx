@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { PageHeader } from "@/components/PageHeader";
 import { container } from "@/components/ui/styles";
 import { getCommon, getPrivacy, hasLocale } from "@/lib/i18n";
-import { alternates } from "@/lib/site";
+import { alternates, openGraphFor } from "@/lib/site";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]/privacy">): Promise<Metadata> {
   const { lang } = await params;
@@ -13,6 +13,7 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/privacy">)
     title: pages.privacy.title,
     description: pages.privacy.description,
     alternates: alternates(lang, "/privacy"),
+    openGraph: openGraphFor(lang, pages.privacy.title, pages.privacy.description),
   };
 }
 

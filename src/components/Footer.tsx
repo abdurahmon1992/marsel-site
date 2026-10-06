@@ -3,6 +3,7 @@ import contacts from "../../content/contacts.json";
 import type { CommonDict, Locale } from "@/lib/i18n";
 import { localizedPath } from "@/lib/site";
 import { InstagramIcon, LinkedInIcon, MailIcon, PhoneIcon, PinIcon, TelegramIcon } from "./icons";
+import { CookieSettingsButton } from "./CookieSettingsButton";
 import { Logo } from "./Logo";
 
 type Props = { locale: Locale; t: CommonDict };
@@ -93,8 +94,11 @@ export function Footer({ locale, t }: Props) {
       </div>
 
       <div className="border-t border-surface-border">
-        <p className="mx-auto max-w-7xl px-4 py-5 text-center text-xs text-on-surface-muted sm:px-6 lg:px-8">
-          © {year} {contacts.brand}. {t.footer.rights}
+        <p className="mx-auto flex max-w-7xl flex-wrap justify-center gap-x-4 gap-y-1 px-4 py-5 text-center text-xs text-on-surface-muted sm:px-6 lg:px-8">
+          <span>
+            © {year} {contacts.brand}. {t.footer.rights}
+          </span>
+          <CookieSettingsButton label={t.consent.label} />
         </p>
       </div>
     </footer>

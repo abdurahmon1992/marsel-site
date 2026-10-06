@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "MarSel Marketing — SMM, Reels, target va sayt | Toshkent",
-    "description": "Kichik va o‘rta biznes uchun SMM, Reels, target reklama va sayt — bitta jamoada. Bepul marketing audit 24 soatda."
+    "title": "SMM agentlik Toshkent — Instagram va target reklama, Reels | MarSel",
+    "description": "MarSel Marketing — Toshkentdagi SMM agentlik: Instagram yuritish, target reklama (Meta, Telegram Ads), Reels va sayt. Bepul marketing audit 24 soatda."
   },
   "skipLink": "Asosiy kontentga o‘tish",
   "nav": {
@@ -91,5 +91,17 @@
     "map": "Yandex xaritada MarSel Marketing ofisi",
     "mapLoad": "Xarita yuklanmoqda…",
     "openMap": "Yandex Xaritada ochish"
+  },
+  "og": {
+    "tag": "SMM agentlik · Toshkent",
+    "services": "SMM · Reels · Target reklama · Sayt",
+    "cta": "Bepul audit — 24 soatda"
+  },
+  "consent": {
+    "text": "Saytni yaxshilash va reklama samaradorligini o‘lchash uchun cookie fayllaridan foydalanamiz (Google Analytics, Meta Pixel, Yandex Metrika).",
+    "accept": "Roziman",
+    "necessary": "Faqat zarur",
+    "more": "Maxfiylik siyosati",
+    "label": "Cookie sozlamalari"
   }
 }

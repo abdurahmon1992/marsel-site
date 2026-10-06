@@ -6,7 +6,7 @@ import { LeadForm } from "@/components/LeadForm";
 import { Accent } from "@/components/ui/Accent";
 import { cardContainer, darkCard } from "@/components/ui/styles";
 import { getCommon, getHome, hasLocale } from "@/lib/i18n";
-import { alternates, localizedPath } from "@/lib/site";
+import { alternates, localizedPath, openGraphFor } from "@/lib/site";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]/audit">): Promise<Metadata> {
   const { lang } = await params;
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/audit">): 
     title: pages.audit.title,
     description: pages.audit.description,
     alternates: alternates(lang, "/audit"),
-    openGraph: { title: pages.audit.title, description: pages.audit.description },
+    openGraph: openGraphFor(lang, pages.audit.title, pages.audit.description),
   };
 }
 

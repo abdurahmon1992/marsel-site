@@ -113,6 +113,47 @@ Forma `POST /api/lead` ga yuboradi, u Telegram Bot API `sendMessage` orqali
 sahifa, UTM). Himoya: honeypot maydon + IP bo‘yicha daqiqasiga 3 ta ariza.
 Xatoda foydalanuvchiga Telegram havolasi ko‘rsatiladi. Env sozlanmagan bo‘lsa API 503 qaytaradi.
 
+## SEO
+
+- Har til uchun alohida `title` / `description` — `content/<til>/common.json → meta` (bosh sahifa) va
+  `pages.*` (ichki sahifalar). Keys sahifalari sarlavhasi `cases.json → title/summary` dan olinadi.
+- `hreflang` uz / ru / en + `x-default` (= uz), `canonical` — har sahifada avtomatik.
+- `sitemap.xml` (barcha sahifalar va keyslar, 3 tilda, hreflang bilan) va `robots.txt` — `src/app/sitemap.ts`,
+  `src/app/robots.ts`. Preview deploylar (`VERCEL_ENV=preview`) indekslanmaydi.
+- OG rasmlar (1200×630, har til) — `src/app/[lang]/opengraph-image.tsx`, matni `common.json → og`.
+  Shrift: `assets/og/` (Oswald, OFL).
+- Favicon va apple-icon — `src/app/icon.tsx`, `src/app/apple-icon.tsx` (marsel belgisi).
+- schema.org (JSON-LD): `LocalBusiness` (har sahifada), `Service` ×4 (bosh sahifa, SMM paketlari narxi bilan),
+  `CreativeWork` (har keys) — `src/lib/schema.ts`. Manzil va koordinatalar — `content/contacts.json`
+  (`geo` taxminiy — Yandex xaritadan aniq qiymatni kiriting).
+
+## Analitika va cookie roziligi
+
+- GA4, Meta Pixel, Yandex Metrika — ID'lar env'da (`NEXT_PUBLIC_GA4_ID`, `NEXT_PUBLIC_META_PIXEL_ID`,
+  `NEXT_PUBLIC_YM_ID`). ID bo‘sh bo‘lsa skript yuklanmaydi; hammasi bo‘sh bo‘lsa banner ham chiqmaydi.
+- Skriptlar faqat cookie bannerida «Roziman» bosilgandan keyin yuklanadi («Faqat zarur» — yuklanmaydi).
+  Tanlov `marsel_consent` cookie'sida (1 yil). Footer'dagi «Cookie sozlamalari» — bannerni qayta ochadi.
+- Hodisalar (`src/lib/analytics.ts`): `lead_submit` (Pixel'da standart `Lead`), `cta_click`, `phone_click`,
+  `telegram_click`, `lang_switch`. GA4 — `gtag event`, Pixel — `trackCustom`, Metrika — `reachGoal`
+  (Metrika'da shu nomlar bilan maqsadlar yarating).
+- Yangi elementga hodisa qo‘shish: `data-track="phone_click"` yoki `data-cta="manba-nomi"` atributi.
+
+## Shriftlar
+
+Oswald (sarlavhalar) `public/fonts/` dan yuklanadi: lotin fayli hamma sahifada, kirill — faqat `/ru` da
+oldindan yuklanadi (CLS va LCP uchun). DM Sans / Onest / Sora — `next/font`.
+
 ## Muhit o‘zgaruvchilari
 
 Ro‘yxat va izohlar — `.env.example`. Tokenlar faqat Vercel'da saqlanadi.
+
+| O‘zgaruvchi | Majburiy | Izoh |
+|---|---|---|
+| `NEXT_PUBLIC_SITE_URL` | ha | asosiy domen (canonical, sitemap, OG, schema) |
+| `TELEGRAM_BOT_TOKEN` | ha | @MarSelMarketingBot tokeni |
+| `TELEGRAM_CHAT_ID` | ha | arizalar tushadigan chat |
+| `NEXT_PUBLIC_GA4_ID` | yo‘q | `G-XXXXXXXXXX` |
+| `NEXT_PUBLIC_META_PIXEL_ID` | yo‘q | Pixel ID (raqam) |
+| `NEXT_PUBLIC_YM_ID` | yo‘q | Metrika hisoblagich raqami |
+
+`NEXT_PUBLIC_*` qiymatlar build vaqtida qo‘shiladi — o‘zgartirgach Vercel'da **Redeploy** qiling.

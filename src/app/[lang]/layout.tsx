@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { DM_Sans, Onest, Oswald, Sora } from "next/font/google";
+import { DM_Sans, Onest, Sora } from "next/font/google";
+import { preload } from "react-dom";
 import { getCommon, hasLocale, locales } from "@/lib/i18n";
 import { htmlLang } from "@/lib/locales";
-import { alternates, siteUrl } from "@/lib/site";
+import { Analytics } from "@/components/Analytics";
+import { JsonLd } from "@/components/JsonLd";
+import { localBusinessSchema } from "@/lib/schema";
+import { alternates, isProduction, localizedPath, openGraphFor, siteUrl } from "@/lib/site";
 import "../globals.css";
 
-// Sarlavhalar: Oswald. CSS'da barcha subsetlar (kirill ham) bor; `subsets` faqat qaysi
-// fayl oldindan yuklanishini belgilaydi — kirill fayli faqat ru sahifada yuklanadi.
-const oswald = Oswald({ subsets: ["latin"], variable: "--font-oswald", display: "swap" });
 // Matn: DM Sans; kirill glifi Onest'dan (preload o'chiq — uz/en sahifalarda yuklanmaydi)
 const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dm-sans", display: "swap" });
 const onest = Onest({ subsets: ["cyrillic"], variable: "--font-onest", display: "swap", preload: false });
@@ -28,13 +29,9 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
     title: { default: t.meta.title, template: "%s — MarSel Marketing" },
     description: t.meta.description,
     alternates: alternates(lang),
-    openGraph: {
-      type: "website",
-      siteName: "MarSel Marketing",
-      locale: htmlLang[lang],
-      title: t.meta.title,
-      description: t.meta.description,
-    },
+    openGraph: openGraphFor(lang, t.meta.title, t.meta.description),
+    twitter: { card: "summary_large_image" },
+    robots: isProduction ? undefined : { index: false, follow: false },
   };
 }
 
@@ -43,11 +40,16 @@ export default async function LangLayout({ children, params }: LayoutProps<"/[la
   if (!hasLocale(lang)) notFound();
   const t = await getCommon(lang);
 
+  // Oswald (globals.css): lotin fayli hamma sahifada, kirill — faqat ru'da oldindan yuklanadi
+  const fontOpts = { as: "font", type: "font/woff2", crossOrigin: "anonymous" } as const;
+  preload("/fonts/oswald-latin-wght-normal.woff2", fontOpts);
+  if (lang === "ru") preload("/fonts/oswald-cyrillic-wght-normal.woff2", fontOpts);
+
   return (
     <html
       lang={htmlLang[lang]}
       data-palette="ref"
-      className={`${oswald.variable} ${dmSans.variable} ${onest.variable} ${sora.variable}`}
+      className={`${dmSans.variable} ${onest.variable} ${sora.variable}`}
     >
       <body className="flex min-h-dvh flex-col">
         <a
@@ -56,7 +58,17 @@ export default async function LangLayout({ children, params }: LayoutProps<"/[la
         >
           {t.skipLink}
         </a>
+        <JsonLd data={localBusinessSchema(lang, t)} />
         {children}
+        <Analytics
+          ids={{
+            ga4: process.env.NEXT_PUBLIC_GA4_ID,
+            metaPixel: process.env.NEXT_PUBLIC_META_PIXEL_ID,
+            ym: process.env.NEXT_PUBLIC_YM_ID,
+          }}
+          t={t.consent}
+          privacyHref={localizedPath(lang, "/privacy")}
+        />
       </body>
     </html>
   );

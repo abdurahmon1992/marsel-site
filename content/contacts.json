@@ -10,5 +10,16 @@
     "linkedin": "https://www.linkedin.com/company/83506047/"
   },
   "bot": "MarSelMarketingBot",
-  "yandexMapWidget": "https://yandex.uz/map-widget/v1/org/marsel_marketing/90284910463/"
+  "yandexMapWidget": "https://yandex.uz/map-widget/v1/org/marsel_marketing/90284910463/",
+  "address": {
+    "street": "Shahrisabz ko‘chasi, 16A",
+    "district": "Mirobod tumani",
+    "city": "Toshkent",
+    "country": "UZ"
+  },
+  "geo": {
+    "_izoh": "Taxminiy koordinatalar (Oybek metrosi yaqini) — Yandex xaritadan aniqlab, almashtiring.",
+    "latitude": 41.2963,
+    "longitude": 69.2788
+  }
 }

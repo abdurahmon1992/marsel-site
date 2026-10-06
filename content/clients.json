@@ -1,20 +1,51 @@
 {
-  "_izoh": "Mijozlar lentasi. Oddiy satr — matnli logotip; {\"name\": \"...\", \"logo\": \"/cases/...webp\"} — rasmli logotip (fayl bo‘lmasa matn chiqadi). Logotiplardan foydalanish ruxsati [TASDIQLASH].",
+  "_izoh": "Mijozlar lentasi. {\"name\": \"...\", \"logo\": \"/logos/<slug>.webp\"} — rasmli logotip (name alt matn bo‘ladi); logo bo‘lmasa yoki fayl topilmasa — nom matn bo‘lib chiqadi. Logotiplar: public/logos/, ~240 px balandlik, shaffof fon. Logotiplardan foydalanish ruxsati [TASDIQLASH].",
   "items": [
     {
       "name": "Selsil",
-      "logo": "/cases/selsil-logo.webp"
+      "logo": "/logos/selsil.webp"
     },
-    "Inoria",
-    "Shinam",
-    "Peri",
-    "Future House",
-    "Strelka",
-    "Alamida",
-    "Fortuna mebel",
-    "Maxi Clean",
-    "Meat City",
-    "Aloha Mebel",
-    "Rustambek somsalari"
+    {
+      "name": "Inoria",
+      "logo": "/logos/inoria.webp"
+    },
+    {
+      "name": "Shinam",
+      "logo": "/logos/shinam.webp"
+    },
+    {
+      "name": "Peri",
+      "logo": "/logos/peri.webp"
+    },
+    {
+      "name": "Future House",
+      "logo": "/logos/future-house.webp"
+    },
+    {
+      "name": "Strelka",
+      "logo": "/logos/strelka.webp"
+    },
+    {
+      "name": "Alamida"
+    },
+    {
+      "name": "Fortuna mebel"
+    },
+    {
+      "name": "Maxi Clean",
+      "logo": "/logos/maxi-clean.webp"
+    },
+    {
+      "name": "Meat City",
+      "logo": "/logos/meat-city.webp"
+    },
+    {
+      "name": "Aloha Mebel",
+      "logo": "/logos/aloha-mebel.webp"
+    },
+    {
+      "name": "Rustambek somsalari",
+      "logo": "/logos/rustambek-somsalari.webp"
+    }
   ]
 }

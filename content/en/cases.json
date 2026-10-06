@@ -1,6 +1,89 @@
 {
-  "_izoh": "Case studies. kind: numeric (number card on the home page) or branding. tags: filter (smm, target, branding). If branding.name is set, the case appears in the “Branding” row on the home page. Empty fields are hidden. Images: public/cases/; cover — card cover, gallery — case page gallery, beforeAfter — “Before / After”. fit: cover or contain (logos). If the file is missing, a text-only card is shown.",
+  "_izoh": "Case studies. kind: numeric (number card on the home page) or branding. tags: filter (smm, target, branding). If branding.name is set, the case appears in the “Branding” row on the home page. Empty fields are hidden. Images: public/cases/; cover — card cover, gallery — case page gallery, beforeAfter — “Before / After”. fit: cover or contain (logos). If the file is missing, a text-only card is shown. badge — card label. Image bg: \"dark\" — black background, wide: true — full-width in the gallery.",
   "items": [
+    {
+      "slug": "selsil",
+      "kind": "numeric",
+      "tags": [
+        "smm",
+        "target"
+      ],
+      "name": "Selsil",
+      "industry": "Sealants, silicone, mounting foam, adhesives and car sprays — made in Turkey, distributor in Uzbekistan",
+      "type": "SMM + Reels + paid ads",
+      "product": "",
+      "platform": "",
+      "title": "Selsil: 124 potential customers in 1 month",
+      "result": {
+        "value": "124",
+        "label": "potential customers in 1 month"
+      },
+      "summary": "In August, Reels, paid social and YouTube Shorts brought 124 potential customers and 520,000+ reach.",
+      "metrics": [
+        {
+          "value": "124",
+          "label": "potential customers — from paid ads"
+        },
+        {
+          "value": "520,000+",
+          "label": "reach — Instagram + Facebook"
+        },
+        {
+          "value": "195,844",
+          "label": "reach — Instagram"
+        },
+        {
+          "value": "325,000",
+          "label": "reach — Facebook"
+        },
+        {
+          "value": "+101",
+          "label": "new followers — Instagram"
+        },
+        {
+          "value": "219,500",
+          "label": "views — YouTube Shorts, organic (total)"
+        }
+      ],
+      "before": [],
+      "done": [
+        "10 product videos (Reels) every month",
+        "Paid ads on Instagram and Facebook",
+        "YouTube Shorts",
+        "Google Business profile and OLX listings",
+        "Banners in Uzbek and Russian"
+      ],
+      "branding": {
+        "name": "",
+        "items": []
+      },
+      "cover": {
+        "src": "/cases/selsil-muqova.webp",
+        "alt": "Selsil — product range",
+        "fit": "contain",
+        "bg": "dark"
+      },
+      "gallery": [
+        {
+          "src": "/cases/selsil-reels.webp",
+          "alt": "Selsil — stills from product videos (Reels)",
+          "fit": "cover",
+          "wide": true
+        },
+        {
+          "src": "/cases/selsil-bannerlar.webp",
+          "alt": "Selsil — banners in Uzbek and Russian",
+          "fit": "cover"
+        },
+        {
+          "src": "/cases/selsil-instagram.webp",
+          "alt": "Selsil — Instagram profile",
+          "fit": "cover"
+        }
+      ],
+      "beforeAfter": null,
+      "badge": "Current client"
+    },
     {
       "slug": "shinam-house",
       "kind": "numeric",
@@ -83,7 +166,8 @@
           "fit": "contain"
         }
       ],
-      "beforeAfter": null
+      "beforeAfter": null,
+      "badge": ""
     },
     {
       "slug": "inoria",
@@ -145,7 +229,8 @@
           "fit": "cover"
         }
       ],
-      "beforeAfter": null
+      "beforeAfter": null,
+      "badge": ""
     },
     {
       "slug": "peri",
@@ -203,7 +288,8 @@
           "alt": "Peri — profile after",
           "fit": "cover"
         }
-      }
+      },
+      "badge": ""
     },
     {
       "slug": "future-house",
@@ -257,7 +343,8 @@
           "fit": "cover"
         }
       ],
-      "beforeAfter": null
+      "beforeAfter": null,
+      "badge": ""
     },
     {
       "slug": "strelka",
@@ -313,7 +400,8 @@
           "fit": "cover"
         }
       ],
-      "beforeAfter": null
+      "beforeAfter": null,
+      "badge": ""
     },
     {
       "slug": "rustambek-somsalari",
@@ -363,7 +451,8 @@
           "fit": "cover"
         }
       ],
-      "beforeAfter": null
+      "beforeAfter": null,
+      "badge": ""
     }
   ]
 }

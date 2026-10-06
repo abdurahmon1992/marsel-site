@@ -63,6 +63,12 @@ export default async function CasePage({ params }: PageProps<"/[lang]/cases/[slu
       />
 
       <section className={`${container} pb-16 lg:pb-24`}>
+        {item.badge && (
+          <p className="mb-4 inline-flex items-center gap-1.5 bg-accent px-3 py-1 text-xs font-semibold tracking-wide text-on-accent uppercase">
+            <span aria-hidden="true" className="size-1.5 rounded-full bg-on-accent motion-safe:animate-pulse" />
+            {item.badge}
+          </p>
+        )}
         <dl className="flex flex-wrap gap-x-10 gap-y-3 border-y border-border py-4 text-sm">
           {facts.map(([label, value]) => (
             <div key={label} className="flex gap-2">
@@ -172,8 +178,12 @@ export default async function CasePage({ params }: PageProps<"/[lang]/cases/[slu
             <h2 className="text-3xl">{home.case.galleryTitle}</h2>
             <ul className="mt-6 grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
               {item.gallery.map((img) => (
-                <li key={img.src}>
-                  <CaseImage image={img} sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" frameWidth={400} />
+                <li key={img.src} className={img.wide ? "sm:col-span-2 lg:col-span-3" : undefined}>
+                  <CaseImage
+                    image={img}
+                    sizes={img.wide ? "(min-width: 1280px) 1216px, 100vw" : "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"}
+                    frameWidth={img.wide ? 0 : 400}
+                  />
                 </li>
               ))}
             </ul>

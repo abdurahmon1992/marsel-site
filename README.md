@@ -63,6 +63,11 @@ avtomatik och fonda o‘z o‘lchamida chiqadi — cho‘zilib xiralashmaydi. Si
 Fayl hali yuklanmagan bo‘lsa, sayt rasmsiz tipografik kartochkani ko‘rsatadi; fayl qo‘shilgach
 keyingi deployda rasm avtomatik chiqadi.
 
+**Nishon va maxsus rasmlar:** keysda `badge` (masalan, «Hozir ishlayapmiz») kartochkada va keys
+sahifasida qizil nishon bo‘lib chiqadi. Rasmda `"bg": "dark"` — qora fon (qora fonli muqovalar),
+`"wide": true` — galereyada to‘liq enda, asl nisbatda. Mijozlar lentasida (`clients.json`)
+`{"name": "...", "logo": "/cases/...webp"}` — rasmli logotip.
+
 **Yashirin bloklar:** «Mijozlar fikri» (`home.json → testimonials.items`) va FAQ
 (`home.json → faq.items`) bo‘sh bo‘lsa, saytda umuman chiqmaydi. Tasdiqlangan
 matnlarni shu ro‘yxatlarga qo‘shing.

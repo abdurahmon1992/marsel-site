@@ -1,6 +1,10 @@
 {
-  "_izoh": "Hozircha matnli logotiplar. Logotiplardan foydalanish ruxsati [TASDIQLASH].",
+  "_izoh": "Mijozlar lentasi. Oddiy satr — matnli logotip; {\"name\": \"...\", \"logo\": \"/cases/...webp\"} — rasmli logotip (fayl bo‘lmasa matn chiqadi). Logotiplardan foydalanish ruxsati [TASDIQLASH].",
   "items": [
+    {
+      "name": "Selsil",
+      "logo": "/cases/selsil-logo.webp"
+    },
     "Inoria",
     "Shinam",
     "Peri",

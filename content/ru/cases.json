@@ -1,6 +1,89 @@
 {
-  "_izoh": "Кейсы. kind: numeric (карточка с цифрой на главной) или branding. tags: фильтр (smm, target, branding). Если заполнено branding.name — кейс попадает в строку «Брендинг» на главной. Пустые поля не показываются. Изображения: папка public/cases/; cover — обложка карточки, gallery — галерея, beforeAfter — «До / После». fit: cover или contain (логотипы). Если файла нет — типографическая карточка без фото.",
+  "_izoh": "Кейсы. kind: numeric (карточка с цифрой на главной) или branding. tags: фильтр (smm, target, branding). Если заполнено branding.name — кейс попадает в строку «Брендинг» на главной. Пустые поля не показываются. Изображения: папка public/cases/; cover — обложка карточки, gallery — галерея, beforeAfter — «До / После». fit: cover или contain (логотипы). Если файла нет — типографическая карточка без фото. badge — значок на карточке. В изображении bg: \"dark\" — чёрный фон, wide: true — на всю ширину галереи.",
   "items": [
+    {
+      "slug": "selsil",
+      "kind": "numeric",
+      "tags": [
+        "smm",
+        "target"
+      ],
+      "name": "Selsil",
+      "industry": "Герметики, силикон, монтажная пена, клей и автоспреи — производство Турции, дистрибьютор в Узбекистане",
+      "type": "SMM + Reels + таргет",
+      "product": "",
+      "platform": "",
+      "title": "Selsil: 124 потенциальных клиента за 1 месяц",
+      "result": {
+        "value": "124",
+        "label": "потенциальных клиента за 1 месяц"
+      },
+      "summary": "В августе Reels, таргетированная реклама и YouTube Shorts дали 124 потенциальных клиента и 520 000+ охвата.",
+      "metrics": [
+        {
+          "value": "124",
+          "label": "потенциальных клиента — из таргетированной рекламы"
+        },
+        {
+          "value": "520 000+",
+          "label": "охват — Instagram + Facebook"
+        },
+        {
+          "value": "195 844",
+          "label": "охват — Instagram"
+        },
+        {
+          "value": "325 000",
+          "label": "охват — Facebook"
+        },
+        {
+          "value": "+101",
+          "label": "новых подписчиков — Instagram"
+        },
+        {
+          "value": "219 500",
+          "label": "просмотров — YouTube Shorts, без рекламы (всего)"
+        }
+      ],
+      "before": [],
+      "done": [
+        "10 видео о продуктах (Reels) каждый месяц",
+        "Таргетированная реклама в Instagram и Facebook",
+        "YouTube Shorts",
+        "Страница в Google Бизнес и объявления на OLX",
+        "Баннеры на узбекском и русском языках"
+      ],
+      "branding": {
+        "name": "",
+        "items": []
+      },
+      "cover": {
+        "src": "/cases/selsil-muqova.webp",
+        "alt": "Selsil — ассортимент продукции",
+        "fit": "contain",
+        "bg": "dark"
+      },
+      "gallery": [
+        {
+          "src": "/cases/selsil-reels.webp",
+          "alt": "Selsil — кадры из видео о продуктах (Reels)",
+          "fit": "cover",
+          "wide": true
+        },
+        {
+          "src": "/cases/selsil-bannerlar.webp",
+          "alt": "Selsil — баннеры на узбекском и русском языках",
+          "fit": "cover"
+        },
+        {
+          "src": "/cases/selsil-instagram.webp",
+          "alt": "Selsil — профиль в Instagram",
+          "fit": "cover"
+        }
+      ],
+      "beforeAfter": null,
+      "badge": "Работаем сейчас"
+    },
     {
       "slug": "shinam-house",
       "kind": "numeric",
@@ -83,7 +166,8 @@
           "fit": "contain"
         }
       ],
-      "beforeAfter": null
+      "beforeAfter": null,
+      "badge": ""
     },
     {
       "slug": "inoria",
@@ -145,7 +229,8 @@
           "fit": "cover"
         }
       ],
-      "beforeAfter": null
+      "beforeAfter": null,
+      "badge": ""
     },
     {
       "slug": "peri",
@@ -203,7 +288,8 @@
           "alt": "Peri — профиль после",
           "fit": "cover"
         }
-      }
+      },
+      "badge": ""
     },
     {
       "slug": "future-house",
@@ -257,7 +343,8 @@
           "fit": "cover"
         }
       ],
-      "beforeAfter": null
+      "beforeAfter": null,
+      "badge": ""
     },
     {
       "slug": "strelka",
@@ -313,7 +400,8 @@
           "fit": "cover"
         }
       ],
-      "beforeAfter": null
+      "beforeAfter": null,
+      "badge": ""
     },
     {
       "slug": "rustambek-somsalari",
@@ -363,7 +451,8 @@
           "fit": "cover"
         }
       ],
-      "beforeAfter": null
+      "beforeAfter": null,
+      "badge": ""
     }
   ]
 }

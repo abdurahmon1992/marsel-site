@@ -1,6 +1,89 @@
 {
-  "_izoh": "Keyslar. kind: numeric (bosh sahifada raqamli kartochka) yoki branding. tags: filtr (smm, target, branding). branding.name to‘ldirilgan bo‘lsa — bosh sahifadagi «Brending» qatorida chiqadi. Bo‘sh maydonlar (\"\" yoki []) saytda ko‘rsatilmaydi. Rasmlar: public/cases/ papkasida; cover — kartochka muqovasi, gallery — keys sahifasidagi galereya, beforeAfter — «Oldin / Keyin». fit: cover (kesib to‘ldiradi) yoki contain (logotiplar, och fonda). Fayl yo‘q bo‘lsa — rasmsiz tipografik kartochka.",
+  "_izoh": "Keyslar. kind: numeric (bosh sahifada raqamli kartochka) yoki branding. tags: filtr (smm, target, branding). branding.name to‘ldirilgan bo‘lsa — bosh sahifadagi «Brending» qatorida chiqadi. Bo‘sh maydonlar (\"\" yoki []) saytda ko‘rsatilmaydi. Rasmlar: public/cases/ papkasida; cover — kartochka muqovasi, gallery — keys sahifasidagi galereya, beforeAfter — «Oldin / Keyin». fit: cover (kesib to‘ldiradi) yoki contain (logotiplar, och fonda). Fayl yo‘q bo‘lsa — rasmsiz tipografik kartochka. badge — kartochkadagi nishon (masalan, «Hozir ishlayapmiz»). Rasmda bg: \"dark\" — qora fon, wide: true — galereyada to‘liq enda.",
   "items": [
+    {
+      "slug": "selsil",
+      "kind": "numeric",
+      "tags": [
+        "smm",
+        "target"
+      ],
+      "name": "Selsil",
+      "industry": "Germetik, silikon, montaj ko‘pigi, yelim va avto spreylar — Turkiya ishlab chiqarishi, O‘zbekistondagi distribyutor",
+      "type": "SMM + Reels + target",
+      "product": "",
+      "platform": "",
+      "title": "Selsil: 1 oyda 124 potensial mijoz",
+      "result": {
+        "value": "124",
+        "label": "potensial mijoz 1 oyda"
+      },
+      "summary": "Avgust oyida Reels, target reklama va YouTube Shorts bilan 124 potensial mijoz va 520 000+ qamrov.",
+      "metrics": [
+        {
+          "value": "124",
+          "label": "potensial mijoz — target reklamadan"
+        },
+        {
+          "value": "520 000+",
+          "label": "qamrov — Instagram + Facebook"
+        },
+        {
+          "value": "195 844",
+          "label": "qamrov — Instagram"
+        },
+        {
+          "value": "325 000",
+          "label": "qamrov — Facebook"
+        },
+        {
+          "value": "+101",
+          "label": "yangi obunachi — Instagram"
+        },
+        {
+          "value": "219 500",
+          "label": "ko‘rish — YouTube Shorts, reklamasiz (jami)"
+        }
+      ],
+      "before": [],
+      "done": [
+        "Har oy 10 ta mahsulot videosi (Reels)",
+        "Instagram va Facebook’da target reklama",
+        "YouTube Shorts",
+        "Google Biznes sahifasi va OLX e’lonlari",
+        "O‘zbek va rus tilidagi bannerlar"
+      ],
+      "branding": {
+        "name": "",
+        "items": []
+      },
+      "cover": {
+        "src": "/cases/selsil-muqova.webp",
+        "alt": "Selsil — mahsulotlar assortimenti",
+        "fit": "contain",
+        "bg": "dark"
+      },
+      "gallery": [
+        {
+          "src": "/cases/selsil-reels.webp",
+          "alt": "Selsil — mahsulot videolari (Reels) kadrlari",
+          "fit": "cover",
+          "wide": true
+        },
+        {
+          "src": "/cases/selsil-bannerlar.webp",
+          "alt": "Selsil — o‘zbek va rus tilidagi bannerlar",
+          "fit": "cover"
+        },
+        {
+          "src": "/cases/selsil-instagram.webp",
+          "alt": "Selsil — Instagram profili",
+          "fit": "cover"
+        }
+      ],
+      "beforeAfter": null,
+      "badge": "Hozir ishlayapmiz"
+    },
     {
       "slug": "shinam-house",
       "kind": "numeric",
@@ -83,7 +166,8 @@
           "fit": "contain"
         }
       ],
-      "beforeAfter": null
+      "beforeAfter": null,
+      "badge": ""
     },
     {
       "slug": "inoria",
@@ -145,7 +229,8 @@
           "fit": "cover"
         }
       ],
-      "beforeAfter": null
+      "beforeAfter": null,
+      "badge": ""
     },
     {
       "slug": "peri",
@@ -203,7 +288,8 @@
           "alt": "Peri — profil keyin",
           "fit": "cover"
         }
-      }
+      },
+      "badge": ""
     },
     {
       "slug": "future-house",
@@ -257,7 +343,8 @@
           "fit": "cover"
         }
       ],
-      "beforeAfter": null
+      "beforeAfter": null,
+      "badge": ""
     },
     {
       "slug": "strelka",
@@ -313,7 +400,8 @@
           "fit": "cover"
         }
       ],
-      "beforeAfter": null
+      "beforeAfter": null,
+      "badge": ""
     },
     {
       "slug": "rustambek-somsalari",
@@ -363,7 +451,8 @@
           "fit": "cover"
         }
       ],
-      "beforeAfter": null
+      "beforeAfter": null,
+      "badge": ""
     }
   ]
 }

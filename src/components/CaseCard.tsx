@@ -23,6 +23,12 @@ export function CaseCard({
       className={`group relative flex w-full flex-col border border-border bg-bg transition-colors hover:border-text ${className}`}
     >
       <span aria-hidden="true" className="absolute top-0 left-0 z-10 h-1.5 w-12 bg-accent transition-all group-hover:w-full" />
+      {item.badge && (
+        <span className="absolute top-4 right-4 z-10 inline-flex items-center gap-1.5 bg-accent px-2.5 py-1 text-xs font-semibold tracking-wide text-on-accent uppercase">
+          <span aria-hidden="true" className="size-1.5 rounded-full bg-on-accent motion-safe:animate-pulse" />
+          {item.badge}
+        </span>
+      )}
       {item.cover && <CaseImage image={item.cover} sizes={sizes} frameWidth={frameWidth} />}
       <div className="flex flex-1 flex-col p-6 sm:p-8">
         <p className="text-xs font-semibold tracking-widest text-muted uppercase">

@@ -2,7 +2,7 @@ import "server-only";
 
 import { existsSync } from "node:fs";
 import { join } from "node:path";
-import { webpWidth } from "./imageSize";
+import { webpSize } from "./imageSize";
 
 import { defaultLocale, locales, type Locale } from "./locales";
 import uzCommon from "../../content/uz/common.json";
@@ -18,8 +18,17 @@ export type CommonDict = typeof uzCommon;
 export type HomeDict = typeof uzHome;
 export type CasesDict = typeof uzCases;
 type RawCase = CasesDict["items"][number];
-/** width — manba fayl eni (px), build paytida o'qiladi */
-export type CaseImage = { src: string; alt: string; fit: string; width?: number | null };
+/** width/height — manba fayl o'lchami (px), build paytida o'qiladi.
+ *  bg: "dark" — qora fon (contain uchun); wide — galereyada to'liq enda, asl nisbatda. */
+export type CaseImage = {
+  src: string;
+  alt: string;
+  fit: string;
+  bg?: string;
+  wide?: boolean;
+  width?: number;
+  height?: number;
+};
 export type CaseItem = Omit<RawCase, "cover" | "gallery" | "beforeAfter"> & {
   cover: CaseImage | null;
   gallery: CaseImage[];
@@ -61,7 +70,15 @@ export const getHome = (locale: Locale) => home[locale]();
 const imageExists = (img: CaseImage | null | undefined): img is CaseImage =>
   !!img && existsSync(join(process.cwd(), "public", img.src));
 
-const withWidth = (img: CaseImage): CaseImage => ({ ...img, width: webpWidth(join(process.cwd(), "public", img.src)) });
+const withWidth = (img: CaseImage): CaseImage => ({ ...img, ...webpSize(join(process.cwd(), "public", img.src)) });
+
+/** Mijozlar lentasidagi rasmli logotip: fayl mavjud bo'lsa o'lchami bilan, aks holda null. */
+export function logoImage(src: string) {
+  const path = join(process.cwd(), "public", src);
+  if (!existsSync(path)) return null;
+  const size = webpSize(path);
+  return size ? { src, ...size } : null;
+}
 
 export async function getCases(locale: Locale): Promise<{ items: CaseItem[] }> {
   const data = await cases[locale]();

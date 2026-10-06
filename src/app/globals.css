@@ -22,6 +22,7 @@
   --ref-card: #1c1c1c;
   --ref-red: #dc2f2a; /* ~#E5322D, oq matn bilan WCAG AA kontrasti uchun biroz to'qroq */
   --white: #ffffff;
+  --black: #000000;
 
   /* --- 2. Semantik tokenlar (referens) -------------------------------- */
   --bg: var(--white);
@@ -31,6 +32,7 @@
   --accent: var(--ref-red);
   --accent-2: var(--ref-red);
   --on-accent: var(--white);
+  --media-dark: var(--black); /* qora fonli rasmlar (contain) uchun */
 
   /* Logotip palitradan qat'i nazar o'zgarmaydi */
   --logo-mark: var(--brand-kobalt);
@@ -74,6 +76,7 @@
   --color-accent-hover: var(--accent-hover);
   --color-accent-2: var(--accent-2);
   --color-on-accent: var(--on-accent);
+  --color-media-dark: var(--media-dark);
   --color-logo-mark: var(--logo-mark);
   --color-logo-dot: var(--logo-dot);
   --color-logo-line: var(--logo-line);

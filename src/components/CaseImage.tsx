@@ -16,8 +16,11 @@ type Props = {
 export function CaseImage({ image, sizes, frameWidth, className = "", eager = false, aspect = "aspect-[4/3]" }: Props) {
   const tooSmall = !!image.width && image.width < frameWidth;
   const contain = image.fit === "contain" || tooSmall;
+  const bg = image.bg === "dark" ? "bg-media-dark" : contain ? "bg-subtle" : "bg-border";
+  // wide: asl nisbatda (kesilmaydi), ramka nisbati rasm o'lchamidan olinadi
+  const ratio = image.wide && image.width && image.height ? { aspectRatio: `${image.width} / ${image.height}` } : undefined;
   return (
-    <div className={`relative ${aspect} overflow-hidden ${contain ? "bg-subtle" : "bg-border"} ${className}`}>
+    <div style={ratio} className={`relative ${ratio ? "" : aspect} overflow-hidden ${bg} ${className}`}>
       <Image
         src={image.src}
         alt={image.alt}
@@ -25,7 +28,7 @@ export function CaseImage({ image, sizes, frameWidth, className = "", eager = fa
         sizes={sizes}
         loading={eager ? "eager" : "lazy"}
         fetchPriority={eager ? "high" : undefined}
-        className={image.fit === "contain" ? "object-contain p-6 sm:p-8" : contain ? "object-scale-down" : "object-cover"}
+        className={image.fit === "contain" ? `object-contain ${image.bg === "dark" ? "" : "p-6 sm:p-8"}` : contain ? "object-scale-down" : "object-cover"}
       />
     </div>
   );

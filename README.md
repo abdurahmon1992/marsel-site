@@ -58,6 +58,8 @@ saytda ko‘rsatilmaydi. Raqamlarni faqat tasdiqlangan manbadan yozing.
 `cover` — kartochka muqovasi, `gallery` — keys sahifasidagi galereya, `beforeAfter` — «Oldin / Keyin»
 yonma-yon (Peri). Har rasmda `src`, `alt` (har tilning faylida o‘z tilida) va `fit`:
 `cover` — 4:3 ramkani to‘ldiradi, `contain` — logotiplar uchun, och fonda kesilmaydi.
+Manba eni ramka enidan kichik bo‘lsa (kartochka ~400 px, bosh sahifa ~600 px), `cover` o‘rniga
+avtomatik och fonda o‘z o‘lchamida chiqadi — cho‘zilib xiralashmaydi. Sifat uchun ≥ 800 px rasm tavsiya etiladi.
 Fayl hali yuklanmagan bo‘lsa, sayt rasmsiz tipografik kartochkani ko‘rsatadi; fayl qo‘shilgach
 keyingi deployda rasm avtomatik chiqadi.
 

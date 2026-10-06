@@ -2,6 +2,7 @@ import "server-only";
 
 import { existsSync } from "node:fs";
 import { join } from "node:path";
+import { webpWidth } from "./imageSize";
 
 import { defaultLocale, locales, type Locale } from "./locales";
 import uzCommon from "../../content/uz/common.json";
@@ -17,7 +18,8 @@ export type CommonDict = typeof uzCommon;
 export type HomeDict = typeof uzHome;
 export type CasesDict = typeof uzCases;
 type RawCase = CasesDict["items"][number];
-export type CaseImage = { src: string; alt: string; fit: string };
+/** width — manba fayl eni (px), build paytida o'qiladi */
+export type CaseImage = { src: string; alt: string; fit: string; width?: number | null };
 export type CaseItem = Omit<RawCase, "cover" | "gallery" | "beforeAfter"> & {
   cover: CaseImage | null;
   gallery: CaseImage[];
@@ -59,6 +61,8 @@ export const getHome = (locale: Locale) => home[locale]();
 const imageExists = (img: CaseImage | null | undefined): img is CaseImage =>
   !!img && existsSync(join(process.cwd(), "public", img.src));
 
+const withWidth = (img: CaseImage): CaseImage => ({ ...img, width: webpWidth(join(process.cwd(), "public", img.src)) });
+
 export async function getCases(locale: Locale): Promise<{ items: CaseItem[] }> {
   const data = await cases[locale]();
   return {
@@ -66,9 +70,12 @@ export async function getCases(locale: Locale): Promise<{ items: CaseItem[] }> {
       const ba = c.beforeAfter as CaseItem["beforeAfter"];
       return {
         ...c,
-        cover: imageExists(c.cover) ? c.cover : null,
-        gallery: (c.gallery as CaseImage[]).filter(imageExists),
-        beforeAfter: ba && imageExists(ba.before) && imageExists(ba.after) ? ba : null,
+        cover: imageExists(c.cover) ? withWidth(c.cover) : null,
+        gallery: (c.gallery as CaseImage[]).filter(imageExists).map(withWidth),
+        beforeAfter:
+          ba && imageExists(ba.before) && imageExists(ba.after)
+            ? { before: withWidth(ba.before), after: withWidth(ba.after) }
+            : null,
       };
     }),
   };

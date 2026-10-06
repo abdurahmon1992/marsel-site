@@ -43,7 +43,7 @@ export function CaseStudy({ t, items, caseHref, allHref }: Props) {
                 i === numeric.length - 1 && numeric.length % 2 ? "md:col-span-2" : ""
               }`}
             >
-              <CaseCard item={c} href={caseHref(c.slug)} more={t.more} sizes="(min-width: 768px) 50vw, 85vw" />
+              <CaseCard item={c} href={caseHref(c.slug)} more={t.more} sizes="(min-width: 768px) 50vw, 85vw" frameWidth={600} />
             </li>
           ))}
         </ul>

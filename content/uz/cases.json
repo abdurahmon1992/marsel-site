@@ -52,19 +52,19 @@
         ]
       },
       "cover": {
-        "src": "/cases/shinam-house-reklama.webp",
-        "alt": "Shinam House — reklama kreativi",
+        "src": "/cases/shinam-house-postlar.webp",
+        "alt": "Shinam House — postlar dizayni",
         "fit": "cover"
       },
       "gallery": [
         {
-          "src": "/cases/shinam-house-lenta.webp",
-          "alt": "Shinam House — Instagram lentasi",
+          "src": "/cases/shinam-house-reklama.webp",
+          "alt": "Shinam House — reklama kreativi",
           "fit": "cover"
         },
         {
-          "src": "/cases/shinam-house-postlar.webp",
-          "alt": "Shinam House — postlar dizayni",
+          "src": "/cases/shinam-house-lenta.webp",
+          "alt": "Shinam House — Instagram lentasi",
           "fit": "cover"
         },
         {

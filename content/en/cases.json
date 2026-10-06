@@ -52,19 +52,19 @@
         ]
       },
       "cover": {
-        "src": "/cases/shinam-house-reklama.webp",
-        "alt": "Shinam House — ad creative",
+        "src": "/cases/shinam-house-postlar.webp",
+        "alt": "Shinam House — post designs",
         "fit": "cover"
       },
       "gallery": [
         {
-          "src": "/cases/shinam-house-lenta.webp",
-          "alt": "Shinam House — Instagram feed",
+          "src": "/cases/shinam-house-reklama.webp",
+          "alt": "Shinam House — ad creative",
           "fit": "cover"
         },
         {
-          "src": "/cases/shinam-house-postlar.webp",
-          "alt": "Shinam House — post designs",
+          "src": "/cases/shinam-house-lenta.webp",
+          "alt": "Shinam House — Instagram feed",
           "fit": "cover"
         },
         {

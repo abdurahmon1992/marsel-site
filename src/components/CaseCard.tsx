@@ -2,13 +2,20 @@ import Link from "next/link";
 import type { CaseItem } from "@/lib/i18n";
 import { CaseImage } from "./CaseImage";
 
-type Props = { item: CaseItem; href: string; more: string; className?: string; sizes?: string };
+type Props = { item: CaseItem; href: string; more: string; className?: string; sizes?: string; frameWidth?: number };
 
 /** Kartochka sarlavhasi: mijoz nomi (bo'lsa) yoki soha, va xizmat turi. */
 export const caseMeta = (item: CaseItem) => [item.name || item.industry, item.type].filter(Boolean).join(" · ");
 
 // Muqova rasmi bo'lsa — rasm + matn; bo'lmasa — tipografik kartochka (katta qizil raqam yoki brend nomi).
-export function CaseCard({ item, href, more, className = "", sizes = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 85vw" }: Props) {
+export function CaseCard({
+  item,
+  href,
+  more,
+  className = "",
+  sizes = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 85vw",
+  frameWidth = 400,
+}: Props) {
   const branding = item.kind === "branding";
   return (
     <Link
@@ -16,7 +23,7 @@ export function CaseCard({ item, href, more, className = "", sizes = "(min-width
       className={`group relative flex w-full flex-col border border-border bg-bg transition-colors hover:border-text ${className}`}
     >
       <span aria-hidden="true" className="absolute top-0 left-0 z-10 h-1.5 w-12 bg-accent transition-all group-hover:w-full" />
-      {item.cover && <CaseImage image={item.cover} sizes={sizes} />}
+      {item.cover && <CaseImage image={item.cover} sizes={sizes} frameWidth={frameWidth} />}
       <div className="flex flex-1 flex-col p-6 sm:p-8">
         <p className="text-xs font-semibold tracking-widest text-muted uppercase">
           {branding ? item.type : caseMeta(item)}

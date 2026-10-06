@@ -50,6 +50,9 @@ export default async function CasePage({ params }: PageProps<"/[lang]/cases/[slu
   const before: string[] = item.before;
   const done: string[] = item.done;
   const metrics: { value: string; label: string }[] = item.metrics;
+  // Bo'sh bosqich (masalan, brendingda "Oldin") bo'lsa, setkada bo'sh katak qolmasin
+  const stepCount = 1 + (before.length ? 1 : 0) + (done.length ? 1 : 0);
+  const stepCols = ["", "lg:grid-cols-1", "lg:grid-cols-2", "lg:grid-cols-3"][stepCount];
 
   return (
     <>
@@ -81,8 +84,9 @@ export default async function CasePage({ params }: PageProps<"/[lang]/cases/[slu
               <CaseImage
                 image={item.cover}
                 sizes="(min-width: 1024px) 50vw, 100vw"
+                frameWidth={600}
                 eager
-                className={item.result.value ? "" : "lg:col-span-2"}
+                className={item.result.value ? "" : "lg:col-span-2 lg:max-w-4xl"}
               />
             )}
           </div>
@@ -90,7 +94,7 @@ export default async function CasePage({ params }: PageProps<"/[lang]/cases/[slu
 
         {/* Oldin / Keyin — yonma-yon */}
         {item.beforeAfter && (
-          <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-4">
+          <div className="mt-10 grid max-w-4xl grid-cols-2 gap-3 sm:gap-4">
             {(
               [
                 [l.before, item.beforeAfter.before],
@@ -98,7 +102,7 @@ export default async function CasePage({ params }: PageProps<"/[lang]/cases/[slu
               ] as const
             ).map(([label, img], i) => (
               <figure key={img.src}>
-                <CaseImage image={img} sizes="50vw" eager />
+                <CaseImage image={img} sizes="(min-width: 1024px) 450px, 50vw" frameWidth={450} eager aspect="aspect-square" />
                 <figcaption
                   className={`mt-2 inline-block px-3 py-1 text-xs font-semibold tracking-wide uppercase ${
                     i ? "bg-accent text-on-accent" : "bg-subtle text-text"
@@ -112,7 +116,7 @@ export default async function CasePage({ params }: PageProps<"/[lang]/cases/[slu
         )}
 
         {/* Oldin -> Qildik -> Natija */}
-        <ol className="mt-12 grid gap-px bg-border lg:grid-cols-3">
+        <ol className={`mt-12 grid gap-px bg-border ${stepCols}`}>
           {before.length > 0 && (
             <li className="bg-bg py-8 lg:pr-8">
               <h2 className="text-3xl">
@@ -169,7 +173,7 @@ export default async function CasePage({ params }: PageProps<"/[lang]/cases/[slu
             <ul className="mt-6 grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
               {item.gallery.map((img) => (
                 <li key={img.src}>
-                  <CaseImage image={img} sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" />
+                  <CaseImage image={img} sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" frameWidth={400} />
                 </li>
               ))}
             </ul>

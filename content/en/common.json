@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "title": "MarSel Marketing — SMM, Reels, paid ads and websites | Tashkent",
+    "description": "SMM, Reels, paid social and websites for small and medium businesses — one team. Free marketing audit within 24 hours."
+  },
+  "skipLink": "Skip to main content",
+  "nav": {
+    "services": "Services",
+    "cases": "Case studies",
+    "pricing": "Pricing",
+    "contacts": "Contacts"
+  },
+  "cta": {
+    "audit": "Free audit"
+  },
+  "menu": {
+    "open": "Open menu",
+    "close": "Close menu"
+  },
+  "lang": {
+    "label": "Language"
+  },
+  "footer": {
+    "tagline": "Marketing agency for small and medium businesses.",
+    "contacts": "Contacts",
+    "addressTitle": "Address",
+    "address": "16A Shahrisabz St, Mirobod district, Tashkent",
+    "addressNote": "next to Oybek metro station",
+    "openMap": "Open in maps",
+    "follow": "Social media",
+    "privacy": "Privacy policy",
+    "rights": "All rights reserved."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "text": "There is no page at this address, or it has been moved.",
+    "home": "Back to home"
+  }
+}

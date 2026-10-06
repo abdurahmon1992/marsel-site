@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "title": "MarSel Marketing — SMM, Reels, target va sayt | Toshkent",
+    "description": "Kichik va o‘rta biznes uchun SMM, Reels, target reklama va sayt — bitta jamoada. Bepul marketing audit 24 soatda."
+  },
+  "skipLink": "Asosiy kontentga o‘tish",
+  "nav": {
+    "services": "Xizmatlar",
+    "cases": "Keyslar",
+    "pricing": "Narxlar",
+    "contacts": "Kontaktlar"
+  },
+  "cta": {
+    "audit": "Bepul audit"
+  },
+  "menu": {
+    "open": "Menyuni ochish",
+    "close": "Menyuni yopish"
+  },
+  "lang": {
+    "label": "Til"
+  },
+  "footer": {
+    "tagline": "Kichik va o‘rta biznes uchun marketing agentligi.",
+    "contacts": "Kontaktlar",
+    "addressTitle": "Manzil",
+    "address": "Toshkent, Mirobod tumani, Shahrisabz ko‘chasi 16A",
+    "addressNote": "Oybek metrosi yonida",
+    "openMap": "Xaritada ochish",
+    "follow": "Ijtimoiy tarmoqlar",
+    "privacy": "Maxfiylik siyosati",
+    "rights": "Barcha huquqlar himoyalangan."
+  },
+  "notFound": {
+    "title": "Sahifa topilmadi",
+    "text": "Bu manzilda sahifa yo‘q yoki u boshqa joyga ko‘chirilgan.",
+    "home": "Bosh sahifaga qaytish"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "hero": {
+    "title": "Instagram’ingiz chiroyli. Endi sotsin.",
+    "subtitle": "Kichik va o‘rta biznes uchun SMM, Reels, target va sayt — bitta jamoada. Natijani raqamda ko‘rsatamiz.",
+    "primary": "Bepul audit olish",
+    "secondary": "Keyslarni ko‘rish",
+    "stats": [
+      { "value": "30+", "label": "loyiha" },
+      { "value": "19 → 223", "label": "oylik murojaat" },
+      { "value": "$45 → 46 635", "label": "qamrov" }
+    ]
+  }
+}

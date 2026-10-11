@@ -4,7 +4,7 @@
     "eyebrow": "SMM agentlik · Toshkent",
     "title": "Instagram’ingiz chiroyli.\n*Endi sotsin.*",
     "subtitle": "Kichik va o‘rta biznes uchun SMM, Reels, target va sayt — bitta jamoada. Natijani raqamda ko‘rsatamiz.",
-    "primary": "Bepul audit olish",
+    "primary": "Maslahat olish",
     "secondary": "Keyslarni ko‘rish",
     "stats": [
       {
@@ -63,9 +63,9 @@
     "title": "Qanday *ishlaymiz*",
     "steps": [
       {
-        "title": "Bepul audit",
-        "tag": "24 soat",
-        "text": "Sahifangizni ko‘rib chiqamiz va mijoz qayerda yo‘qolayotganini videoda ko‘rsatamiz."
+        "title": "Maslahat suhbati",
+        "tag": "20 daqiqa",
+        "text": "Sahifangiz va reklamangizni birga ko‘rib chiqamiz, mijoz qayerda yo‘qolayotganini aytamiz."
       },
       {
         "title": "Strategiya va kontent reja",
@@ -139,25 +139,25 @@
     "adBudget": "Reklama byudjeti {amount} dan",
     "popular": "Ko‘p tanlanadi",
     "cta": "Shu paketni tanlash",
-    "note": "Reklama byudjeti narxga kirmaydi. Brending va sayt alohida hisoblanadi.",
+    "note": "Reklama byudjeti narxga kirmaydi. Alohida s’yomka chiqishi, brending va sayt alohida kelishiladi.",
     "features": {
       "start": [
-        "4 ta post",
-        "1 ta Reels",
-        "4 ta stories",
-        "1 ta target kampaniya"
+        "4 ta Reels",
+        "2 ta grafik post, 2 ta motion post",
+        "8 ta stories",
+        "Target reklama boshqaruvi"
       ],
       "growth": [
-        "6 ta post",
-        "4 ta Reels",
-        "8 ta stories",
-        "2 kunlik s’yomka"
+        "6 ta Reels",
+        "2 ta grafik post, 4 ta motion post",
+        "12 ta stories",
+        "Target reklama boshqaruvi"
       ],
       "scale": [
-        "10 ta post",
-        "6 ta Reels",
-        "12 ta stories",
-        "3 kunlik s’yomka"
+        "8 ta Reels",
+        "4 ta motion post",
+        "16 ta stories",
+        "Target + oyiga 1 strategik uchrashuv"
       ]
     }
   },
@@ -168,12 +168,12 @@
     "_izoh": "Haqiqiy otzivlar kelguncha items bo‘sh — blok saytda ko‘rinmaydi. Namuna: {\"quote\": \"...\", \"name\": \"...\", \"role\": \"...\"}"
   },
   "audit": {
-    "title": "Bepul audit — *24 soatda*",
-    "text": "Sahifangizni ko‘rib chiqamiz va mijoz qayerda yo‘qolayotganini 3–5 daqiqalik videoda ko‘rsatamiz. Majburiyat yo‘q.",
+    "title": "Marketing maslahati — *20 daqiqa*",
+    "text": "20 daqiqalik suhbatda sahifangiz va reklamangizni birga ko‘rib chiqamiz: mijoz qayerda yo‘qolayotganini va nimadan boshlash kerakligini aytamiz.",
     "points": [
-      "3–5 daqiqalik video-tahlil",
+      "20 daqiqalik suhbat (telefon yoki onlayn)",
       "Mijoz qayerda yo‘qolayotgani",
-      "Majburiyat yo‘q"
+      "Nimadan boshlash kerakligi"
     ]
   },
   "faq": {

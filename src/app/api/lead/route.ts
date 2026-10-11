@@ -71,7 +71,7 @@ export async function POST(request: Request) {
     ["📊 UTM", utmLine],
   ];
   const text = [
-    "<b>🔥 Yangi ariza — bepul audit</b>",
+    "<b>🔥 Yangi maslahat so'rovi</b>",
     "",
     ...rows.filter(([, v]) => v).map(([k, v]) => `<b>${k}:</b> ${escape(v)}`),
   ].join("\n");

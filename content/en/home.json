@@ -4,7 +4,7 @@
     "eyebrow": "SMM agency · Tashkent",
     "title": "Your Instagram looks great.\n*Now let it sell.*",
     "subtitle": "SMM, Reels, paid ads and websites for small and medium businesses — one team. We show results in numbers.",
-    "primary": "Get a free audit",
+    "primary": "Book a consultation",
     "secondary": "See case studies",
     "stats": [
       {
@@ -63,9 +63,9 @@
     "title": "How we *work*",
     "steps": [
       {
-        "title": "Free audit",
-        "tag": "24 hours",
-        "text": "We review your page and show you on video where customers get lost."
+        "title": "Consultation call",
+        "tag": "20 minutes",
+        "text": "We go through your page and ads together and show where customers get lost."
       },
       {
         "title": "Strategy & content plan",
@@ -139,25 +139,25 @@
     "adBudget": "Ad budget from {amount}",
     "popular": "Most popular",
     "cta": "Choose this package",
-    "note": "Ad budget is not included. Branding and websites are priced separately.",
+    "note": "Ad budget is not included. On-site shoots, branding and websites are quoted separately.",
     "features": {
       "start": [
-        "4 posts",
-        "1 Reels",
-        "4 stories",
-        "1 ad campaign"
+        "4 Reels",
+        "2 graphic posts, 2 motion posts",
+        "8 stories",
+        "Paid ads management"
       ],
       "growth": [
-        "6 posts",
-        "4 Reels",
-        "8 stories",
-        "2 shooting days"
+        "6 Reels",
+        "2 graphic posts, 4 motion posts",
+        "12 stories",
+        "Paid ads management"
       ],
       "scale": [
-        "10 posts",
-        "6 Reels",
-        "12 stories",
-        "3 shooting days"
+        "8 Reels",
+        "4 motion posts",
+        "16 stories",
+        "Paid ads + monthly strategy meeting"
       ]
     }
   },
@@ -168,12 +168,12 @@
     "_izoh": "While items is empty the block is hidden. Example: {\"quote\": \"...\", \"name\": \"...\", \"role\": \"...\"}"
   },
   "audit": {
-    "title": "Free audit — *within 24 hours*",
-    "text": "We review your page and show you, in a 3–5 minute video, where customers are getting lost. No strings attached.",
+    "title": "Marketing consultation — *20 minutes*",
+    "text": "In a 20-minute call we go through your page and ads together: we show where customers get lost and where to start.",
     "points": [
-      "3–5 minute video review",
+      "20-minute call (phone or online)",
       "Where customers get lost",
-      "No strings attached"
+      "Where to start"
     ]
   },
   "faq": {

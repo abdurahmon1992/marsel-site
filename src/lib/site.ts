@@ -31,7 +31,7 @@ export const ogLocale: Record<Locale, string> = { uz: "uz_UZ", ru: "ru_RU", en: 
  * Bo'sh qolgan hisoblagich yuklanmaydi; hammasi bo'sh bo'lsa cookie banner ham chiqmaydi.
  */
 export const tracking = {
-  ga4: process.env.NEXT_PUBLIC_GA4_ID || "", // G-XXXXXXXXXX
+  ga4: process.env.NEXT_PUBLIC_GA4_ID || "G-VE0XSBCJCV", // G-XXXXXXXXXX
   metaPixel: process.env.NEXT_PUBLIC_META_PIXEL_ID || "", // faqat raqamlar
   ym: process.env.NEXT_PUBLIC_YM_ID || "", // Yandex Metrika hisoblagich raqami
   // Search Console / Yandex Webmaster "HTML-teg" usulidagi tasdiq kodlari (content="..." ichidagi qiymat)

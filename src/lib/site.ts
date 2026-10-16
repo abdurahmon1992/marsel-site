@@ -25,6 +25,21 @@ export function alternates(locale: Locale, path = ""): Metadata["alternates"] {
 /** Open Graph locale kodlari */
 export const ogLocale: Record<Locale, string> = { uz: "uz_UZ", ru: "ru_RU", en: "en_US" };
 
+/**
+ * Analitika va qidiruv tizimlari ID'lari — BITTA JOY.
+ * Vercel'da NEXT_PUBLIC_* berilsa, o'sha ustun turadi; bo'lmasa shu yerdagi qiymat ishlaydi.
+ * Bo'sh qolgan hisoblagich yuklanmaydi; hammasi bo'sh bo'lsa cookie banner ham chiqmaydi.
+ */
+export const tracking = {
+  ga4: process.env.NEXT_PUBLIC_GA4_ID || "", // G-XXXXXXXXXX
+  metaPixel: process.env.NEXT_PUBLIC_META_PIXEL_ID || "", // faqat raqamlar
+  ym: process.env.NEXT_PUBLIC_YM_ID || "", // Yandex Metrika hisoblagich raqami
+  // Search Console / Yandex Webmaster "HTML-teg" usulidagi tasdiq kodlari (content="..." ichidagi qiymat)
+  googleVerification: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || "",
+  yandexVerification: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION || "",
+};
+export const hasTracking = Boolean(tracking.ga4 || tracking.metaPixel || tracking.ym);
+
 /** Preview (Vercel) deploylarni qidiruv tizimlari indekslamasin */
 export const isProduction = !process.env.VERCEL_ENV || process.env.VERCEL_ENV === "production";
 

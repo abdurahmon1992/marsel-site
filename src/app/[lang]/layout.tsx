@@ -6,7 +6,7 @@ import { htmlLang } from "@/lib/locales";
 import { Analytics } from "@/components/Analytics";
 import { JsonLd } from "@/components/JsonLd";
 import { localBusinessSchema } from "@/lib/schema";
-import { alternates, isProduction, localizedPath, openGraphFor, siteUrl } from "@/lib/site";
+import { alternates, isProduction, localizedPath, openGraphFor, siteUrl, tracking } from "@/lib/site";
 import "../globals.css";
 
 // Yagona shrift: Manrope (lotin + kirill) — ruscha ham o'zbekcha bilan bir xil ko'rinadi
@@ -30,6 +30,10 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
     openGraph: openGraphFor(lang, t.meta.title, t.meta.description),
     twitter: { card: "summary_large_image" },
     robots: isProduction ? undefined : { index: false, follow: false },
+    verification: {
+      google: tracking.googleVerification || undefined,
+      yandex: tracking.yandexVerification || undefined,
+    },
   };
 }
 
@@ -54,9 +58,9 @@ export default async function LangLayout({ children, params }: LayoutProps<"/[la
         {children}
         <Analytics
           ids={{
-            ga4: process.env.NEXT_PUBLIC_GA4_ID,
-            metaPixel: process.env.NEXT_PUBLIC_META_PIXEL_ID,
-            ym: process.env.NEXT_PUBLIC_YM_ID,
+            ga4: tracking.ga4,
+            metaPixel: tracking.metaPixel,
+            ym: tracking.ym,
           }}
           t={t.consent}
           privacyHref={localizedPath(lang, "/privacy")}

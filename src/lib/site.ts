@@ -35,7 +35,7 @@ export const tracking = {
   metaPixel: process.env.NEXT_PUBLIC_META_PIXEL_ID || "997561606719548", // faqat raqamlar
   ym: process.env.NEXT_PUBLIC_YM_ID || "", // Yandex Metrika hisoblagich raqami
   // Search Console / Yandex Webmaster "HTML-teg" usulidagi tasdiq kodlari (content="..." ichidagi qiymat)
-  googleVerification: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || "",
+  googleVerification: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || "VJHOGwXcf3QafjlxfhsfKcUBBR9HdPDHCC3089cf2Y0",
   yandexVerification: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION || "",
 };
 export const hasTracking = Boolean(tracking.ga4 || tracking.metaPixel || tracking.ym);

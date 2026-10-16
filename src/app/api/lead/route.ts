@@ -1,4 +1,5 @@
 import { isValidLocalPhone } from "@/lib/phone";
+import { sendLeadToMeta } from "@/lib/meta-capi";
 
 // POST /api/lead — saytdagi arizani Telegram'ga yuboradi.
 // Kalitlar faqat env'da: TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID.
@@ -90,6 +91,21 @@ export async function POST(request: Request) {
   } catch (e) {
     console.error("lead: Telegram'ga ulanib bo'lmadi", e);
     return Response.json({ ok: false, error: "telegram" }, { status: 502 });
+  }
+
+  // Meta Conversions API — faqat foydalanuvchi cookie'ga rozilik bergan bo'lsa (Pixel bilan bir xil qoida)
+  const eventId = str(body.event_id, 64);
+  if (body.consent === true && eventId) {
+    await sendLeadToMeta({
+      eventId,
+      phone,
+      name,
+      url: str(body.url, 500) || request.headers.get("referer") || "",
+      ip: ip === "unknown" ? "" : ip,
+      userAgent: request.headers.get("user-agent") ?? "",
+      fbp: str(body.fbp, 200) || undefined,
+      fbc: str(body.fbc, 300) || undefined,
+    });
   }
 
   return Response.json({ ok: true });

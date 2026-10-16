@@ -102,6 +102,9 @@ export function LeadForm({ t, lang, privacyHref, telegramUrl, variant = "short",
     if (Object.keys(next).length) return;
 
     setStatus("sending");
+    // Bitta ID: brauzer Pixel'i va server (Conversions API) shu ariza uchun bir xil ID yuboradi
+    const eventId = typeof crypto !== "undefined" && "randomUUID" in crypto ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+    const cookie = (k: string) => document.cookie.match(new RegExp(`(?:^|; )${k}=([^;]*)`))?.[1];
     const honeypot = (e.currentTarget.elements.namedItem("website") as HTMLInputElement | null)?.value ?? "";
     try {
       const res = await fetch("/api/lead", {
@@ -118,11 +121,16 @@ export function LeadForm({ t, lang, privacyHref, telegramUrl, variant = "short",
           page: window.location.pathname,
           utm: readUtm(),
           website: honeypot,
+          event_id: eventId,
+          consent: cookie("marsel_consent") === "all",
+          fbp: cookie("_fbp"),
+          fbc: cookie("_fbc"),
+          url: window.location.href,
         }),
       });
       if (res.ok) {
         setStatus("success");
-        track("lead_submit", { lang, service: service || undefined });
+        track("lead_submit", { lang, service: service || undefined }, eventId);
       } else {
         setStatus(res.status === 429 ? "rate" : "error");
       }

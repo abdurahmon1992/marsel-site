@@ -23,7 +23,10 @@ export type LeadSignal = {
 export async function sendLeadToMeta(lead: LeadSignal) {
   const token = process.env.META_CAPI_TOKEN;
   const pixel = tracking.metaPixel;
-  if (!token || !pixel) return; // ulanmagan bo'lsa — jim o'tamiz
+  if (!token || !pixel) {
+    console.warn("meta-capi: META_CAPI_TOKEN yoki pixel yo'q — o'tkazib yuborildi");
+    return;
+  }
 
   const firstName = lead.name.trim().split(/\s+/)[0]?.toLowerCase() ?? "";
   const userData: Record<string, unknown> = {
@@ -58,7 +61,9 @@ export async function sendLeadToMeta(lead: LeadSignal) {
       body: JSON.stringify(payload),
       signal: AbortSignal.timeout(3000),
     });
-    if (!res.ok) console.error("meta-capi: xato", res.status, (await res.text()).slice(0, 300));
+    const out = (await res.text()).slice(0, 300);
+    if (!res.ok) console.error("meta-capi: xato", res.status, out);
+    else console.log("meta-capi: ok", lead.eventId, out);
   } catch (e) {
     console.error("meta-capi: ulanib bo'lmadi", e);
   }

@@ -106,6 +106,8 @@ export async function POST(request: Request) {
       fbp: str(body.fbp, 200) || undefined,
       fbc: str(body.fbc, 300) || undefined,
     });
+  } else {
+    console.log("meta-capi: o'tkazildi", { consent: body.consent === true, eventId: Boolean(eventId) });
   }
 
   return Response.json({ ok: true });
